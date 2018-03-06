@@ -1,0 +1,31 @@
+Quartus Prime Archive log --	C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Project_1.qarlog
+
+Archive:	C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Project_1.qar
+Date:		Wed Feb 21 22:18:12 2018
+Quartus Prime		17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Debug.qsf
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/DebugTap.stp
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Debug_assignment_defaults.qdf
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Pll.cmp
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Pll.qip
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Pll.sip
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Pll.spd
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Pll.v
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Pll/Pll_0002.qip
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Pll/Pll_0002.v
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Pll_sim/Pll.vo
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Project.qpf
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Project.qsf
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Project.sdc
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Project.v
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/SevenSeg.v
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Sorter2.a32
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Sorter2.mif
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Test2.a32
+C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/Test2.mif
+	======= Total: 20 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
