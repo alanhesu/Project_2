@@ -30,7 +30,7 @@ module Project(
   parameter DMEMADDRBITS=16;
   parameter DMEMWORDBITS=2;
   parameter DMEMWORDS=(1<<(DMEMADDRBITS-DMEMWORDBITS));
-  
+
   parameter OP1BITS=6;
   parameter OP1_ALUR =6'b000000;
   parameter OP1_BEQ  =6'b001000;
@@ -44,7 +44,7 @@ module Project(
   parameter OP1_ANDI =6'b100100;
   parameter OP1_ORI  =6'b100101;
   parameter OP1_XORI =6'b100110;
-  
+
   parameter OP2BITS=6;
   parameter OP2_EQ   =OP1_BEQ;
   parameter OP2_LT   =OP1_BLT;
@@ -58,7 +58,7 @@ module Project(
   parameter OP2_NAND =OP2_AND|6'b001000;
   parameter OP2_NOR  =OP2_OR |6'b001000;
   parameter OP2_NXOR =OP2_XOR|6'b001000;
-  
+
   // The reset signal comes from the reset button on the DE0-CV board
   // RESET_N is active-low, so we flip its value ("reset" is active-high)
   wire clk,locked;
@@ -105,7 +105,8 @@ module Project(
 	assign {rs_D,rt_D,rd_D}=inst_D[(DBITS-OP1BITS-1):(DBITS-OP1BITS-3*REGNOBITS)];
 	wire [(OP2BITS-1):0] op2_D=inst_D[(OP2BITS-1): 0];
 	wire [(IMMBITS-1):0] rawimm_D=inst_D[(IMMBITS-1):0];
-	
+    SXT #(.IBITS(IMMBITS),.OBITS(DBITS)) sxt1(rawimm_D,off);
+
 	// Register-read
 	reg [(DBITS-1):0] regs[(REGWORDS-1):0];
 	// Two read ports, always using rs and rt for register numbers
@@ -114,7 +115,10 @@ module Project(
 	wire [(DBITS-1):0] regval2_D=regs[rregno2_D];
 
 	// TODO: Get these signals to the ALU somehow
-	
+    reg aluimm_D;
+    wire [(DBITS-1):0] aluin1_A=regval1_D;
+    wire [(DBITS-1):0] aluin2_A=aluimm_D?off:regval2_D;
+
 	reg signed [(DBITS-1):0] aluout_A;
 	always @(alufunc_A or aluin1_A or aluin2_A)
 	case(alufunc_A)
@@ -134,6 +138,15 @@ module Project(
 	endcase
 
 	// TODO: Generate the dobranch, brtarg, isjump, and jmptarg signals somehow...
+    reg isbranch_D;
+    wire dobranch_A=isbranch_D?aluout_A[0]:1'b0;
+
+    /*
+    reg isjump_D;
+    wire isjump_A=isjump_D;
+    wire [(DBITS-1):0] jmptarg_A=aluout_A;
+    */
+
 	wire [(DBITS-1):0] pcgood_A=
 		dobranch_A?brtarg_A:
 		isjump_A?jmptarg_A:
@@ -143,9 +156,14 @@ module Project(
 	wire [(DBITS-1):0] pcgood_B=pcgood_A;
 
 	// TODO: This is a good place to generate the flush_? signals
+    reg flush_D;
+    wire flush_A=flush_D;
+    always @(posedge clk)
+        flush_D <= !flush_D;
 
 	// TODO: Write code that produces wmemval_M, wrmem_M, wrreg_M, etc.
-	
+    reg wrmem_M, wrreg_M
+
 	reg [(DBITS-1):0] aluout_M,pcplus_M;
 	always @(posedge clk)
 		{aluout_M,pcplus_M}<=
@@ -208,4 +226,12 @@ module Project(
 		default:  ;
 		endcase
 	end
+endmodule
+
+module SXT(IN,OUT);
+  parameter IBITS;
+  parameter OBITS;
+  input  [(IBITS-1):0] IN;
+  output [(OBITS-1):0] OUT;
+  assign OUT={{(OBITS-IBITS){IN[IBITS-1]}},IN};
 endmodule
