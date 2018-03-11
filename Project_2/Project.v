@@ -23,7 +23,7 @@ module Project(
   parameter ADDRLEDR =32'hFFFFF020;
   parameter ADDRKEY  =32'hFFFFF080;
   parameter ADDRSW   =32'hFFFFF090;
-  parameter IMEMINITFILE="Sorter3.mif";
+  parameter IMEMINITFILE="Test2.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
@@ -149,6 +149,7 @@ module Project(
     reg isjump_D, isjumpR_D;
     // wire isjump_A=isjump_D;
     wire [(DBITS-1):0] jmptarg_A=isjumpR_A?regval1_D:aluout_A;
+    // TODO: fix jmptarg to get rs + 4*imm
 
     wire [(DBITS-1):0] pcplus_A=pcplus_D;
 	wire [(DBITS-1):0] pcgood_A=
@@ -257,11 +258,11 @@ module Project(
 
         OP1_ADDI,OP1_ANDI,OP1_ORI,OP1_XORI:
             {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-            {1'b1,op1_D,1'b1,1'b0,1'b0,rd_D,1'b1};
+            {1'b1,op1_D,1'b1,1'b0,1'b0,rt_D,1'b1};
 
         OP1_BEQ,OP1_BLT,OP1_BNE,OP1_BLE:
             {alufunc_D,isbranch_D}=
-            {op1_D,1'b1};
+            {op1_D,1'b0};
 
         OP1_JAL:
             {aluimm_D,alufunc_D,isjump_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
