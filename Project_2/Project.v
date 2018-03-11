@@ -58,6 +58,7 @@ module Project(
   parameter OP2_NAND =OP2_AND|6'b001000;
   parameter OP2_NOR  =OP2_OR |6'b001000;
   parameter OP2_NXOR =OP2_XOR|6'b001000;
+  parameter OP2_JALR =OP1_JAL;
 
   // The reset signal comes from the reset button on the DE0-CV board
   // RESET_N is active-low, so we flip its value ("reset" is active-high)
@@ -73,6 +74,7 @@ module Project(
 
 	// The PC register and update logic
 	reg  [(DBITS-1):0] PC;
+    wire stall_F=isnop_D;
 	always @(posedge clk) begin
 	if(reset)
 		PC<=STARTPC;
@@ -97,6 +99,7 @@ module Project(
 	wire [(DBITS-1):0] inst_D=inst_F;
 	wire [(DBITS-1):0] pcplus_D=pcplus_F;
 	wire [(DBITS-1):0] pcpred_D=pcpred_F;
+    wire [(DBITS-1):0] pcpred_A=pcpred_D;
 	// Instruction decoding
 	// These have zero delay from inst_D
 	// because they are just new names for those signals
@@ -113,9 +116,11 @@ module Project(
 	wire [(REGNOBITS-1):0] rregno1_D=rs_D, rregno2_D=rt_D;
 	wire [(DBITS-1):0] regval1_D=regs[rregno1_D];
 	wire [(DBITS-1):0] regval2_D=regs[rregno2_D];
+    wire [(DBITS-1):0] regval2_A=regval2_D;
 
 	// TODO: Get these signals to the ALU somehow
     reg aluimm_D;
+    reg [(OP2BITS-1):0] alufunc_D;
     wire [(DBITS-1):0] aluin1_A=regval1_D;
     wire [(DBITS-1):0] aluin2_A=aluimm_D?off:regval2_D;
 
@@ -140,13 +145,12 @@ module Project(
 	// TODO: Generate the dobranch, brtarg, isjump, and jmptarg signals somehow...
     reg isbranch_D;
     wire dobranch_A=isbranch_D?aluout_A[0]:1'b0;
+    wire [(DBITS-1):0] brtarg_A = pcplus_A + (off << 2);
+    reg isjump_D, isjumpR_D;
+    // wire isjump_A=isjump_D;
+    wire [(DBITS-1):0] jmptarg_A=isjumpR_A?regval1_D:aluout_A;
 
-    /*
-    reg isjump_D;
-    wire isjump_A=isjump_D;
-    wire [(DBITS-1):0] jmptarg_A=aluout_A;
-    */
-
+    wire [(DBITS-1):0] pcplus_A=pcplus_D;
 	wire [(DBITS-1):0] pcgood_A=
 		dobranch_A?brtarg_A:
 		isjump_A?jmptarg_A:
@@ -157,17 +161,30 @@ module Project(
 
 	// TODO: This is a good place to generate the flush_? signals
     reg flush_D;
-    wire flush_A=flush_D;
     always @(posedge clk)
-        flush_D <= !flush_D;
+        flush_D<=!flush_D;
 
 	// TODO: Write code that produces wmemval_M, wrmem_M, wrreg_M, etc.
-    reg wrmem_M, wrreg_M
+    reg wrmem_M, wrreg_M;
+    reg [(DBITS-1):0] wmemval_M;
+    wire [(DBITS-1):0] memaddr_M;
+    always @(posedge clk or posedge reset)
+        if(reset) begin
+            wrreg_M<=1'b0;
+            wrmem_M<=1'b0;
+            wmemval_M<={DBITS{1'b0}};
+        end
+        else begin
+            wrreg_M<=isnop_A?1'b0:wrreg_A;
+            wrmem_M<=isnop_A?1'b0:wrmem_A;
+            wmemval_M<=isnop_A?{DBITS{1'b0}}:regval2_A;
+        end
 
 	reg [(DBITS-1):0] aluout_M,pcplus_M;
 	always @(posedge clk)
 		{aluout_M,pcplus_M}<=
 		{aluout_A,pcplus_A};
+    assign memaddr_M=aluout_M;
 
 	// Create and connect HEX register
 	reg [23:0] HexOut;
@@ -203,12 +220,26 @@ module Project(
 
 	// TODO: Decide what gets written into the destination register (wregval_M),
 	// when it gets written (wrreg_M) and to which register it gets written (wregno_M)
+    reg [(REGNOBITS-1):0] wregno_M;
+    always @(posedge clk or posedge reset)
+        if(reset)
+            wregno_M<={REGNOBITS{1'b0}};
+        else
+            wregno_M<=isnop_A?{REGNOBITS{1'b0}}:wregno_A;
+
+    wire [(DBITS-1):0] wregval_M=
+        selaluout_M?aluout_M:
+        selmemout_M?memout_M:
+        selpcplus_M?pcplus_M:
+        {DBITS{1'b0}};
 
 	always @(posedge clk)
 		if(wrreg_M&&!reset)
 			regs[wregno_M]<=wregval_M;
 
 	// Decoding logic
+    reg isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D;
+    reg [(REGNOBITS-1):0] wregno_D;
 	always @* begin
 		{aluimm_D,      alufunc_D}=
 		{    1'bX,{OP2BITS{1'bX}}};
@@ -216,16 +247,53 @@ module Project(
 		{      1'b0,    1'b0,   1'b0,   1'b0};
 		{selaluout_D,selmemout_D,selpcplus_D,wregno_D,          wrreg_D}=
 		{       1'bX,       1'bX,       1'bX,{REGNOBITS{1'bX}},   1'b0};
+        {isjumpR_D}={1'b0};
 		if(reset|flush_D)
 			isnop_D=1'b1;
 		else case(op1_D)
 		OP1_ALUR:
 			{aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
 			{    1'b0,    op2_D,       1'b1,       1'b0,       1'b0,    rd_D,   1'b1};
-		// TODO: Write the rest of the decoding code
+
+        OP1_ADDI,OP1_ANDI,OP1_ORI,OP1_XORI:
+            {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
+            {1'b1,op1_D,1'b1,1'b0,1'b0,rd_D,1'b1};
+
+        OP1_BEQ,OP1_BLT,OP1_BNE,OP1_BLE:
+            {alufunc_D,isbranch_D}=
+            {op1_D,1'b1};
+
+        OP1_JAL:
+            {aluimm_D,alufunc_D,isjump_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
+            {1'b1,OP2_ADD,1'b1,1'b0,1'b0,1'b1,rt_D,1'b1};
+
+        OP1_LW:
+            {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
+            {1'b1,OP2_ADD,1'b0,1'b1,1'b0,rt_D,1'b1};
+
+        OP1_SW:
+            {aluimm_D,alufunc_D,wrmem_D}=
+            {1'b1,OP2_ADD,1'b1};
 		default:  ;
 		endcase
 	end
+
+    wire aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, wrreg_A, isjumpR_A;
+    assign {aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, wrreg_A, isjumpR_A}=
+        {aluimm_D, isbranch_D, isjump_D, isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D, isjumpR_D};
+    wire [(OP2BITS-1):0] alufunc_A=alufunc_D;
+    wire [(REGNOBITS-1):0] wregno_A=wregno_D;
+
+    reg aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, isjumpR_M;
+    always @(posedge clk or posedge reset)
+        if(reset) begin
+            {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, isjumpR_M}<=
+                {8'b0};
+        end
+        else begin
+            {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, isjumpR_M}<=
+                {aluimm_A, isbranch_A, isjump_A, isnop_A, selaluout_A, selmemout_A, selpcplus_A, isjumpR_A};
+        end
 endmodule
 
 module SXT(IN,OUT);

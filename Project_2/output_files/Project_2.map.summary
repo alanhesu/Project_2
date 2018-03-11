@@ -1,12 +1,17 @@
-Analysis & Synthesis Status : Failed - Tue Mar 06 18:08:22 2018
+Analysis & Synthesis Status : Successful - Sun Mar 11 17:49:06 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : Project_2
-Top-level Entity Name : Project_2
+Top-level Entity Name : Project
 Family : Cyclone V
-Logic utilization (in ALMs) : N/A until Partition Merge
-Total registers : N/A until Partition Merge
-Total pins : N/A until Partition Merge
-Total virtual pins : N/A until Partition Merge
-Total block memory bits : N/A until Partition Merge
-Total PLLs : N/A until Partition Merge
-Total DLLs : N/A until Partition Merge
+Logic utilization (in ALMs) : N/A
+Total registers : 1282
+Total pins : 68
+Total virtual pins : 0
+Total block memory bits : 524,288
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1
+Total DLLs : 0
