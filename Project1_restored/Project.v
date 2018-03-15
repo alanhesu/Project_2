@@ -33,7 +33,7 @@ module Project(
   parameter DMEMADDRBITS=16;
   parameter DMEMWORDBITS=2;
   parameter DMEMWORDS=(1<<(DMEMADDRBITS-DMEMWORDBITS));
-  parameter TEST=32'h12345678;
+  parameter TEST=32'hFFFFFFFF;
 
   parameter OP1BITS=6;
   parameter OP1_ALUR =6'b000000;
@@ -103,10 +103,11 @@ module Project(
 	wire [(DBITS-1):0] inst_D=inst_F;
 	wire [(DBITS-1):0] pcplus_D=pcplus_F;
 	wire [(DBITS-1):0] pcpred_D=pcpred_F;
-    wire [(DBITS-1):0] pcpred_A=pcpred_D;
+  wire [(DBITS-1):0] pcpred_A=pcpred_D;
 	// Instruction decoding
 	// These have zero delay from inst_D
 	// because they are just new names for those signals
+  wire [(DBITS-1):0] off;
 	wire [(OP1BITS-1):0]   op1_D=inst_D[(DBITS-1):(DBITS-OP1BITS)];
 	wire [(REGNOBITS-1):0] rs_D,rt_D,rd_D;
 	assign {rs_D,rt_D,rd_D}=inst_D[(DBITS-OP1BITS-1):(DBITS-OP1BITS-3*REGNOBITS)];
@@ -120,13 +121,14 @@ module Project(
 	wire [(REGNOBITS-1):0] rregno1_D=rs_D, rregno2_D=rt_D;
 	wire [(DBITS-1):0] regval1_D=regs[rregno1_D];
 	wire [(DBITS-1):0] regval2_D=regs[rregno2_D];
-    wire [(DBITS-1):0] regval2_A=regval2_D;
+  wire [(DBITS-1):0] regval2_A=regval2_D;
 
 	// TODO: Get these signals to the ALU somehow
-    reg aluimm_D;
-    reg [(OP2BITS-1):0] alufunc_D;
-    wire [(DBITS-1):0] aluin1_A=regval1_D;
-    wire [(DBITS-1):0] aluin2_A=aluimm_D?off:regval2_D;
+  reg aluimm_D;
+  reg [(OP2BITS-1):0] alufunc_D;
+  wire [(DBITS-1):0] aluin1_A=regval1_D;
+  wire [(DBITS-1):0] aluin2_A=aluimm_D?off:regval2_D;
+  // wire [(DBITS-1):0] aluin2_A=32'h12345678;
 
 	reg signed [(DBITS-1):0] aluout_A;
 	always @(alufunc_A or aluin1_A or aluin2_A)
@@ -147,27 +149,27 @@ module Project(
 	endcase
 
 	// TODO: Generate the dobranch, brtarg, isjump, and jmptarg signals somehow...
-    reg isbranch_D;
-    wire dobranch_A=isbranch_D?aluout_A[0]:1'b0;
-    wire [(DBITS-1):0] brtarg_A = pcplus_A + (off << 2);
-    reg isjump_D, isjumpR_D;
-    // wire isjump_A=isjump_D;
-    wire [(DBITS-1):0] jmptarg_A=isjumpR_A?regval1_D:aluout_A;
-    // TODO: fix jmptarg to get rs + 4*imm
+  reg isbranch_D;
+  wire dobranch_A=isbranch_D?aluout_A[0]:1'b0;
+  wire [(DBITS-1):0] brtarg_A = pcplus_A + (off << 2);
+  reg isjump_D, isjumpR_D;
+  // wire isjump_A=isjump_D;
+  wire [(DBITS-1):0] jmptarg_A=isjumpR_A?regval1_D:regval1_D+(off<<2);
+  // TODO: fix jmptarg to get rs + 4*imm
 
-    wire [(DBITS-1):0] pcplus_A=pcplus_D;
-	wire [(DBITS-1):0] pcgood_A=
-		dobranch_A?brtarg_A:
-		isjump_A?jmptarg_A:
-		pcplus_A;
+  wire [(DBITS-1):0] pcplus_A=pcplus_D;
+  wire [(DBITS-1):0] pcgood_A=
+  	dobranch_A?brtarg_A:
+  	isjump_A?jmptarg_A:
+  	pcplus_A;
 	wire mispred_A=(pcgood_A!=pcpred_A);
 	wire mispred_B=mispred_A&&!isnop_A;
 	wire [(DBITS-1):0] pcgood_B=pcgood_A;
 
 	// TODO: This is a good place to generate the flush_? signals
-    reg flush_D;
-    always @(posedge clk)
-        flush_D<=!flush_D;
+  reg flush_D;
+  always @(posedge clk)
+      flush_D<=!flush_D;
 
 	// TODO: Write code that produces wmemval_M, wrmem_M, wrreg_M, etc.
     reg wrmem_M, wrreg_M;
@@ -202,25 +204,25 @@ module Project(
 	always @(posedge clk or posedge reset)
 		if(reset)
 			HexOut<=24'h123456;
-    /*
 		else if(wrmem_M&&(memaddr_M==ADDRHEX))
 			HexOut <= wmemval_M[23:0];
+    /*
+    else if(PC<32'h00000104)
+      // HexOut<=inst_F[23:0];
+      HexOut<=reghex[23:0];
     */
-    else begin
-      HexOut<=TEST[23:0];
-    end
 
   reg [9:0] led;
   always @(posedge clk or posedge reset) begin
     if(reset)
       led<=10'b0;
-    /*
     else if(wrmem_M&&(memaddr_M==ADDRLEDR))
       led<=wmemval_M[9:0];
-    */
+    /*
     else begin
       led<=TEST[9:0];
     end
+    */
   end
   assign LEDR=led;
 
@@ -242,7 +244,7 @@ module Project(
 		(memaddr_M==ADDRSW)? { 6'b0,SW}:
     (memaddr_M==ADDRHEX)?{8'b0,HexOut}:
     (memaddr_M==ADDRLEDR)?{22'b0,led}:
-		32'hDEADDEAD;
+		32'h0;
 
 	// TODO: Decide what gets written into the destination register (wregval_M),
 	// when it gets written (wrreg_M) and to which register it gets written (wregno_M)
@@ -264,8 +266,8 @@ module Project(
 			regs[wregno_M]<=wregval_M;
 
 	// Decoding logic
-    reg isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D;
-    reg [(REGNOBITS-1):0] wregno_D;
+  reg isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D;
+  reg [(REGNOBITS-1):0] wregno_D;
 	always @* begin
 		{aluimm_D,      alufunc_D}=
 		{    1'bX,{OP2BITS{1'bX}}};
@@ -277,29 +279,31 @@ module Project(
 		if(reset|flush_D)
 			isnop_D=1'b1;
 		else case(op1_D)
-		OP1_ALUR:
-			{aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-			{    1'b0,    op2_D,       1'b1,       1'b0,       1'b0,    rd_D,   1'b1};
+		  OP1_ALUR:
+  			{aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
+  			{    1'b0,    op2_D,       1'b1,       1'b0,       1'b0,    rd_D,   1'b1};
 
-        OP1_ADDI,OP1_ANDI,OP1_ORI,OP1_XORI:
-            {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-            {1'b1,op1_D,1'b1,1'b0,1'b0,rt_D,1'b1};
+      OP1_ADDI,OP1_ANDI,OP1_ORI,OP1_XORI:
+        {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
+        {1'b1,op1_D,1'b1,1'b0,1'b0,rt_D,1'b1};
 
-        OP1_BEQ,OP1_BLT,OP1_BNE,OP1_BLE:
-            {alufunc_D,isbranch_D}=
-            {op1_D,1'b1};
+      OP1_BEQ,OP1_BLT,OP1_BNE,OP1_BLE:
+        {alufunc_D,isbranch_D}=
+        {op1_D,1'b1};
 
-        OP1_JAL:
-            {aluimm_D,alufunc_D,isjump_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-            {1'b1,OP2_ADD,1'b1,1'b0,1'b0,1'b1,rt_D,1'b1};
+      OP1_JAL:
+        // {aluimm_D,alufunc_D,isjump_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
+        // {1'b1,OP2_ADD,1'b1,1'b0,1'b0,1'b1,rt_D,1'b1};
+        {isjump_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
+        {1'b1,1'b0,1'b0,1'b1,rt_D,1'b1};
 
-        OP1_LW:
-            {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-            {1'b1,OP2_ADD,1'b0,1'b1,1'b0,rt_D,1'b1};
+      OP1_LW:
+        {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
+        {1'b1,OP2_ADD,1'b0,1'b1,1'b0,rt_D,1'b1};
 
-        OP1_SW:
-            {aluimm_D,alufunc_D,wrmem_D}=
-            {1'b1,OP2_ADD,1'b1};
+      OP1_SW:
+        {aluimm_D,alufunc_D,wrmem_D}=
+        {1'b1,OP2_ADD,1'b1};
 		default:  ;
 		endcase
 	end
@@ -380,6 +384,8 @@ module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
       ctl<={BITS{1'b0}};
     end else if(wrCnt)
       cnt<=DBUS;
+      clt[0]<=1'b0;
+      clt[1]<=1'b0;
     else if(wrLim) begin
       lim<=DBUS;
       cnt<={BITS{1'b0}};
