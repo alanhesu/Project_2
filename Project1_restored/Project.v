@@ -26,7 +26,7 @@ module Project(
   parameter ADDRTCNT =32'hFFFFF100;
   parameter ADDRTLIM =32'hFFFFF104;
   parameter ADDRTCTL =32'hFFFFF108;
-  parameter IMEMINITFILE="Test2.mif";
+  parameter IMEMINITFILE="Sorter3.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
@@ -126,8 +126,8 @@ module Project(
 	// TODO: Get these signals to the ALU somehow
   reg aluimm_D;
   reg [(OP2BITS-1):0] alufunc_D;
-  wire [(DBITS-1):0] aluin1_A=regval1_D;
-  wire [(DBITS-1):0] aluin2_A=aluimm_D?off:regval2_D;
+  wire signed [(DBITS-1):0] aluin1_A=regval1_D;
+  wire signed [(DBITS-1):0] aluin2_A=aluimm_D?off:regval2_D;
   // wire [(DBITS-1):0] aluin2_A=32'h12345678;
 
 	reg signed [(DBITS-1):0] aluout_A;
@@ -150,7 +150,7 @@ module Project(
 
 	// TODO: Generate the dobranch, brtarg, isjump, and jmptarg signals somehow...
   reg isbranch_D;
-  wire dobranch_A=isbranch_D?aluout_A[0]:1'b0;
+  wire dobranch_A=isbranch_D&&aluout_A[0];
   wire [(DBITS-1):0] brtarg_A = pcplus_A + (off << 2);
   reg isjump_D, isjumpR_D;
   // wire isjump_A=isjump_D;
@@ -162,11 +162,13 @@ module Project(
   	dobranch_A?brtarg_A:
   	isjump_A?jmptarg_A:
   	pcplus_A;
-	wire mispred_A=(pcgood_A!=pcpred_A);
-	wire mispred_B=mispred_A&&!isnop_A;
+	// wire mispred_A=(pcgood_A!=pcpred_A);
+	// wire mispred_B=mispred_A&&!isnop_A;
+  wire mispred_B=(pcgood_A!=pcpred_A)&&!isnop_A;
 	wire [(DBITS-1):0] pcgood_B=pcgood_A;
 
 	// TODO: This is a good place to generate the flush_? signals
+  // TODO: Flush less often or increase clock frequency
   reg flush_D;
   always @(posedge clk)
       flush_D<=!flush_D;
@@ -184,7 +186,7 @@ module Project(
         else begin
             wrreg_M<=isnop_A?1'b0:wrreg_A;
             wrmem_M<=isnop_A?1'b0:wrmem_A;
-            wmemval_M<=isnop_A?{DBITS{1'b0}}:regval2_A;
+            wmemval_M<=regval2_A;
         end
 
 	reg [(DBITS-1):0] aluout_M,pcplus_M;
@@ -253,7 +255,7 @@ module Project(
         if(reset)
             wregno_M<={REGNOBITS{1'b0}};
         else
-            wregno_M<=isnop_A?{REGNOBITS{1'b0}}:wregno_A;
+            wregno_M<=wregno_A;
 
     wire [(DBITS-1):0] wregval_M=
         selaluout_M?aluout_M:
@@ -288,8 +290,8 @@ module Project(
         {1'b1,op1_D,1'b1,1'b0,1'b0,rt_D,1'b1};
 
       OP1_BEQ,OP1_BLT,OP1_BNE,OP1_BLE:
-        {alufunc_D,isbranch_D}=
-        {op1_D,1'b1};
+        {aluimm_D,alufunc_D,isbranch_D}=
+        {1'b0,op1_D,1'b1};
 
       OP1_JAL:
         // {aluimm_D,alufunc_D,isjump_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=

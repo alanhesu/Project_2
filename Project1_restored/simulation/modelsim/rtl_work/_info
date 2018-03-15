@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/alanh/Documents/Github/Project_2/Project1_restored/simulation/modelsim
+vPll
+Z1 !s110 1521105213
+!i10b 1
+!s100 HV;44A_J]Ybe016EJVEE92
+IRCj?HGz9^eHa5NGLZKChM3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1517845273
+8C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll_sim/Pll.vo
+FC:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll_sim/Pll.vo
+L0 31
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1521105213.000000
+!s107 C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll_sim/Pll.vo|
+!s90 -reportprogress|300|C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll_sim/Pll.vo|
+!i113 1
+Z5 tCvgOpt 0
+n@pll
+vSXT
+R1
+!i10b 1
+!s100 kOGzg95Q1@m6C3dNZo3k70
+I0GelboT_G9fNNMI2[zKUd3
+R2
+R0
+w1521104412
+8C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v
+FC:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v
+L0 329
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/alanh/Documents/Github/Project_2/Project1_restored|C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/alanh/Documents/Github/Project_2/Project1_restored
+R5
+n@s@x@t

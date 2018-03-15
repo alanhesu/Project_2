@@ -1,0 +1,76 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Modeltech_pe_edu_10.4a/examples
+vPll
+Z0 !s110 1521084396
+!i10b 1
+!s100 1;XicJ5D^BI?c;nRkTBA71
+Idk7>mikEm6oKQcJY675YB2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored
+w1517848881
+8C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/Pll.v
+FC:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/Pll.v
+L0 8
+Z3 OP;L;10.4a;61
+r1
+!s85 0
+31
+Z4 !s108 1521084396.000000
+!s107 C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/Pll.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/Pll.v|
+!s101 -O0
+!i113 1
+Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+n@pll
+vSevenSeg
+R0
+!i10b 1
+!s100 6U9_D4W_?>BAiUofmj`EP3
+Ik]o[YU4@G8dlPkG6fk0:K2
+R1
+R2
+w1519198159
+8C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/SevenSeg.v
+FC:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/SevenSeg.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/SevenSeg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/SevenSeg.v|
+!s101 -O0
+!i113 1
+R5
+n@seven@seg
+vSXT
+!s110 1521084397
+!i10b 1
+!s100 Y>7WI[VQFEa6ZM_zm631Z3
+IHW?3GBzJINml2ND<Fc0932
+R1
+R2
+w1521084378
+8C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v
+FC:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v
+L0 326
+R3
+r1
+!s85 0
+31
+!s108 1521084397.000000
+!s107 C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v|
+!s101 -O0
+!i113 1
+R5
+n@s@x@t

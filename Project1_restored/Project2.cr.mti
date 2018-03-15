@@ -1,0 +1,80 @@
+{C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/SevenSeg.v} {1 {vlog -work work -stats=none {C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/SevenSeg.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module SevenSeg
+
+Top level modules:
+	SevenSeg
+
+} {} {}} {C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/Pll.v} {1 {vlog -work work -stats=none {C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/Pll.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Pll
+
+Top level modules:
+	Pll
+
+} {} {}} {C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project_2/Project1_restored/Project.v} {0 {vlog -work work -stats=none {C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Project
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(81): (vlog-2730) Undefined variable: 'isnop_D'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(85): (vlog-2730) Undefined variable: 'mispred_B'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(86): (vlog-2730) Undefined variable: 'pcgood_B'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(88): (vlog-2730) Undefined variable: 'pcpred_F'.
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(94): (vlog-2388) 'pcpred_F' already declared in this scope (Project).
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(133): (vlog-2730) Undefined variable: 'alufunc_A'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(152): (vlog-2730) Undefined variable: 'pcplus_A'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(155): (vlog-2730) Undefined variable: 'isjumpR_A'.
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(158): (vlog-2388) 'pcplus_A' already declared in this scope (Project).
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(161): (vlog-2730) Undefined variable: 'isjump_A'.
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(164): (vlog-2388) 'mispred_B' already declared in this scope (Project).
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(164): (vlog-2730) Undefined variable: 'isnop_A'.
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(165): (vlog-2388) 'pcgood_B' already declared in this scope (Project).
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(183): (vlog-2730) Undefined variable: 'wrreg_A'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(184): (vlog-2730) Undefined variable: 'wrmem_A'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(255): (vlog-2730) Undefined variable: 'wregno_A'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(258): (vlog-2730) Undefined variable: 'selaluout_M'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(259): (vlog-2730) Undefined variable: 'selmemout_M'.
+
+** Error: C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(260): (vlog-2730) Undefined variable: 'selpcplus_M'.
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(268): (vlog-2388) 'isnop_D' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(308): (vlog-2388) 'isjump_A' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(308): (vlog-2388) 'isnop_A' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(308): (vlog-2388) 'wrmem_A' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(308): (vlog-2388) 'wrreg_A' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(308): (vlog-2388) 'isjumpR_A' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(311): (vlog-2388) 'alufunc_A' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(312): (vlog-2388) 'wregno_A' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(314): (vlog-2388) 'selaluout_M' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(314): (vlog-2388) 'selmemout_M' already declared in this scope (Project).
+
+** Error (suppressible): C:\Users\alanh\Dropbox\School\Tech\!2017-18\Spring 2018\CS 3220 - Processor Design\Project_2\Project1_restored\Project.v(314): (vlog-2388) 'selpcplus_M' already declared in this scope (Project).
+
+-- Compiling module SXT
+
+} {4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 14.0 15.0 16.0 17.0 18.0 19.0 22.0 23.0 26.0 27.0 30.0 31.0 32.0 33.0 34.0 35.0 36.0 37.0 38.0 39.0 40.0 41.0} {}}

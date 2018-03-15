@@ -1,0 +1,20 @@
+; Addresses for I/O
+.NAME   HEX= 0xFFFFF000
+.NAME   LEDR=0xFFFFF020
+.NAME   KEY= 0xFFFFF080
+.NAME   SW=  0xFFFFF090
+
+.ORIG 0x100
+Starto:
+    andi    s0,Zero,0
+    addi    s0,s0,1
+    addi    a1,Zero,0
+    addi    t0,Zero,75
+    addi    a0,Zero,-80
+    addi    a1,a1,1
+    le      a2,a0,t0
+    add     s1,a0,t0
+    bne     a2,a1,CmpFailed
+    br Starto
+CmpFailed:
+    sw      a0,LEDR(Zero)
