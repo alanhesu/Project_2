@@ -1,0 +1,118 @@
+storedTime
+ledStoredTime
+storeMS = 0
+seconds, minutes, hours
+
+main() {
+    TLIM = 86399000
+    TIMER = 96390000
+    Disploop()
+{
+
+Disploop() {
+    while(1) {
+        printTime()
+        if (KEY == 1) {
+            storedTime = TIMER
+            twoSecondKEY()
+        }
+    }
+}
+
+twoSecondKEY() {
+    while(1) {
+        printTime()
+        timerCheck = TIMER - 2000
+        if (KEY == 0) {
+            return
+        }
+        if (storedTime < timerCheck) {
+            if (SW == 0) {
+                storedTime = TIMER
+                ledStoredTime = TIMER
+                SetloopBlink()
+            else {
+                storedTime = TIMER
+                ledStoredTime = TIMER
+                SetloopCount()
+            }
+        }
+    }
+}
+
+SetModeBlink() {
+    LEDR = 0xFFFFFFFFF
+    while (1) {
+        printTime()
+        ledBlinkCheck = TIMER - 500
+        timerCheck = TIMER - 5000
+        if (ledStoredTime < ledBlinkCheck) {
+            LEDR = !LEDR
+            ledStoredTime = TIMER
+        }
+    }
+}
+
+SetModeCount() {
+    LEDR = 0
+    while (1) {
+        printTime()
+        ledIncrCheck = TIMER - 10
+        timerCheck = TIMER - 5000
+        if (ledStoredTime < ledIncrCheck) {
+            LEDR += 1
+            ledStoredTime = TIMER
+        }
+    }
+}
+
+printTime() {
+    if (TCTL != 0) {
+        storedTime = TLIM - storedTime
+        ledStoredTime = TLIM - ledStoredTime
+        storeMS = TLIM - storeMS
+    }
+    printCheck = TIMER - 1000
+    if (storeMS < printCheck) {
+        seconds++
+        if (seconds == 60) {
+            seconds == 0
+            minutes++
+            if (minutes == 60) {
+                hours++
+            }
+        }
+        storeMS = TIMER
+        HEX = convertHex2Dec()
+    }
+}
+
+convertHex2Dec() {
+    secondOnes, secondTens, minuteOnes, minuteTens, hourOnes, hourTens
+    secondTens = div(seconds,10,*secondOnes)
+    minuteTens = div(minutes,10,*minuteOnes)
+    hourTens = div(hours,10,*hourOnes)
+    a = secondOnes
+    b = mult(secondTens,16)
+    c = mult(minuteOnes,16)
+    d = mult(minuteTens,16)
+    e = mult(hourOnes,16)
+    f = mult(hourTens,16)
+    return f + e + d + c + b + a
+
+mult(a,b) {
+    while(a > 0) {
+        b += b
+    }
+    return b
+}
+
+div(a,b,rem) {
+    quot = 0
+    while(a > b) {
+        a -= b
+        quot++
+    }
+    rem = a
+    return quot
+}

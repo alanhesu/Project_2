@@ -5,46 +5,103 @@
 .NAME   SW=  0xFFFFF090
 .NAME   TIMER=0xFFFFF100
 .NAME   TLIM=0xFFFFF104
-.NAME	  TimerMax = 86399	; 23:59:29
-.NAME	  Count = 86390		; 23:59:50
+.NAME   TCTL=0xFFFFF108
+.NAME	  TimerMax = 86399000	; 23:59:29
+.NAME	  Count = 86390000		; 23:59:50
+;a0 = 1, a1 = 2, a2 = 4, a3 = 8, a15 = misc
+;t1 = KEY, t2 = stored time, t3 = led stored time, t4 = storeMS, t15 = SW
+;s0 = TIMER, s1 = timer check, s2 = led blink check, s3 = printCheck, s4 = ledIncrCheck
 
 .ORIG 0x100
-	 lw		a1,Max(Zero)
+	lw		a1,Max(Zero)
     sw      a1,TLIM(Zero)	; sets max of timer to 23:59:59
-	 lw		a2,Reset(Zero)
+	lw		a2,Reset(Zero)
     sw      a2,TIMER(Zero)	; sets initial value of timer to 23:59:50
-	 addi		a0,Zero,1
-	 addi		a1,Zero,2
-	 addi		a2,Zero,4
-	 addi		a3,Zero,8
-Loop:
-    lw      s0,TIMER(Zero)
-    sw      s0,HEX(Zero)
-    
-	 lw      t1,KEY(Zero)   ;	If key pressed, reset counter to zero
-	 lw		t2, TIMER(Zero)
+	addi		a0,Zero,1
+	addi		a1,Zero,2
+	addi		a2,Zero,4
+	addi		a3,Zero,8
+    addi        t4,Zero,0
+Disploop:
+    call    printTime(Zero)
+
+	lw      t1,KEY(Zero)   ;	If key pressed, store time
+	lw		t2, TIMER(Zero)
     beq     t1,a0,Time
-    br      Loop
+    br      Disploop
 
 Time: 		; checks that key[0] is pressed for 2 seconds
-	 lw      s0,TIMER(Zero)
-	 subi		s1, s0, 2
-    sw      s0,HEX(Zero)
+	lw      s0,TIMER(Zero)
+	subi		s1, s0, 2000
+    call    printTime(Zero)
 				; check if key has been released -> break to main loop
-	 lw		t1,KEY(Zero)
-	 beq		t1,Zero,Loop
+	lw		t1,KEY(Zero)
+	beq		t1,Zero,Disploop
 				; check for 2 sec hold
-	 blt		t2,s1,DispMode
-	 br		Time
-	 
-DispMode:
-	 jmp		
-	 
-Res:
-    addi    s0,Zero,0
-    sw      s0,TIMER(Zero)
-    br      Loop
-	 
+	blt		t2,s1,SetMode
+	br		Time
+
+SetMode:
+    ; Check if all SW are 0 and store time
+    lw      s15,SW(Zero)
+    lw      t2,TIMER(Zero)
+    lw      t3,TIMER(Zero)
+    beq     s15,Zero,SetModeBlink
+    sw      Zero,LEDR(Zero) ; turn off all LEDS at first
+	call    SetloopCount(Zero)
+
+SetModeBlink:
+    not     a15,Zero ;Turn on all LEDS at first
+    sw      a15,LEDR(Zero)
+    call    SetloopBlink(Zero)
+
+SetloopBlink:
+    lw      s0,TIMER(Zero)
+    subi    s2, s0, 500
+    subi    s1,s0,5000
+    call    printTime(Zero)
+    blt     t3,s2,BlinkLED ; check if .5 seconds have passed
+    br      SetloopBlink
+
+BlinkLED:
+    lw      a15,LEDR(Zero) ; blink leds
+    not     a15,a15
+    sw      a15,LEDR(Zero)
+    lw      t3,TIMER(Zero) ; store time
+    br      SetloopBlink
+
+SetloopCount:
+    call    printTime(Zero)
+    lw      s0,TIMER(Zero)
+    subi    s4,s0,10
+    subi    s1,s0,5000
+    blt     t3,s4,IncrLED  ;check if 100ths of a second has passed
+    br      SetloopCount
+
+IncrLED:
+    lw      a15,LEDR(Zero) ;increment led
+    addi    a15,a15,1
+    sw      a15,LEDR(Zero)
+    lw      t3,TIMER(Zero) ; store time
+    br      SetloopCount
+
+printTime:
+    lw      s0,TCTL(Zero)
+    bne     s0,Zero,updateStore
+    lw      s0,TIMER(Zero)
+    subi    s3,s0,1000
+    sw      s0,HEX(Zero)
+    ret
+
+updateStore:
+    lw      s0,TLIM(Zero)
+    sub     t2,t2,s0
+    sub     t3,t3,s0
+    sub     t4,t4,s0
+    sw      Zero,TCTL(Zero)
+    br      printTime
+
+
 Max:
 .WORD TimerMax
 Reset:
