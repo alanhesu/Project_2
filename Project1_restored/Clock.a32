@@ -9,7 +9,7 @@
 .NAME	  TimerMax = 86399000	; 23:59:29
 .NAME	  Count = 86390000		; 23:59:50
 ;a0 = 1, a1 = 2, a2 = 4, a3 = 8, a15 = misc
-;t1 = KEY, t2 = stored time, t3 = led stored time, t4 = storeMS, t15 = SW
+;t1 = KEY, t2 = stored time, t3 = led stored time, t4 = storeMS, t12 = seconds, t13 = minutes, t14 = hours
 ;s0 = TIMER, s1 = timer check, s2 = led blink check, s3 = printCheck, s4 = ledIncrCheck
 
 .ORIG 0x100
@@ -21,7 +21,10 @@
 	addi		a1,Zero,2
 	addi		a2,Zero,4
 	addi		a3,Zero,8
-    addi        t4,Zero,0
+    addi        t4,Zero,0  ; storeMS = 0
+    addi        t12,Zero,50 ;Initial value of seconds, minutes, hours
+    addi        t13,Zero,59
+    addi        t14,Zero,23
 Disploop:
     call    printTime(Zero)
 
@@ -43,10 +46,10 @@ Time: 		; checks that key[0] is pressed for 2 seconds
 
 SetMode:
     ; Check if all SW are 0 and store time
-    lw      s15,SW(Zero)
+    lw      a15,SW(Zero)
     lw      t2,TIMER(Zero)
     lw      t3,TIMER(Zero)
-    beq     s15,Zero,SetModeBlink
+    beq     a15,Zero,SetModeBlink
     sw      Zero,LEDR(Zero) ; turn off all LEDS at first
 	call    SetloopCount(Zero)
 
@@ -90,7 +93,8 @@ printTime:
     bne     s0,Zero,updateStore
     lw      s0,TIMER(Zero)
     subi    s3,s0,1000
-    sw      s0,HEX(Zero)
+    ;sw      s0,HEX(Zero)
+    ble     t4,s3,updateTime
     ret
 
 updateStore:
@@ -100,6 +104,31 @@ updateStore:
     sub     t4,t4,s0
     sw      Zero,TCTL(Zero)
     br      printTime
+
+updateTime:
+    addi    t12,t12,1 ; seconds++
+    addi    a15,Zero,60
+    beq     t12,a15,incrMinutes ; if(seconds == 60)
+contUpdateTime:
+    lw      t4,TIMER(Zero) ;storeMS = TIMER
+    ;call   hextoDec(Zero)
+    sw      rv,HEX(Zero)
+    ret
+
+incrMinutes:
+    addi    t13,t13,1 ; minutes++
+    addi    a15,Zero,60
+    beq     t13,a15,incrHours ;if(minutes == 60)
+    br      contUpdateTime
+
+incrHours:
+    addi    t14,t14,1 ;hours++
+    br      contUpdateTime
+
+hextoDec:
+    addi    15,Zero,10
+    add     s13,Zero,t12
+    call    div(Zero)
 
 
 Max:
