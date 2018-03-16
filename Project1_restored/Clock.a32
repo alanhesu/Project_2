@@ -8,6 +8,12 @@
 .NAME   TCTL=0xFFFFF108
 .NAME	  TimerMax = 86399000	; 23:59:29
 .NAME	  Count = 86390000		; 23:59:50
+.NAME   Shift4 = 16
+.NAME   Shift8 = 256
+.NAME   Shift12 = 4096
+.NAME   Shift16 = 65536
+.NAME   Shift20 = 1048576
+
 ;a0 = 1, a1 = 2, a2 = 4, a3 = 8, a15 = misc
 ;t1 = KEY, t2 = stored time, t3 = led stored time, t4 = storeMS, t12 = seconds, t13 = minutes, t14 = hours
 ;s0 = TIMER, s1 = timer check, s2 = led blink check, s3 = printCheck, s4 = ledIncrCheck
@@ -93,7 +99,6 @@ printTime:
     bne     s0,Zero,updateStore
     lw      s0,TIMER(Zero)
     subi    s3,s0,1000
-    ;sw      s0,HEX(Zero)
     ble     t4,s3,updateTime
     ret
 
@@ -111,7 +116,7 @@ updateTime:
     beq     t12,a15,incrMinutes ; if(seconds == 60)
 contUpdateTime:
     lw      t4,TIMER(Zero) ;storeMS = TIMER
-    ;call   hextoDec(Zero)
+    call    hextoDec(Zero)
     sw      rv,HEX(Zero)
     ret
 
@@ -126,12 +131,86 @@ incrHours:
     br      contUpdateTime
 
 hextoDec:
-    addi    15,Zero,10
+    ;secondTens = div(seconds, 10, *secondOnes)
+    addi    s14,Zero,10
     add     s13,Zero,t12
     call    div(Zero)
+    add     a9,Zero,s15
+    add     a10,Zero,rv
+    ;minuteTens = div(minutes, 10, *minuteOnes)
+    addi    s14,Zero,10
+    add     s13,Zero,t13
+    call    div(Zero)
+    add     a11,Zero,s15
+    add     a12,Zero,rv
+    ;hourTens = div(hours, 10, *hourOnes)
+    addi    s14,Zero,10
+    add     s13,Zero,t14
+    call    div(Zero)
+    add     a13,Zero,s15
+    add     a14,Zero,rv
 
+    addi    a15,Zero,0 ;val = 0
+    ;f = mult(hourTens,16)
+    addi    s15,Zero,16
+    add     s14,Zero,a14
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a13  ; val = f + hourOnes
+    ;f = mult(val,16)
+    addi    s15,Zero,16
+    add     s14,Zero,a15
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a12  ; val = f + minuteTens
+    ;f = mult(val,16)
+    addi    s15,Zero,16
+    add     s14,Zero,a15
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a11  ; val = f + minuteOnes
+    ;f = mult(val,16)
+    addi    s15,Zero,16
+    add     s14,Zero,a15
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a10  ; val = f + secondTens
+    ;f = mult(val,16)
+    addi    s15,Zero,16
+    add     s14,Zero,a15
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a9  ; val = f + secondOnes
+    add     rv,Zero,a15 ; rv = val
+    ret
+mult:                               ;multiply(s14,s15)
+     bne        s14, Zero, endMult
+     add        s15, s15, s15
+     subi       s14, s14, 1
+     br     mult
+
+endMult:                            ;return s15
+     add        rv, Zero, s15
+     ret
+
+div:                                    ;divide s13/s14
+     addi       s12, Zero, 0        ;initialize quotient register
+div2:
+     ble        s13, Zero, endDiv
+     sub        s13, s13, s14
+     addi       s12, s12, 1
+     br     div2
+
+endDiv:
+     add        s15, Zero, s13
+     add        rv, Zero, s12
+     ret
 
 Max:
 .WORD TimerMax
 Reset:
 .WORD Count
+RSH16:
+.WORD Shift16
+RSH20:
+.WORD Shift20
