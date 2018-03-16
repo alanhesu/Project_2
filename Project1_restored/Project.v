@@ -26,7 +26,7 @@ module Project(
   parameter ADDRTCNT =32'hFFFFF100;
   parameter ADDRTLIM =32'hFFFFF104;
   parameter ADDRTCTL =32'hFFFFF108;
-  parameter IMEMINITFILE="Test2.mif";
+  parameter IMEMINITFILE="Sorter3.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
@@ -169,9 +169,13 @@ module Project(
 
 	// TODO: This is a good place to generate the flush_? signals
   // TODO: Flush less often or increase clock frequency
-  reg flush_D;
+  /*reg flush_D;
   always @(posedge clk)
-      flush_D<=!flush_D;
+      flush_D<=!flush_D;*/
+  wire flush_D;
+  assign flush_D=wrreg_M&&((wregno_M==rs_D)
+    ||(wregno_M==rt_D)
+    ||(isjump_M));
 
 	// TODO: Write code that produces wmemval_M, wrmem_M, wrreg_M, etc.
     reg wrmem_M, wrreg_M;
@@ -571,6 +575,7 @@ module Switches(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,SW);
     if(RESET) begin
       {ready,overrun,ie}<={3'b0};
       bounceTimer<={BITS{1'b0}};
+      // prevBounce=rawSW;
     end else if(wrSctrl) begin
       if(!DBUS[1])
         overrun<=DBUS[1];

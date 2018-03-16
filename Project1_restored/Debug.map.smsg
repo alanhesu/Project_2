@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at Project.v(394): always construct contains both blocking and non-blocking assignments File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 394
+Warning (10268): Verilog HDL information at Project.v(574): always construct contains both blocking and non-blocking assignments File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 574
