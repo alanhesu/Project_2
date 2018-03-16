@@ -26,7 +26,7 @@ module Project(
   parameter ADDRTCNT =32'hFFFFF100;
   parameter ADDRTLIM =32'hFFFFF104;
   parameter ADDRTCTL =32'hFFFFF108;
-  parameter IMEMINITFILE="Sorter3.mif";
+  parameter IMEMINITFILE="TimerTest.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
@@ -237,16 +237,30 @@ module Project(
 	reg [(DBITS-1):0] dmem[(DMEMWORDS-1):0];
 	always @(posedge clk)
 		if(MemWE)
-			dmem[memaddr_M[(DMEMADDRBITS-1):DMEMWORDBITS]]<=wmemval_M;
-	wire [(DBITS-1):0] MemVal=MemWE?{DBITS{1'bX}}:dmem[memaddr_M[(DMEMADDRBITS-1):DMEMWORDBITS]];
+			dmem[abus[(DMEMADDRBITS-1):DMEMWORDBITS]]<=dbus;
+	wire [(DBITS-1):0] MemVal=MemWE?{DBITS{1'bX}}:dmem[abus[(DMEMADDRBITS-1):DMEMWORDBITS]];
+  assign dbus=(MemEnable&&!wrmem_M)?MemVal:{DBITS{1'bz}};
 	// Connect memory and input devices to the bus
+
+  wire [(DBITS-1):0] abus;
+  tri [(DBITS-1):0] dbus;
+  wire we;
+
+  assign abus=memaddr_M;
+  assign we=wrmem_M;
+  assign dbus=wrmem_M?wmemval_M:{DBITS{1'bz}};
+
+  Timer #(.BITS(DBITS), .BASE(32'hFFFFF100))
+    timer(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG());
+
 	wire [(DBITS-1):0] memout_M=
-		MemEnable?MemVal:
+		MemEnable?dbus:
 		(memaddr_M==ADDRKEY)?{12'b0,~KEY}:
 		(memaddr_M==ADDRSW)? { 6'b0,SW}:
     (memaddr_M==ADDRHEX)?{8'b0,HexOut}:
     (memaddr_M==ADDRLEDR)?{22'b0,led}:
-		32'h0;
+    ((memaddr_M==ADDRTCNT)||(memaddr_M==ADDRTLIM)||(memaddr_M==ADDRTCTL)&&!wrmem_M)?dbus:
+		{DBITS{1'bz}};
 
 	// TODO: Decide what gets written into the destination register (wregval_M),
 	// when it gets written (wrreg_M) and to which register it gets written (wregno_M)
@@ -336,18 +350,19 @@ module SXT(IN,OUT);
   assign OUT={{(OBITS-IBITS){IN[IBITS-1]}},IN};
 endmodule
 
-/*
+
 module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
   parameter BITS;
   parameter BASE;
 
+  input wire DEBUG;
   input wire [(BITS-1):0] ABUS;
   inout wire [(BITS-1):0] DBUS;
   input wire WE,CLK,LOCK,RESET;
   output wire INTR;
 
   reg [(BITS-1):0] lim;
-  reg [(BITS-1):0] ctl;
+  reg ready,overrun;
 
   wire selCnt=(ABUS==BASE);
   wire wrCnt=WE&&selCnt;
@@ -364,42 +379,110 @@ module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
   reg [(BITS-1):0] cnt={BITS{1'b0}};
   reg [31:0] clkTimer_div=32'd0;
 
+  // reg tick;
+  // initial tick=1;
   wire atLim=(cnt==lim-1)&&(lim!=0);
+  /*
   always @(posedge CLK) begin
     if(clkTimer_div == 32'd24999999) begin
       clkTimer_div<=32'd0;
-      if(atLim) begin
-        cnt<=0;
-        if(ctl[0])
-          ctl[1]=1;
-        else
-          ctl[0]=1;
-      end else
-        cnt<=cnt+1'b1;
+      tick=!tick;
     end else
       clkTimer_div<=clkTimer_div+32'd1;
-
+  end
+  */
   always @(posedge CLK or posedge RESET) begin
     if(RESET) begin
+      // tick<=1'b1;
       cnt<={BITS{1'b0}};
       lim<={BITS{1'b0}};
-      ctl<={BITS{1'b0}};
-    end else if(wrCnt)
+      {ready,overrun}<={2'b0};
+    end else if(wrCnt) begin
       cnt<=DBUS;
-      clt[0]<=1'b0;
-      clt[1]<=1'b0;
-    else if(wrLim) begin
+      {ready,overrun}<={2'b0};
+    end else if(wrLim) begin
       lim<=DBUS;
       cnt<={BITS{1'b0}};
     end else if(wrCtl) begin
-      ctl[0]<=DBUS[0]?1'bX:DBUS[0];
-      ctl[1]<=DBUS[1]?1'bX:DBUS[1];
-    end
+      if(DBUS[0])
+        ready<=1'b1;
+      if(DBUS[1])
+        overrun<=1'b1;
+    end else if(clkTimer_div >= 32'd59999999) begin
+      clkTimer_div<=32'd0;
+      if(atLim) begin
+        if(!wrCnt)
+          cnt<={BITS{1'b0}};
+        if(!wrCtl)
+          if(ready)
+            overrun<=1'b1;
+          else
+            ready<=1'b1;
+      end else if(!wrCnt)
+        cnt<=cnt+1'b1;
+    end else
+      clkTimer_div<=clkTimer_div+32'd1;
   end
 
-  assign DBUS=rdCtl?ctl:
+/*
+  reg [(BITS-1):0] cntStore;
+  reg [(BITS-1):0] limStore;
+  reg [(BITS-1):0] ctlStore;
+  reg wrCntStore,wrLimStore,wrCtlStore;
+
+  always @(posedge CLK or posedge RESET) begin
+    if(RESET) begin
+      cntStore<={BITS{1'b0}};
+      limStore<={BITS{1'b0}};
+      ctlStore<={BITS{1'b0}};
+      {wrCntStore,wrLimStore,wrCtlStore}={3'b0};
+    end else if(wrCnt) begin
+      cntStore<=DBUS;
+      ctlStore[0]<=1'b0;
+      ctlStore[1]<=1'b0;
+      wrCntStore<=1'b1;
+    end else if(wrLim) begin
+      limStore<=DBUS;
+      cntStore<={BITS{1'b0}};
+      wrLimStore<=1'b1;
+    end else if(wrCtl) begin
+      ctlStore[0]<=DBUS[0]?1'bX:DBUS[0];
+      ctlStore[1]<=DBUS[1]?1'bX:DBUS[1];
+      wrCtlStore<=1'b1;
+  end
+
+  always @(posedge tick or posedge RESET) begin
+    if(RESET) begin
+      tick<=1'b1;
+      cnt<={BITS{1'b0}};
+      lim<={BITS{1'b0}};
+      ctl<={BITS{1'b0}};
+    end else if(wrCntStore) begin
+      cnt<=cntStore;
+      ctl[0]<=ctlStore[0];
+      ctl[1]<=ctlStore[0];
+    end else if(wrLimStore) begin
+      lim<=limStore;
+      cnt<=cntStore;
+    end else if(wrCtlStore) begin
+      ctl[0]<=ctlStore[0];
+      ctl[1]<=ctlStore[0];
+    end else begin
+      if(atLim) begin
+        cnt<={BITS{1'b0}};
+        if(ctl[0])
+          ctl[1]<=1'b1;
+        else
+          ctl[0]<=1'b1;
+      end else begin
+        cnt<=cnt+1;
+      end
+    end
+  end
+*/
+
+  assign DBUS=rdCtl?{30'b0,overrun,ready}:
       rdCnt?cnt:
       rdLim?lim:
       {BITS{1'bz}};
 endmodule
-*/

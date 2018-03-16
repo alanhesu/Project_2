@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CEBA4F23) Path("C:/Users/alanh/Dropbox/School/Tech/!2017-18/Spring 2018/CS 3220 - Processor Design/Project1_restored/") File("Debug.sof") MfrSpec(OpMask(1));
+		Device PartName(5CEBA4F23) Path("C:/Users/alanh/Documents/Github/Project_2/Project1_restored/") File("Debug.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

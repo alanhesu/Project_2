@@ -1,0 +1,22 @@
+; Addresses for I/O
+.NAME   HEX= 0xFFFFF000
+.NAME   LEDR=0xFFFFF020
+.NAME   KEY= 0xFFFFF080
+.NAME   SW=  0xFFFFF090
+.NAME   TIMER=0xFFFFF100
+.NAME   TLIM=0xFFFFF104
+
+.ORIG 0x100
+    addi    a0,Zero,10
+    addi    a1,Zero,4
+    sw      a0,TLIM(Zero) ;Set limit to 10 s
+Loop:
+    lw      s0,TIMER(Zero)
+    sw      s0,HEX(Zero)
+    lw      t1,KEY(Zero)    ;If key pressed, reset counter to zero
+    bne     t1,Zero,Res
+    br      Loop
+Res:
+    addi    s0,Zero,0
+    sw      s0,TIMER(Zero)
+    br      Loop
