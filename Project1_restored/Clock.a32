@@ -5,11 +5,14 @@
 .NAME   SW=  0xFFFFF090
 .NAME   TIMER=0xFFFFF100
 .NAME   TLIM=0xFFFFF104
+.NAME	  TimerMax=86399		; max number of seconds
+.NAME	  Count = 86390		; After reset time should be 23:59:50
 
-; After reset time should be 23:59:50
 .ORIG 0x100
-    addi    a0,Zero,86399   ; max number of seconds
-    sw      a0,TLIM(Zero)
+	 lw		a1,Max(Zero)
+    sw      a1,TLIM(Zero)
+	 lw		a2,Reset(Zero)
+    sw      a2,TIMER(Zero)
 Loop:
     lw      s0,TIMER(Zero)
     sw      s0,HEX(Zero)
@@ -20,3 +23,8 @@ Res:
     addi    s0,Zero,0
     sw      s0,TIMER(Zero)
     br      Loop
+	 
+Max:
+.WORD TimerMax
+Reset:
+.WORD Count
