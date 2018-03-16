@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Debug
-Fri Mar 16 02:56:39 2018
+Fri Mar 16 04:46:06 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -20,23 +20,27 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  12. General Register Statistics
  13. Inverted Register Statistics
  14. Multiplexer Restructuring Statistics (No Restructuring Performed)
- 15. Source assignments for altsyncram:dmem_rtl_0|altsyncram_ucl1:auto_generated
+ 15. Source assignments for altsyncram:dmem_rtl_0|altsyncram_ftk1:auto_generated
  16. Parameter Settings for User Entity Instance: Top-level Entity: |Project
  17. Parameter Settings for User Entity Instance: Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i
  18. Parameter Settings for User Entity Instance: SXT:sxt1
  19. Parameter Settings for User Entity Instance: Timer:timer
- 20. Parameter Settings for Inferred Entity Instance: altsyncram:dmem_rtl_0
- 21. altsyncram Parameter Settings by Entity Instance
- 22. Port Connectivity Checks: "Timer:timer"
- 23. Port Connectivity Checks: "SevenSeg:ss0"
- 24. Port Connectivity Checks: "SevenSeg:ss1"
- 25. Port Connectivity Checks: "SevenSeg:ss2"
- 26. Port Connectivity Checks: "SevenSeg:ss3"
- 27. Port Connectivity Checks: "SevenSeg:ss4"
- 28. Port Connectivity Checks: "SevenSeg:ss5"
- 29. Post-Synthesis Netlist Statistics for Top Partition
- 30. Elapsed Time Per Partition
- 31. Analysis & Synthesis Messages
+ 20. Parameter Settings for User Entity Instance: Keys:keys
+ 21. Parameter Settings for User Entity Instance: Switches:switches
+ 22. Parameter Settings for Inferred Entity Instance: altsyncram:dmem_rtl_0
+ 23. altsyncram Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "Switches:switches"
+ 25. Port Connectivity Checks: "Keys:keys"
+ 26. Port Connectivity Checks: "Timer:timer"
+ 27. Port Connectivity Checks: "SevenSeg:ss0"
+ 28. Port Connectivity Checks: "SevenSeg:ss1"
+ 29. Port Connectivity Checks: "SevenSeg:ss2"
+ 30. Port Connectivity Checks: "SevenSeg:ss3"
+ 31. Port Connectivity Checks: "SevenSeg:ss4"
+ 32. Port Connectivity Checks: "SevenSeg:ss5"
+ 33. Post-Synthesis Netlist Statistics for Top Partition
+ 34. Elapsed Time Per Partition
+ 35. Analysis & Synthesis Messages
 
 
 
@@ -62,13 +66,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Mar 16 02:56:39 2018       ;
+; Analysis & Synthesis Status     ; Successful - Fri Mar 16 04:46:06 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Debug                                       ;
 ; Top-level Entity Name           ; Project                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 749                                         ;
+; Total registers                 ; 1359                                        ;
 ; Total pins                      ; 68                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 524,288                                     ;
@@ -186,30 +190,30 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                     ;
-+----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                       ; Library ;
-+----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------+---------+
-; Pll.v                            ; yes             ; User Wizard-Generated File             ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll.v                  ; Pll     ;
-; Pll/Pll_0002.v                   ; yes             ; User Verilog HDL File                  ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll/Pll_0002.v         ; Pll     ;
-; Project.v                        ; yes             ; User Verilog HDL File                  ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v              ;         ;
-; SevenSeg.v                       ; yes             ; User Verilog HDL File                  ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/SevenSeg.v             ;         ;
-; altera_pll.v                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altera_pll.v                ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altsyncram.tdf              ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/stratix_ram_block.inc       ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_mux.inc                 ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_decode.inc              ;         ;
-; aglobal171.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc              ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/a_rdenreg.inc               ;         ;
-; altrom.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altrom.inc                  ;         ;
-; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altram.inc                  ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altdpram.inc                ;         ;
-; db/altsyncram_ucl1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/altsyncram_ucl1.tdf ;         ;
-; TimerTest.mif                    ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/TimerTest.mif          ;         ;
-; db/decode_5la.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/decode_5la.tdf      ;         ;
-; db/mux_2hb.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/mux_2hb.tdf         ;         ;
-+----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+---------+
+; Test2.mif                        ; yes             ; User Memory Initialization File  ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Test2.mif              ;         ;
+; Pll.v                            ; yes             ; User Wizard-Generated File       ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll.v                  ; Pll     ;
+; Pll/Pll_0002.v                   ; yes             ; User Verilog HDL File            ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll/Pll_0002.v         ; Pll     ;
+; Project.v                        ; yes             ; User Verilog HDL File            ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v              ;         ;
+; SevenSeg.v                       ; yes             ; User Verilog HDL File            ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/SevenSeg.v             ;         ;
+; altera_pll.v                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altera_pll.v                ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altsyncram.tdf              ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/stratix_ram_block.inc       ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_mux.inc                 ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_decode.inc              ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc              ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/a_rdenreg.inc               ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altrom.inc                  ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altram.inc                  ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altdpram.inc                ;         ;
+; db/altsyncram_ftk1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/altsyncram_ftk1.tdf ;         ;
+; db/decode_5la.tdf                ; yes             ; Auto-Generated Megafunction      ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/decode_5la.tdf      ;         ;
+; db/mux_2hb.tdf                   ; yes             ; Auto-Generated Megafunction      ; C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/mux_2hb.tdf         ;         ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------+
@@ -217,16 +221,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                              ;
 +---------------------------------------------+--------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 771                                                                ;
+; Estimate of Logic utilization (ALMs needed) ; 1572                                                               ;
 ;                                             ;                                                                    ;
-; Combinational ALUT usage for logic          ; 1095                                                               ;
-;     -- 7 input functions                    ; 44                                                                 ;
-;     -- 6 input functions                    ; 346                                                                ;
-;     -- 5 input functions                    ; 226                                                                ;
-;     -- 4 input functions                    ; 205                                                                ;
-;     -- <=3 input functions                  ; 274                                                                ;
+; Combinational ALUT usage for logic          ; 1812                                                               ;
+;     -- 7 input functions                    ; 576                                                                ;
+;     -- 6 input functions                    ; 409                                                                ;
+;     -- 5 input functions                    ; 234                                                                ;
+;     -- 4 input functions                    ; 285                                                                ;
+;     -- <=3 input functions                  ; 308                                                                ;
 ;                                             ;                                                                    ;
-; Dedicated logic registers                   ; 749                                                                ;
+; Dedicated logic registers                   ; 1359                                                               ;
 ;                                             ;                                                                    ;
 ; I/O pins                                    ; 68                                                                 ;
 ; Total MLAB memory bits                      ; 0                                                                  ;
@@ -238,9 +242,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                  ;
 ;                                             ;                                                                    ;
 ; Maximum fan-out node                        ; Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 835                                                                ;
-; Total fan-out                               ; 9189                                                               ;
-; Average fan-out                             ; 4.49                                                               ;
+; Maximum fan-out                             ; 1494                                                               ;
+; Total fan-out                               ; 15533                                                              ;
+; Average fan-out                             ; 4.61                                                               ;
 +---------------------------------------------+--------------------------------------------------------------------+
 
 
@@ -249,7 +253,8 @@ refer to the applicable agreement for further details.
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Entity Name     ; Library Name ;
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
-; |Project                               ; 1095 (876)          ; 749 (650)                 ; 524288            ; 0          ; 68   ; 0            ; |Project                                                                         ; Project         ; work         ;
+; |Project                               ; 1812 (1513)         ; 1359 (1198)               ; 524288            ; 0          ; 68   ; 0            ; |Project                                                                         ; Project         ; work         ;
+;    |Keys:keys|                         ; 20 (20)             ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Keys:keys                                                               ; Keys            ; work         ;
 ;    |Pll:myPll|                         ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Pll:myPll                                                               ; Pll             ; Pll          ;
 ;       |Pll_0002:pll_inst|              ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Pll:myPll|Pll_0002:pll_inst                                             ; Pll_0002        ; Pll          ;
 ;          |altera_pll:altera_pll_i|     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i                     ; altera_pll      ; work         ;
@@ -259,21 +264,22 @@ refer to the applicable agreement for further details.
 ;    |SevenSeg:ss3|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss3                                                            ; SevenSeg        ; work         ;
 ;    |SevenSeg:ss4|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss4                                                            ; SevenSeg        ; work         ;
 ;    |SevenSeg:ss5|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss5                                                            ; SevenSeg        ; work         ;
-;    |Timer:timer|                       ; 175 (175)           ; 98 (98)                   ; 0                 ; 0          ; 0    ; 0            ; |Project|Timer:timer                                                             ; Timer           ; work         ;
-;    |altsyncram:dmem_rtl_0|             ; 2 (0)               ; 1 (0)                     ; 524288            ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0                                                   ; altsyncram      ; work         ;
-;       |altsyncram_ucl1:auto_generated| ; 2 (0)               ; 1 (1)                     ; 524288            ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0|altsyncram_ucl1:auto_generated                    ; altsyncram_ucl1 ; work         ;
-;          |decode_5la:decode2|          ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0|altsyncram_ucl1:auto_generated|decode_5la:decode2 ; decode_5la      ; work         ;
+;    |Switches:switches|                 ; 54 (54)             ; 55 (55)                   ; 0                 ; 0          ; 0    ; 0            ; |Project|Switches:switches                                                       ; Switches        ; work         ;
+;    |Timer:timer|                       ; 180 (180)           ; 98 (98)                   ; 0                 ; 0          ; 0    ; 0            ; |Project|Timer:timer                                                             ; Timer           ; work         ;
+;    |altsyncram:dmem_rtl_0|             ; 3 (0)               ; 1 (0)                     ; 524288            ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0                                                   ; altsyncram      ; work         ;
+;       |altsyncram_ftk1:auto_generated| ; 3 (0)               ; 1 (1)                     ; 524288            ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0|altsyncram_ftk1:auto_generated                    ; altsyncram_ftk1 ; work         ;
+;          |decode_5la:decode2|          ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0|altsyncram_ftk1:auto_generated|decode_5la:decode2 ; decode_5la      ; work         ;
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                               ;
-+-----------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+---------------+
-; Name                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF           ;
-+-----------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+---------------+
-; altsyncram:dmem_rtl_0|altsyncram_ucl1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 16384        ; 32           ; 16384        ; 32           ; 524288 ; TimerTest.mif ;
-+-----------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+---------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                           ;
++-----------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-----------+
+; Name                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF       ;
++-----------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-----------+
+; altsyncram:dmem_rtl_0|altsyncram_ftk1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 16384        ; 32           ; 16384        ; 32           ; 524288 ; Test2.mif ;
++-----------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-----------+
 
 
 +------------------------------------------------------------------------------------------------------+
@@ -290,138 +296,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------+----------------------------------------+
 ; Register name                            ; Reason for Removal                     ;
 +------------------------------------------+----------------------------------------+
-; selpcplus_M                              ; Stuck at GND due to stuck port data_in ;
-; pcplus_M[0..31]                          ; Lost fanout                            ;
-; PC[0,1]                                  ; Stuck at GND due to stuck port data_in ;
-; wregno_M[3]                              ; Merged with wregno_M[2]                ;
-; regs~128                                 ; Lost fanout                            ;
-; regs~129                                 ; Lost fanout                            ;
-; regs~130                                 ; Lost fanout                            ;
-; regs~131                                 ; Lost fanout                            ;
-; regs~132                                 ; Lost fanout                            ;
-; regs~133                                 ; Lost fanout                            ;
-; regs~134                                 ; Lost fanout                            ;
-; regs~135                                 ; Lost fanout                            ;
-; regs~136                                 ; Lost fanout                            ;
-; regs~137                                 ; Lost fanout                            ;
-; regs~138                                 ; Lost fanout                            ;
-; regs~139                                 ; Lost fanout                            ;
-; regs~140                                 ; Lost fanout                            ;
-; regs~141                                 ; Lost fanout                            ;
-; regs~142                                 ; Lost fanout                            ;
-; regs~143                                 ; Lost fanout                            ;
-; regs~144                                 ; Lost fanout                            ;
-; regs~145                                 ; Lost fanout                            ;
-; regs~146                                 ; Lost fanout                            ;
-; regs~147                                 ; Lost fanout                            ;
-; regs~148                                 ; Lost fanout                            ;
-; regs~149                                 ; Lost fanout                            ;
-; regs~150                                 ; Lost fanout                            ;
-; regs~151                                 ; Lost fanout                            ;
-; regs~152                                 ; Lost fanout                            ;
-; regs~153                                 ; Lost fanout                            ;
-; regs~154                                 ; Lost fanout                            ;
-; regs~155                                 ; Lost fanout                            ;
-; regs~156                                 ; Lost fanout                            ;
-; regs~157                                 ; Lost fanout                            ;
-; regs~158                                 ; Lost fanout                            ;
-; regs~159                                 ; Lost fanout                            ;
-; regs~160                                 ; Lost fanout                            ;
-; regs~161                                 ; Lost fanout                            ;
-; regs~162                                 ; Lost fanout                            ;
-; regs~163                                 ; Lost fanout                            ;
-; regs~164                                 ; Lost fanout                            ;
-; regs~165                                 ; Lost fanout                            ;
-; regs~166                                 ; Lost fanout                            ;
-; regs~167                                 ; Lost fanout                            ;
-; regs~168                                 ; Lost fanout                            ;
-; regs~169                                 ; Lost fanout                            ;
-; regs~170                                 ; Lost fanout                            ;
-; regs~171                                 ; Lost fanout                            ;
-; regs~172                                 ; Lost fanout                            ;
-; regs~173                                 ; Lost fanout                            ;
-; regs~174                                 ; Lost fanout                            ;
-; regs~175                                 ; Lost fanout                            ;
-; regs~176                                 ; Lost fanout                            ;
-; regs~177                                 ; Lost fanout                            ;
-; regs~178                                 ; Lost fanout                            ;
-; regs~179                                 ; Lost fanout                            ;
-; regs~180                                 ; Lost fanout                            ;
-; regs~181                                 ; Lost fanout                            ;
-; regs~182                                 ; Lost fanout                            ;
-; regs~183                                 ; Lost fanout                            ;
-; regs~184                                 ; Lost fanout                            ;
-; regs~185                                 ; Lost fanout                            ;
-; regs~186                                 ; Lost fanout                            ;
-; regs~187                                 ; Lost fanout                            ;
-; regs~188                                 ; Lost fanout                            ;
-; regs~189                                 ; Lost fanout                            ;
-; regs~190                                 ; Lost fanout                            ;
-; regs~191                                 ; Lost fanout                            ;
-; regs~192                                 ; Lost fanout                            ;
-; regs~193                                 ; Lost fanout                            ;
-; regs~194                                 ; Lost fanout                            ;
-; regs~195                                 ; Lost fanout                            ;
-; regs~196                                 ; Lost fanout                            ;
-; regs~197                                 ; Lost fanout                            ;
-; regs~198                                 ; Lost fanout                            ;
-; regs~199                                 ; Lost fanout                            ;
-; regs~200                                 ; Lost fanout                            ;
-; regs~201                                 ; Lost fanout                            ;
-; regs~202                                 ; Lost fanout                            ;
-; regs~203                                 ; Lost fanout                            ;
-; regs~204                                 ; Lost fanout                            ;
-; regs~205                                 ; Lost fanout                            ;
-; regs~206                                 ; Lost fanout                            ;
-; regs~207                                 ; Lost fanout                            ;
-; regs~208                                 ; Lost fanout                            ;
-; regs~209                                 ; Lost fanout                            ;
-; regs~210                                 ; Lost fanout                            ;
-; regs~211                                 ; Lost fanout                            ;
-; regs~212                                 ; Lost fanout                            ;
-; regs~213                                 ; Lost fanout                            ;
-; regs~214                                 ; Lost fanout                            ;
-; regs~215                                 ; Lost fanout                            ;
-; regs~216                                 ; Lost fanout                            ;
-; regs~217                                 ; Lost fanout                            ;
-; regs~218                                 ; Lost fanout                            ;
-; regs~219                                 ; Lost fanout                            ;
-; regs~220                                 ; Lost fanout                            ;
-; regs~221                                 ; Lost fanout                            ;
-; regs~222                                 ; Lost fanout                            ;
-; regs~223                                 ; Lost fanout                            ;
-; regs~224                                 ; Lost fanout                            ;
-; regs~225                                 ; Lost fanout                            ;
-; regs~226                                 ; Lost fanout                            ;
-; regs~227                                 ; Lost fanout                            ;
-; regs~228                                 ; Lost fanout                            ;
-; regs~229                                 ; Lost fanout                            ;
-; regs~230                                 ; Lost fanout                            ;
-; regs~231                                 ; Lost fanout                            ;
-; regs~232                                 ; Lost fanout                            ;
-; regs~233                                 ; Lost fanout                            ;
-; regs~234                                 ; Lost fanout                            ;
-; regs~235                                 ; Lost fanout                            ;
-; regs~236                                 ; Lost fanout                            ;
-; regs~237                                 ; Lost fanout                            ;
-; regs~238                                 ; Lost fanout                            ;
-; regs~239                                 ; Lost fanout                            ;
-; regs~240                                 ; Lost fanout                            ;
-; regs~241                                 ; Lost fanout                            ;
-; regs~242                                 ; Lost fanout                            ;
-; regs~243                                 ; Lost fanout                            ;
-; regs~244                                 ; Lost fanout                            ;
-; regs~245                                 ; Lost fanout                            ;
-; regs~246                                 ; Lost fanout                            ;
-; regs~247                                 ; Lost fanout                            ;
-; regs~248                                 ; Lost fanout                            ;
-; regs~249                                 ; Lost fanout                            ;
-; regs~250                                 ; Lost fanout                            ;
-; regs~251                                 ; Lost fanout                            ;
-; regs~252                                 ; Lost fanout                            ;
-; regs~253                                 ; Lost fanout                            ;
-; regs~254                                 ; Lost fanout                            ;
-; regs~255                                 ; Lost fanout                            ;
+; Switches:switches|sdata[10..31]          ; Stuck at GND due to stuck port data_in ;
+; Switches:switches|prev[10..31]           ; Stuck at GND due to stuck port data_in ;
+; Keys:keys|prev[4..31]                    ; Stuck at GND due to stuck port data_in ;
+; Switches:switches|ie                     ; Merged with Keys:keys|ie               ;
 ; regs~256                                 ; Lost fanout                            ;
 ; regs~257                                 ; Lost fanout                            ;
 ; regs~258                                 ; Lost fanout                            ;
@@ -678,134 +556,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; regs~509                                 ; Lost fanout                            ;
 ; regs~510                                 ; Lost fanout                            ;
 ; regs~511                                 ; Lost fanout                            ;
-; regs~640                                 ; Lost fanout                            ;
-; regs~641                                 ; Lost fanout                            ;
-; regs~642                                 ; Lost fanout                            ;
-; regs~643                                 ; Lost fanout                            ;
-; regs~644                                 ; Lost fanout                            ;
-; regs~645                                 ; Lost fanout                            ;
-; regs~646                                 ; Lost fanout                            ;
-; regs~647                                 ; Lost fanout                            ;
-; regs~648                                 ; Lost fanout                            ;
-; regs~649                                 ; Lost fanout                            ;
-; regs~650                                 ; Lost fanout                            ;
-; regs~651                                 ; Lost fanout                            ;
-; regs~652                                 ; Lost fanout                            ;
-; regs~653                                 ; Lost fanout                            ;
-; regs~654                                 ; Lost fanout                            ;
-; regs~655                                 ; Lost fanout                            ;
-; regs~656                                 ; Lost fanout                            ;
-; regs~657                                 ; Lost fanout                            ;
-; regs~658                                 ; Lost fanout                            ;
-; regs~659                                 ; Lost fanout                            ;
-; regs~660                                 ; Lost fanout                            ;
-; regs~661                                 ; Lost fanout                            ;
-; regs~662                                 ; Lost fanout                            ;
-; regs~663                                 ; Lost fanout                            ;
-; regs~664                                 ; Lost fanout                            ;
-; regs~665                                 ; Lost fanout                            ;
-; regs~666                                 ; Lost fanout                            ;
-; regs~667                                 ; Lost fanout                            ;
-; regs~668                                 ; Lost fanout                            ;
-; regs~669                                 ; Lost fanout                            ;
-; regs~670                                 ; Lost fanout                            ;
-; regs~671                                 ; Lost fanout                            ;
-; regs~672                                 ; Lost fanout                            ;
-; regs~673                                 ; Lost fanout                            ;
-; regs~674                                 ; Lost fanout                            ;
-; regs~675                                 ; Lost fanout                            ;
-; regs~676                                 ; Lost fanout                            ;
-; regs~677                                 ; Lost fanout                            ;
-; regs~678                                 ; Lost fanout                            ;
-; regs~679                                 ; Lost fanout                            ;
-; regs~680                                 ; Lost fanout                            ;
-; regs~681                                 ; Lost fanout                            ;
-; regs~682                                 ; Lost fanout                            ;
-; regs~683                                 ; Lost fanout                            ;
-; regs~684                                 ; Lost fanout                            ;
-; regs~685                                 ; Lost fanout                            ;
-; regs~686                                 ; Lost fanout                            ;
-; regs~687                                 ; Lost fanout                            ;
-; regs~688                                 ; Lost fanout                            ;
-; regs~689                                 ; Lost fanout                            ;
-; regs~690                                 ; Lost fanout                            ;
-; regs~691                                 ; Lost fanout                            ;
-; regs~692                                 ; Lost fanout                            ;
-; regs~693                                 ; Lost fanout                            ;
-; regs~694                                 ; Lost fanout                            ;
-; regs~695                                 ; Lost fanout                            ;
-; regs~696                                 ; Lost fanout                            ;
-; regs~697                                 ; Lost fanout                            ;
-; regs~698                                 ; Lost fanout                            ;
-; regs~699                                 ; Lost fanout                            ;
-; regs~700                                 ; Lost fanout                            ;
-; regs~701                                 ; Lost fanout                            ;
-; regs~702                                 ; Lost fanout                            ;
-; regs~703                                 ; Lost fanout                            ;
-; regs~704                                 ; Lost fanout                            ;
-; regs~705                                 ; Lost fanout                            ;
-; regs~706                                 ; Lost fanout                            ;
-; regs~707                                 ; Lost fanout                            ;
-; regs~708                                 ; Lost fanout                            ;
-; regs~709                                 ; Lost fanout                            ;
-; regs~710                                 ; Lost fanout                            ;
-; regs~711                                 ; Lost fanout                            ;
-; regs~712                                 ; Lost fanout                            ;
-; regs~713                                 ; Lost fanout                            ;
-; regs~714                                 ; Lost fanout                            ;
-; regs~715                                 ; Lost fanout                            ;
-; regs~716                                 ; Lost fanout                            ;
-; regs~717                                 ; Lost fanout                            ;
-; regs~718                                 ; Lost fanout                            ;
-; regs~719                                 ; Lost fanout                            ;
-; regs~720                                 ; Lost fanout                            ;
-; regs~721                                 ; Lost fanout                            ;
-; regs~722                                 ; Lost fanout                            ;
-; regs~723                                 ; Lost fanout                            ;
-; regs~724                                 ; Lost fanout                            ;
-; regs~725                                 ; Lost fanout                            ;
-; regs~726                                 ; Lost fanout                            ;
-; regs~727                                 ; Lost fanout                            ;
-; regs~728                                 ; Lost fanout                            ;
-; regs~729                                 ; Lost fanout                            ;
-; regs~730                                 ; Lost fanout                            ;
-; regs~731                                 ; Lost fanout                            ;
-; regs~732                                 ; Lost fanout                            ;
-; regs~733                                 ; Lost fanout                            ;
-; regs~734                                 ; Lost fanout                            ;
-; regs~735                                 ; Lost fanout                            ;
-; regs~736                                 ; Lost fanout                            ;
-; regs~737                                 ; Lost fanout                            ;
-; regs~738                                 ; Lost fanout                            ;
-; regs~739                                 ; Lost fanout                            ;
-; regs~740                                 ; Lost fanout                            ;
-; regs~741                                 ; Lost fanout                            ;
-; regs~742                                 ; Lost fanout                            ;
-; regs~743                                 ; Lost fanout                            ;
-; regs~744                                 ; Lost fanout                            ;
-; regs~745                                 ; Lost fanout                            ;
-; regs~746                                 ; Lost fanout                            ;
-; regs~747                                 ; Lost fanout                            ;
-; regs~748                                 ; Lost fanout                            ;
-; regs~749                                 ; Lost fanout                            ;
-; regs~750                                 ; Lost fanout                            ;
-; regs~751                                 ; Lost fanout                            ;
-; regs~752                                 ; Lost fanout                            ;
-; regs~753                                 ; Lost fanout                            ;
-; regs~754                                 ; Lost fanout                            ;
-; regs~755                                 ; Lost fanout                            ;
-; regs~756                                 ; Lost fanout                            ;
-; regs~757                                 ; Lost fanout                            ;
-; regs~758                                 ; Lost fanout                            ;
-; regs~759                                 ; Lost fanout                            ;
-; regs~760                                 ; Lost fanout                            ;
-; regs~761                                 ; Lost fanout                            ;
-; regs~762                                 ; Lost fanout                            ;
-; regs~763                                 ; Lost fanout                            ;
-; regs~764                                 ; Lost fanout                            ;
-; regs~765                                 ; Lost fanout                            ;
-; regs~766                                 ; Lost fanout                            ;
-; regs~767                                 ; Lost fanout                            ;
 ; regs~768                                 ; Lost fanout                            ;
 ; regs~769                                 ; Lost fanout                            ;
 ; regs~770                                 ; Lost fanout                            ;
@@ -1062,134 +812,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; regs~1021                                ; Lost fanout                            ;
 ; regs~1022                                ; Lost fanout                            ;
 ; regs~1023                                ; Lost fanout                            ;
-; regs~1152                                ; Lost fanout                            ;
-; regs~1153                                ; Lost fanout                            ;
-; regs~1154                                ; Lost fanout                            ;
-; regs~1155                                ; Lost fanout                            ;
-; regs~1156                                ; Lost fanout                            ;
-; regs~1157                                ; Lost fanout                            ;
-; regs~1158                                ; Lost fanout                            ;
-; regs~1159                                ; Lost fanout                            ;
-; regs~1160                                ; Lost fanout                            ;
-; regs~1161                                ; Lost fanout                            ;
-; regs~1162                                ; Lost fanout                            ;
-; regs~1163                                ; Lost fanout                            ;
-; regs~1164                                ; Lost fanout                            ;
-; regs~1165                                ; Lost fanout                            ;
-; regs~1166                                ; Lost fanout                            ;
-; regs~1167                                ; Lost fanout                            ;
-; regs~1168                                ; Lost fanout                            ;
-; regs~1169                                ; Lost fanout                            ;
-; regs~1170                                ; Lost fanout                            ;
-; regs~1171                                ; Lost fanout                            ;
-; regs~1172                                ; Lost fanout                            ;
-; regs~1173                                ; Lost fanout                            ;
-; regs~1174                                ; Lost fanout                            ;
-; regs~1175                                ; Lost fanout                            ;
-; regs~1176                                ; Lost fanout                            ;
-; regs~1177                                ; Lost fanout                            ;
-; regs~1178                                ; Lost fanout                            ;
-; regs~1179                                ; Lost fanout                            ;
-; regs~1180                                ; Lost fanout                            ;
-; regs~1181                                ; Lost fanout                            ;
-; regs~1182                                ; Lost fanout                            ;
-; regs~1183                                ; Lost fanout                            ;
-; regs~1184                                ; Lost fanout                            ;
-; regs~1185                                ; Lost fanout                            ;
-; regs~1186                                ; Lost fanout                            ;
-; regs~1187                                ; Lost fanout                            ;
-; regs~1188                                ; Lost fanout                            ;
-; regs~1189                                ; Lost fanout                            ;
-; regs~1190                                ; Lost fanout                            ;
-; regs~1191                                ; Lost fanout                            ;
-; regs~1192                                ; Lost fanout                            ;
-; regs~1193                                ; Lost fanout                            ;
-; regs~1194                                ; Lost fanout                            ;
-; regs~1195                                ; Lost fanout                            ;
-; regs~1196                                ; Lost fanout                            ;
-; regs~1197                                ; Lost fanout                            ;
-; regs~1198                                ; Lost fanout                            ;
-; regs~1199                                ; Lost fanout                            ;
-; regs~1200                                ; Lost fanout                            ;
-; regs~1201                                ; Lost fanout                            ;
-; regs~1202                                ; Lost fanout                            ;
-; regs~1203                                ; Lost fanout                            ;
-; regs~1204                                ; Lost fanout                            ;
-; regs~1205                                ; Lost fanout                            ;
-; regs~1206                                ; Lost fanout                            ;
-; regs~1207                                ; Lost fanout                            ;
-; regs~1208                                ; Lost fanout                            ;
-; regs~1209                                ; Lost fanout                            ;
-; regs~1210                                ; Lost fanout                            ;
-; regs~1211                                ; Lost fanout                            ;
-; regs~1212                                ; Lost fanout                            ;
-; regs~1213                                ; Lost fanout                            ;
-; regs~1214                                ; Lost fanout                            ;
-; regs~1215                                ; Lost fanout                            ;
-; regs~1216                                ; Lost fanout                            ;
-; regs~1217                                ; Lost fanout                            ;
-; regs~1218                                ; Lost fanout                            ;
-; regs~1219                                ; Lost fanout                            ;
-; regs~1220                                ; Lost fanout                            ;
-; regs~1221                                ; Lost fanout                            ;
-; regs~1222                                ; Lost fanout                            ;
-; regs~1223                                ; Lost fanout                            ;
-; regs~1224                                ; Lost fanout                            ;
-; regs~1225                                ; Lost fanout                            ;
-; regs~1226                                ; Lost fanout                            ;
-; regs~1227                                ; Lost fanout                            ;
-; regs~1228                                ; Lost fanout                            ;
-; regs~1229                                ; Lost fanout                            ;
-; regs~1230                                ; Lost fanout                            ;
-; regs~1231                                ; Lost fanout                            ;
-; regs~1232                                ; Lost fanout                            ;
-; regs~1233                                ; Lost fanout                            ;
-; regs~1234                                ; Lost fanout                            ;
-; regs~1235                                ; Lost fanout                            ;
-; regs~1236                                ; Lost fanout                            ;
-; regs~1237                                ; Lost fanout                            ;
-; regs~1238                                ; Lost fanout                            ;
-; regs~1239                                ; Lost fanout                            ;
-; regs~1240                                ; Lost fanout                            ;
-; regs~1241                                ; Lost fanout                            ;
-; regs~1242                                ; Lost fanout                            ;
-; regs~1243                                ; Lost fanout                            ;
-; regs~1244                                ; Lost fanout                            ;
-; regs~1245                                ; Lost fanout                            ;
-; regs~1246                                ; Lost fanout                            ;
-; regs~1247                                ; Lost fanout                            ;
-; regs~1248                                ; Lost fanout                            ;
-; regs~1249                                ; Lost fanout                            ;
-; regs~1250                                ; Lost fanout                            ;
-; regs~1251                                ; Lost fanout                            ;
-; regs~1252                                ; Lost fanout                            ;
-; regs~1253                                ; Lost fanout                            ;
-; regs~1254                                ; Lost fanout                            ;
-; regs~1255                                ; Lost fanout                            ;
-; regs~1256                                ; Lost fanout                            ;
-; regs~1257                                ; Lost fanout                            ;
-; regs~1258                                ; Lost fanout                            ;
-; regs~1259                                ; Lost fanout                            ;
-; regs~1260                                ; Lost fanout                            ;
-; regs~1261                                ; Lost fanout                            ;
-; regs~1262                                ; Lost fanout                            ;
-; regs~1263                                ; Lost fanout                            ;
-; regs~1264                                ; Lost fanout                            ;
-; regs~1265                                ; Lost fanout                            ;
-; regs~1266                                ; Lost fanout                            ;
-; regs~1267                                ; Lost fanout                            ;
-; regs~1268                                ; Lost fanout                            ;
-; regs~1269                                ; Lost fanout                            ;
-; regs~1270                                ; Lost fanout                            ;
-; regs~1271                                ; Lost fanout                            ;
-; regs~1272                                ; Lost fanout                            ;
-; regs~1273                                ; Lost fanout                            ;
-; regs~1274                                ; Lost fanout                            ;
-; regs~1275                                ; Lost fanout                            ;
-; regs~1276                                ; Lost fanout                            ;
-; regs~1277                                ; Lost fanout                            ;
-; regs~1278                                ; Lost fanout                            ;
-; regs~1279                                ; Lost fanout                            ;
 ; regs~1280                                ; Lost fanout                            ;
 ; regs~1281                                ; Lost fanout                            ;
 ; regs~1282                                ; Lost fanout                            ;
@@ -1446,134 +1068,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; regs~1533                                ; Lost fanout                            ;
 ; regs~1534                                ; Lost fanout                            ;
 ; regs~1535                                ; Lost fanout                            ;
-; regs~1664                                ; Lost fanout                            ;
-; regs~1665                                ; Lost fanout                            ;
-; regs~1666                                ; Lost fanout                            ;
-; regs~1667                                ; Lost fanout                            ;
-; regs~1668                                ; Lost fanout                            ;
-; regs~1669                                ; Lost fanout                            ;
-; regs~1670                                ; Lost fanout                            ;
-; regs~1671                                ; Lost fanout                            ;
-; regs~1672                                ; Lost fanout                            ;
-; regs~1673                                ; Lost fanout                            ;
-; regs~1674                                ; Lost fanout                            ;
-; regs~1675                                ; Lost fanout                            ;
-; regs~1676                                ; Lost fanout                            ;
-; regs~1677                                ; Lost fanout                            ;
-; regs~1678                                ; Lost fanout                            ;
-; regs~1679                                ; Lost fanout                            ;
-; regs~1680                                ; Lost fanout                            ;
-; regs~1681                                ; Lost fanout                            ;
-; regs~1682                                ; Lost fanout                            ;
-; regs~1683                                ; Lost fanout                            ;
-; regs~1684                                ; Lost fanout                            ;
-; regs~1685                                ; Lost fanout                            ;
-; regs~1686                                ; Lost fanout                            ;
-; regs~1687                                ; Lost fanout                            ;
-; regs~1688                                ; Lost fanout                            ;
-; regs~1689                                ; Lost fanout                            ;
-; regs~1690                                ; Lost fanout                            ;
-; regs~1691                                ; Lost fanout                            ;
-; regs~1692                                ; Lost fanout                            ;
-; regs~1693                                ; Lost fanout                            ;
-; regs~1694                                ; Lost fanout                            ;
-; regs~1695                                ; Lost fanout                            ;
-; regs~1696                                ; Lost fanout                            ;
-; regs~1697                                ; Lost fanout                            ;
-; regs~1698                                ; Lost fanout                            ;
-; regs~1699                                ; Lost fanout                            ;
-; regs~1700                                ; Lost fanout                            ;
-; regs~1701                                ; Lost fanout                            ;
-; regs~1702                                ; Lost fanout                            ;
-; regs~1703                                ; Lost fanout                            ;
-; regs~1704                                ; Lost fanout                            ;
-; regs~1705                                ; Lost fanout                            ;
-; regs~1706                                ; Lost fanout                            ;
-; regs~1707                                ; Lost fanout                            ;
-; regs~1708                                ; Lost fanout                            ;
-; regs~1709                                ; Lost fanout                            ;
-; regs~1710                                ; Lost fanout                            ;
-; regs~1711                                ; Lost fanout                            ;
-; regs~1712                                ; Lost fanout                            ;
-; regs~1713                                ; Lost fanout                            ;
-; regs~1714                                ; Lost fanout                            ;
-; regs~1715                                ; Lost fanout                            ;
-; regs~1716                                ; Lost fanout                            ;
-; regs~1717                                ; Lost fanout                            ;
-; regs~1718                                ; Lost fanout                            ;
-; regs~1719                                ; Lost fanout                            ;
-; regs~1720                                ; Lost fanout                            ;
-; regs~1721                                ; Lost fanout                            ;
-; regs~1722                                ; Lost fanout                            ;
-; regs~1723                                ; Lost fanout                            ;
-; regs~1724                                ; Lost fanout                            ;
-; regs~1725                                ; Lost fanout                            ;
-; regs~1726                                ; Lost fanout                            ;
-; regs~1727                                ; Lost fanout                            ;
-; regs~1728                                ; Lost fanout                            ;
-; regs~1729                                ; Lost fanout                            ;
-; regs~1730                                ; Lost fanout                            ;
-; regs~1731                                ; Lost fanout                            ;
-; regs~1732                                ; Lost fanout                            ;
-; regs~1733                                ; Lost fanout                            ;
-; regs~1734                                ; Lost fanout                            ;
-; regs~1735                                ; Lost fanout                            ;
-; regs~1736                                ; Lost fanout                            ;
-; regs~1737                                ; Lost fanout                            ;
-; regs~1738                                ; Lost fanout                            ;
-; regs~1739                                ; Lost fanout                            ;
-; regs~1740                                ; Lost fanout                            ;
-; regs~1741                                ; Lost fanout                            ;
-; regs~1742                                ; Lost fanout                            ;
-; regs~1743                                ; Lost fanout                            ;
-; regs~1744                                ; Lost fanout                            ;
-; regs~1745                                ; Lost fanout                            ;
-; regs~1746                                ; Lost fanout                            ;
-; regs~1747                                ; Lost fanout                            ;
-; regs~1748                                ; Lost fanout                            ;
-; regs~1749                                ; Lost fanout                            ;
-; regs~1750                                ; Lost fanout                            ;
-; regs~1751                                ; Lost fanout                            ;
-; regs~1752                                ; Lost fanout                            ;
-; regs~1753                                ; Lost fanout                            ;
-; regs~1754                                ; Lost fanout                            ;
-; regs~1755                                ; Lost fanout                            ;
-; regs~1756                                ; Lost fanout                            ;
-; regs~1757                                ; Lost fanout                            ;
-; regs~1758                                ; Lost fanout                            ;
-; regs~1759                                ; Lost fanout                            ;
-; regs~1760                                ; Lost fanout                            ;
-; regs~1761                                ; Lost fanout                            ;
-; regs~1762                                ; Lost fanout                            ;
-; regs~1763                                ; Lost fanout                            ;
-; regs~1764                                ; Lost fanout                            ;
-; regs~1765                                ; Lost fanout                            ;
-; regs~1766                                ; Lost fanout                            ;
-; regs~1767                                ; Lost fanout                            ;
-; regs~1768                                ; Lost fanout                            ;
-; regs~1769                                ; Lost fanout                            ;
-; regs~1770                                ; Lost fanout                            ;
-; regs~1771                                ; Lost fanout                            ;
-; regs~1772                                ; Lost fanout                            ;
-; regs~1773                                ; Lost fanout                            ;
-; regs~1774                                ; Lost fanout                            ;
-; regs~1775                                ; Lost fanout                            ;
-; regs~1776                                ; Lost fanout                            ;
-; regs~1777                                ; Lost fanout                            ;
-; regs~1778                                ; Lost fanout                            ;
-; regs~1779                                ; Lost fanout                            ;
-; regs~1780                                ; Lost fanout                            ;
-; regs~1781                                ; Lost fanout                            ;
-; regs~1782                                ; Lost fanout                            ;
-; regs~1783                                ; Lost fanout                            ;
-; regs~1784                                ; Lost fanout                            ;
-; regs~1785                                ; Lost fanout                            ;
-; regs~1786                                ; Lost fanout                            ;
-; regs~1787                                ; Lost fanout                            ;
-; regs~1788                                ; Lost fanout                            ;
-; regs~1789                                ; Lost fanout                            ;
-; regs~1790                                ; Lost fanout                            ;
-; regs~1791                                ; Lost fanout                            ;
 ; regs~1792                                ; Lost fanout                            ;
 ; regs~1793                                ; Lost fanout                            ;
 ; regs~1794                                ; Lost fanout                            ;
@@ -1830,21 +1324,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; regs~2045                                ; Lost fanout                            ;
 ; regs~2046                                ; Lost fanout                            ;
 ; regs~2047                                ; Lost fanout                            ;
-; Total Number of Removed Registers = 1572 ;                                        ;
+; Total Number of Removed Registers = 1097 ;                                        ;
 +------------------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                            ;
-+---------------+---------------------------+--------------------------------------------------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                     ;
-+---------------+---------------------------+--------------------------------------------------------------------------------------------+
-; selpcplus_M   ; Stuck at GND              ; pcplus_M[0], pcplus_M[1], pcplus_M[4], pcplus_M[5], pcplus_M[6], pcplus_M[7], pcplus_M[8], ;
-;               ; due to stuck port data_in ; pcplus_M[9], pcplus_M[10], pcplus_M[11], pcplus_M[12], pcplus_M[13], pcplus_M[14],         ;
-;               ;                           ; pcplus_M[15], pcplus_M[16], pcplus_M[17], pcplus_M[18], pcplus_M[19], pcplus_M[20],        ;
-;               ;                           ; pcplus_M[21], pcplus_M[22], pcplus_M[23], pcplus_M[24], pcplus_M[25], pcplus_M[26],        ;
-;               ;                           ; pcplus_M[27], pcplus_M[28], pcplus_M[29], pcplus_M[30], pcplus_M[31]                       ;
-+---------------+---------------------------+--------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                   ;
++-----------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name               ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++-----------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Switches:switches|sdata[31] ; Stuck at GND              ; Switches:switches|prev[31], Switches:switches|prev[30], Switches:switches|prev[29], ;
+;                             ; due to stuck port data_in ; Switches:switches|prev[28], Switches:switches|prev[27], Switches:switches|prev[26], ;
+;                             ;                           ; Switches:switches|prev[25], Switches:switches|prev[24], Switches:switches|prev[23], ;
+;                             ;                           ; Switches:switches|prev[22], Switches:switches|prev[21], Switches:switches|prev[20], ;
+;                             ;                           ; Switches:switches|prev[19], Switches:switches|prev[18], Switches:switches|prev[17], ;
+;                             ;                           ; Switches:switches|prev[16], Switches:switches|prev[15], Switches:switches|prev[14], ;
+;                             ;                           ; Switches:switches|prev[13], Switches:switches|prev[12], Switches:switches|prev[11], ;
+;                             ;                           ; Switches:switches|prev[10]                                                          ;
++-----------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -1852,12 +1349,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 749   ;
-; Number of registers using Synchronous Clear  ; 32    ;
+; Total registers                              ; 1359  ;
+; Number of registers using Synchronous Clear  ; 64    ;
 ; Number of registers using Synchronous Load   ; 1     ;
-; Number of registers using Asynchronous Clear ; 141   ;
+; Number of registers using Asynchronous Clear ; 180   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 610   ;
+; Number of registers using Clock Enable       ; 1178  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1880,33 +1377,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (No Restructuring Performed)                                                                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
-; 4:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |Project|PC[26]              ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |Project|Timer:timer|cnt[23] ;
-; 12:1               ; 17 bits   ; 136 LEs       ; 85 LEs               ; 51 LEs                 ; Yes        ; |Project|aluout_M[29]        ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss0|OUT    ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss1|OUT    ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss2|OUT    ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss3|OUT    ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss4|OUT    ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss5|OUT    ;
-; 5:1                ; 30 bits   ; 90 LEs        ; 90 LEs               ; 0 LEs                  ; No         ; |Project|dbus[6]             ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Project|dbus[1]             ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; No         ; |Project|Selector38          ;
-; 12:1               ; 14 bits   ; 112 LEs       ; 84 LEs               ; 28 LEs                 ; No         ; |Project|Selector22          ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |Project|wregval_M[25]       ;
-; 8:1                ; 14 bits   ; 70 LEs        ; 56 LEs               ; 14 LEs                 ; No         ; |Project|wregval_M[22]       ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; No         ; |Project|wregval_M[9]        ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |Project|wregval_M[1]        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (No Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Project|PC[1]                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project|Switches:switches|bounceTimer[2] ;
+; 4:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |Project|PC[27]                           ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |Project|Timer:timer|cnt[19]              ;
+; 12:1               ; 17 bits   ; 136 LEs       ; 85 LEs               ; 51 LEs                 ; Yes        ; |Project|aluout_M[24]                     ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |Project|pcgood_B[19]                     ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss0|OUT                 ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss1|OUT                 ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss2|OUT                 ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss3|OUT                 ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss4|OUT                 ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss5|OUT                 ;
+; 11:1               ; 6 bits    ; 42 LEs        ; 36 LEs               ; 6 LEs                  ; No         ; |Project|Selector36                       ;
+; 12:1               ; 14 bits   ; 112 LEs       ; 84 LEs               ; 28 LEs                 ; No         ; |Project|Selector29                       ;
+; 7:1                ; 22 bits   ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; No         ; |Project|dbus[11]                         ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |Project|wregval_M[27]                    ;
+; 8:1                ; 14 bits   ; 70 LEs        ; 56 LEs               ; 14 LEs                 ; No         ; |Project|wregval_M[15]                    ;
+; 8:1                ; 10 bits   ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|wregval_M[8]                     ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Project|dbus[7]                          ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Project|dbus[0]                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 
 
 +-----------------------------------------------------------------------------+
-; Source assignments for altsyncram:dmem_rtl_0|altsyncram_ucl1:auto_generated ;
+; Source assignments for altsyncram:dmem_rtl_0|altsyncram_ftk1:auto_generated ;
 +---------------------------------+-------+------+----------------------------+
 ; Assignment                      ; Value ; From ; To                         ;
 +---------------------------------+-------+------+----------------------------+
@@ -1933,7 +1433,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ADDRTCNT       ; 11111111111111111111000100000000 ; Unsigned Binary     ;
 ; ADDRTLIM       ; 11111111111111111111000100000100 ; Unsigned Binary     ;
 ; ADDRTCTL       ; 11111111111111111111000100001000 ; Unsigned Binary     ;
-; IMEMINITFILE   ; TimerTest.mif                    ; String              ;
+; IMEMINITFILE   ; Test2.mif                        ; String              ;
 ; IMEMADDRBITS   ; 16                               ; Signed Integer      ;
 ; IMEMWORDBITS   ; 2                                ; Signed Integer      ;
 ; IMEMWORDS      ; 16384                            ; Signed Integer      ;
@@ -2241,6 +1741,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Keys:keys              ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; BITS           ; 32                               ; Signed Integer  ;
+; BASE           ; 11111111111111111111000010000000 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Switches:switches      ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; BITS           ; 32                               ; Signed Integer  ;
+; BASE           ; 11111111111111111111000010000000 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: altsyncram:dmem_rtl_0     ;
 +------------------------------------+----------------------+----------------+
@@ -2284,7 +1806,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped        ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
-; INIT_FILE                          ; TimerTest.mif        ; Untyped        ;
+; INIT_FILE                          ; Test2.mif            ; Untyped        ;
 ; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
 ; MAXIMUM_DEPTH                      ; 0                    ; Untyped        ;
 ; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
@@ -2297,7 +1819,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
 ; WIDTH_ECCSTATUS                    ; 3                    ; Untyped        ;
 ; DEVICE_FAMILY                      ; Cyclone V            ; Untyped        ;
-; CBXI_PARAMETER                     ; altsyncram_ucl1      ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ftk1      ; Untyped        ;
 +------------------------------------+----------------------+----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -2320,6 +1842,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                  ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ;
 +-------------------------------------------+-----------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "Switches:switches"      ;
++-------+--------+----------+------------------------+
+; Port  ; Type   ; Severity ; Details                ;
++-------+--------+----------+------------------------+
+; INTR  ; Output ; Info     ; Explicitly unconnected ;
+; DEBUG ; Input  ; Info     ; Explicitly unconnected ;
++-------+--------+----------+------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "Keys:keys"              ;
++-------+--------+----------+------------------------+
+; Port  ; Type   ; Severity ; Details                ;
++-------+--------+----------+------------------------+
+; INTR  ; Output ; Info     ; Explicitly unconnected ;
+; DEBUG ; Input  ; Info     ; Explicitly unconnected ;
++-------+--------+----------+------------------------+
 
 
 +----------------------------------------------------+
@@ -2391,33 +1933,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 749                         ;
-;     CLR               ; 75                          ;
-;     ENA               ; 512                         ;
+; arriav_ff             ; 1359                        ;
+;     CLR               ; 82                          ;
+;     ENA               ; 1048                        ;
 ;     ENA CLR           ; 66                          ;
+;     ENA CLR SCLR      ; 32                          ;
 ;     ENA SCLR          ; 32                          ;
 ;     SLD               ; 1                           ;
-;     plain             ; 63                          ;
-; arriav_lcell_comb     ; 1101                        ;
-;     arith             ; 221                         ;
+;     plain             ; 98                          ;
+; arriav_lcell_comb     ; 1818                        ;
+;     arith             ; 283                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 126                         ;
-;         5 data inputs ; 94                          ;
-;     extend            ; 44                          ;
-;         7 data inputs ; 44                          ;
-;     normal            ; 836                         ;
-;         1 data inputs ; 17                          ;
-;         2 data inputs ; 23                          ;
-;         3 data inputs ; 113                         ;
-;         4 data inputs ; 205                         ;
-;         5 data inputs ; 132                         ;
-;         6 data inputs ; 346                         ;
+;         1 data inputs ; 158                         ;
+;         5 data inputs ; 124                         ;
+;     extend            ; 576                         ;
+;         7 data inputs ; 576                         ;
+;     normal            ; 959                         ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 53                          ;
+;         3 data inputs ; 82                          ;
+;         4 data inputs ; 285                         ;
+;         5 data inputs ; 110                         ;
+;         6 data inputs ; 409                         ;
 ; boundary_port         ; 68                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 14.00                       ;
-; Average LUT depth     ; 8.87                        ;
+; Max LUT depth         ; 16.00                       ;
+; Average LUT depth     ; 10.71                       ;
 +-----------------------+-----------------------------+
 
 
@@ -2426,7 +1969,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:11     ;
+; Top            ; 00:00:12     ;
 +----------------+--------------+
 
 
@@ -2436,26 +1979,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Mar 16 02:56:04 2018
+    Info: Processing started: Fri Mar 16 04:45:35 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Debug
 Info (20032): Parallel compilation is enabled and will use up to 2 processors
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
     Info (12023): Found entity 1: Pll File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
     Info (12023): Found entity 1: Pll_0002 File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll/Pll_0002.v Line: 2
-Info (12021): Found 3 design units, including 3 entities, in source file project.v
+Info (12021): Found 5 design units, including 5 entities, in source file project.v
     Info (12023): Found entity 1: Project File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 1
-    Info (12023): Found entity 2: SXT File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 345
-    Info (12023): Found entity 3: Timer File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 354
+    Info (12023): Found entity 2: SXT File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 349
+    Info (12023): Found entity 3: Timer File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 358
+    Info (12023): Found entity 4: Keys File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 495
+    Info (12023): Found entity 5: Switches File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 545
 Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.v
     Info (12023): Found entity 1: SevenSeg File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/SevenSeg.v Line: 1
 Info (12127): Elaborating entity "Project" for the top level hierarchy
 Warning (10858): Verilog HDL warning at Project.v(98): object imem used but never assigned File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 98
-Warning (10036): Verilog HDL or VHDL warning at Project.v(333): object "aluimm_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 333
-Warning (10036): Verilog HDL or VHDL warning at Project.v(333): object "isbranch_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 333
-Warning (10036): Verilog HDL or VHDL warning at Project.v(333): object "isjump_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 333
-Warning (10036): Verilog HDL or VHDL warning at Project.v(333): object "isnop_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 333
-Warning (10036): Verilog HDL or VHDL warning at Project.v(333): object "isjumpR_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 333
+Warning (10036): Verilog HDL or VHDL warning at Project.v(337): object "aluimm_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 337
+Warning (10036): Verilog HDL or VHDL warning at Project.v(337): object "isbranch_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 337
+Warning (10036): Verilog HDL or VHDL warning at Project.v(337): object "isjump_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 337
+Warning (10036): Verilog HDL or VHDL warning at Project.v(337): object "isnop_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 337
+Warning (10036): Verilog HDL or VHDL warning at Project.v(337): object "isjumpR_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 337
 Info (12128): Elaborating entity "Pll" for hierarchy "Pll:myPll" File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 76
 Info (12128): Elaborating entity "Pll_0002" for hierarchy "Pll:myPll|Pll_0002:pll_inst" File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll.v Line: 20
 Info (12128): Elaborating entity "altera_pll" for hierarchy "Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Pll/Pll_0002.v Line: 85
@@ -2525,75 +2070,81 @@ Info (12133): Instantiated megafunction "Pll:myPll|Pll_0002:pll_inst|altera_pll:
 Info (12128): Elaborating entity "SXT" for hierarchy "SXT:sxt1" File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 116
 Info (12128): Elaborating entity "SevenSeg" for hierarchy "SevenSeg:ss5" File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 200
 Info (12128): Elaborating entity "Timer" for hierarchy "Timer:timer" File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 254
-Warning (10034): Output port "INTR" at Project.v(362) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 362
+Warning (10034): Output port "INTR" at Project.v(366) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 366
+Info (12128): Elaborating entity "Keys" for hierarchy "Keys:keys" File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 256
+Warning (10034): Output port "INTR" at Project.v(504) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 504
+Info (12128): Elaborating entity "Switches" for hierarchy "Switches:switches" File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 258
+Warning (10858): Verilog HDL warning at Project.v(559): object prevBounce used but never assigned File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 559
+Warning (10030): Net "prevBounce" at Project.v(559) has no driver or initial value, using a default initial value '0' File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 559
+Warning (10034): Output port "INTR" at Project.v(554) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 554
 Info (276024): Pass-through logic not created for RAM node "dmem_rtl_0"
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276007): RAM logic "regs" is uninferred due to asynchronous read logic File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 119
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13049): Converted tri-state buffer "memout_M[31]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[30]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[29]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[28]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[27]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[26]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[25]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[24]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[23]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[22]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[21]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[20]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[19]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[18]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[17]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[16]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[15]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[14]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[13]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[12]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[11]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[10]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[9]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[8]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[7]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[6]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[5]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[4]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[3]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[2]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[1]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13049): Converted tri-state buffer "memout_M[0]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[31]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[30]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[29]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[28]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[27]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[26]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[25]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[24]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[23]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[22]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[21]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[20]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[19]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[18]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[17]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[16]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[15]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[14]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[13]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[12]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[11]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[10]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 263
-    Warning (13048): Converted tri-state node "dbus[9]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 400
-    Warning (13048): Converted tri-state node "dbus[8]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 400
-    Warning (13048): Converted tri-state node "dbus[7]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 400
-    Warning (13048): Converted tri-state node "dbus[6]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 400
-    Warning (13048): Converted tri-state node "dbus[5]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 400
-    Warning (13048): Converted tri-state node "dbus[4]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 400
-    Warning (13048): Converted tri-state node "dbus[3]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 400
-    Warning (13048): Converted tri-state node "dbus[2]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 400
-    Warning (13048): Converted tri-state node "dbus[1]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 365
-    Warning (13048): Converted tri-state node "dbus[0]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 365
+    Warning (13049): Converted tri-state buffer "memout_M[31]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[30]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[29]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[28]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[27]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[26]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[25]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[24]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[23]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[22]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[21]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[20]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[19]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[18]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[17]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[16]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[15]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[14]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[13]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[12]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[11]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[10]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[9]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[8]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[7]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[6]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[5]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[4]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[3]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[2]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[1]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13049): Converted tri-state buffer "memout_M[0]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[31]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[30]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[29]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[28]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[27]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[26]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[25]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[24]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[23]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[22]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[21]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[20]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[19]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[18]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[17]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[16]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[15]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[14]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[13]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[12]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[11]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[10]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 267
+    Warning (13048): Converted tri-state node "dbus[9]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 404
+    Warning (13048): Converted tri-state node "dbus[8]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 404
+    Warning (13048): Converted tri-state node "dbus[7]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 404
+    Warning (13048): Converted tri-state node "dbus[6]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 404
+    Warning (13048): Converted tri-state node "dbus[5]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 404
+    Warning (13048): Converted tri-state node "dbus[4]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 404
+    Warning (13048): Converted tri-state node "dbus[3]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 507
+    Warning (13048): Converted tri-state node "dbus[2]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 404
+    Warning (13048): Converted tri-state node "dbus[1]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 557
+    Warning (13048): Converted tri-state node "dbus[0]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project.v Line: 369
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "dmem_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -2610,7 +2161,7 @@ Info (19000): Inferred 1 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter INIT_FILE set to TimerTest.mif
+        Info (286033): Parameter INIT_FILE set to Test2.mif
 Info (12130): Elaborated megafunction instantiation "altsyncram:dmem_rtl_0"
 Info (12133): Instantiated megafunction "altsyncram:dmem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -2627,27 +2178,27 @@ Info (12133): Instantiated megafunction "altsyncram:dmem_rtl_0" with the followi
     Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "INIT_FILE" = "TimerTest.mif"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ucl1.tdf
-    Info (12023): Found entity 1: altsyncram_ucl1 File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/altsyncram_ucl1.tdf Line: 31
+    Info (12134): Parameter "INIT_FILE" = "Test2.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ftk1.tdf
+    Info (12023): Found entity 1: altsyncram_ftk1 File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/altsyncram_ftk1.tdf Line: 31
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_5la.tdf
     Info (12023): Found entity 1: decode_5la File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/decode_5la.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
     Info (12023): Found entity 1: mux_2hb File: C:/Users/alanh/Documents/Github/Project_2/Project1_restored/db/mux_2hb.tdf Line: 22
 Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (17049): 1568 registers lost all their fanouts during netlist optimizations.
+Info (17049): 1024 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1846 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3127 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 1713 logic cells
+    Info (21061): Implemented 2994 logic cells
     Info (21064): Implemented 64 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 73 warnings
-    Info: Peak virtual memory: 897 megabytes
-    Info: Processing ended: Fri Mar 16 02:56:39 2018
-    Info: Elapsed time: 00:00:35
-    Info: Total CPU time (on all processors): 00:00:50
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 77 warnings
+    Info: Peak virtual memory: 901 megabytes
+    Info: Processing ended: Fri Mar 16 04:46:06 2018
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:51
 
 

@@ -26,7 +26,7 @@ module Project(
   parameter ADDRTCNT =32'hFFFFF100;
   parameter ADDRTLIM =32'hFFFFF104;
   parameter ADDRTCTL =32'hFFFFF108;
-  parameter IMEMINITFILE="TimerTest.mif";
+  parameter IMEMINITFILE="Test2.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
@@ -250,13 +250,17 @@ module Project(
   assign we=wrmem_M;
   assign dbus=wrmem_M?wmemval_M:{DBITS{1'bz}};
 
-  Timer #(.BITS(DBITS), .BASE(32'hFFFFF100))
+  Timer #(.BITS(DBITS), .BASE(ADDRTCNT))
     timer(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG());
+  Keys #(.BITS(DBITS), .BASE(ADDRKEY))
+    keys(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.KEY(KEY));
+  Switches #(.BITS(DBITS), .BASE(ADDRSW))
+    switches(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.SW(SW));
 
 	wire [(DBITS-1):0] memout_M=
 		MemEnable?dbus:
-		(memaddr_M==ADDRKEY)?{12'b0,~KEY}:
-		(memaddr_M==ADDRSW)? { 6'b0,SW}:
+		(memaddr_M==ADDRKEY)?dbus:
+		(memaddr_M==ADDRSW)?dbus:
     (memaddr_M==ADDRHEX)?{8'b0,HexOut}:
     (memaddr_M==ADDRLEDR)?{22'b0,led}:
     ((memaddr_M==ADDRTCNT)||(memaddr_M==ADDRTLIM)||(memaddr_M==ADDRTCTL)&&!wrmem_M)?dbus:
@@ -404,10 +408,10 @@ module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
       lim<=DBUS;
       cnt<={BITS{1'b0}};
     end else if(wrCtl) begin
-      if(DBUS[0])
-        ready<=1'b1;
-      if(DBUS[1])
-        overrun<=1'b1;
+      if(!DBUS[0])
+        ready<=DBUS[0];
+      if(!DBUS[1])
+        overrun<=DBUS[1];
     end else if(clkTimer_div >= 32'd59999999) begin
       clkTimer_div<=32'd0;
       if(atLim) begin
@@ -481,8 +485,124 @@ module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
   end
 */
 
-  assign DBUS=rdCtl?{30'b0,overrun,ready}:
+  assign DBUS=
+      rdCtl?{30'b0,overrun,ready}:
       rdCnt?cnt:
       rdLim?lim:
       {BITS{1'bz}};
+endmodule
+
+module Keys(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,KEY);
+  parameter BITS;
+  parameter BASE;
+
+  input wire DEBUG;
+  input wire [3:0] KEY;
+  input wire [(BITS-1):0] ABUS;
+  inout wire [(BITS-1):0] DBUS;
+  input wire WE,CLK,LOCK,RESET;
+  output wire INTR;
+
+  wire [(BITS-1):0] kdata;
+  reg ready,overrun,ie;
+  assign kdata={12'b0,~KEY};
+  reg [(BITS-1):0] prev;
+
+  wire selKdata=(ABUS==BASE);
+  wire rdKdata=(!WE)&&selKdata;
+
+  wire selKctrl=(ABUS==BASE+4);
+  wire wrKctrl=WE&&selKctrl;
+  wire rdKctrl=(!WE)&&selKctrl;
+
+  always @(posedge CLK or posedge RESET) begin
+    if(RESET) begin
+      {ready,overrun,ie}<={3'b0};
+    end else if(wrKctrl) begin
+      if(!DBUS[1])
+        overrun<=DBUS[1];
+      ie<=DBUS[3];
+    end else if(rdKdata) begin
+      ready<=1'b0;
+    end else begin
+      if(kdata!=prev) begin
+        if(ready)
+          overrun<=1'b1;
+        else
+          ready<=1'b1;
+      end else begin
+        prev<=kdata;
+      end
+    end
+  end
+
+  assign DBUS=
+    rdKctrl?{28'b0,ie,1'b0,overrun,ready}:
+    rdKdata?kdata:
+    {BITS{1'bz}};
+endmodule
+
+module Switches(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,SW);
+  parameter BITS;
+  parameter BASE;
+
+  input wire DEBUG;
+  input wire [9:0] SW;
+  input wire [(BITS-1):0] ABUS;
+  inout wire [(BITS-1):0] DBUS;
+  input wire WE,CLK,LOCK,RESET;
+  output wire INTR;
+
+  reg [(BITS-1):0] sdata;
+  reg ready,overrun,ie;
+  wire [(BITS-1):0] rawSW={6'b0,SW};
+  reg [(BITS-1):0] prevBounce,prev;
+  reg [(BITS-1):0] bounceTimer;
+  reg bouncing;
+
+  wire selSdata=(ABUS==BASE);
+  wire rdSdata=(!WE)&&selSdata;
+
+  wire selSctrl=(ABUS==BASE+4);
+  wire wrSctrl=WE&&selSctrl;
+  wire rdSctrl=(!WE)&&selSctrl;
+
+  always @(posedge CLK or posedge RESET) begin
+    if(RESET) begin
+      {ready,overrun,ie}<={3'b0};
+      bounceTimer<={BITS{1'b0}};
+    end else if(wrSctrl) begin
+      if(!DBUS[1])
+        overrun<=DBUS[1];
+      ie<=DBUS[3];
+    end else if(rdSdata) begin
+      ready<=1'b0;
+    end else begin
+      if(!bouncing) begin
+        if(rawSW!=prevBounce) begin
+          bounceTimer<={BITS{1'b0}};
+          bouncing<=1'b1;
+        end
+      end else begin
+        if(bounceTimer>=600000) begin
+          bouncing<=1'b0;
+          sdata<=rawSW;
+        end
+        bounceTimer<=bounceTimer+1'b1;
+      end
+      if(sdata!=prev) begin
+        if(ready)
+          overrun<=1'b1;
+        else
+          ready<=1'b1;
+      end else begin
+        prev<=sdata;
+      end
+    end
+  end
+
+  assign DBUS=
+    rdSctrl?{28'b0,ie,1'b0,overrun,ready}:
+    rdSdata?sdata:
+    {BITS{1'bz}};
 endmodule
