@@ -5,20 +5,41 @@
 .NAME   SW=  0xFFFFF090
 .NAME   TIMER=0xFFFFF100
 .NAME   TLIM=0xFFFFF104
-.NAME	  TimerMax=86399		; max number of seconds
-.NAME	  Count = 86390		; After reset time should be 23:59:50
+.NAME	  TimerMax = 86399	; 23:59:29
+.NAME	  Count = 86390		; 23:59:50
 
 .ORIG 0x100
 	 lw		a1,Max(Zero)
-    sw      a1,TLIM(Zero)
+    sw      a1,TLIM(Zero)	; sets max of timer to 23:59:59
 	 lw		a2,Reset(Zero)
-    sw      a2,TIMER(Zero)
+    sw      a2,TIMER(Zero)	; sets initial value of timer to 23:59:50
+	 addi		a0,Zero,1
+	 addi		a1,Zero,2
+	 addi		a2,Zero,4
+	 addi		a3,Zero,8
 Loop:
     lw      s0,TIMER(Zero)
     sw      s0,HEX(Zero)
-    lw      t1,KEY(Zero)    ;If key pressed, reset counter to zero
-    bne     t1,Zero,Res
+    
+	 lw      t1,KEY(Zero)   ;	If key pressed, reset counter to zero
+	 lw		t2, TIMER(Zero)
+    beq     t1,a0,Time
     br      Loop
+
+Time: 		; checks that key[0] is pressed for 2 seconds
+	 lw      s0,TIMER(Zero)
+	 subi		s1, s0, 2
+    sw      s0,HEX(Zero)
+				; check if key has been released -> break to main loop
+	 lw		t1,KEY(Zero)
+	 beq		t1,Zero,Loop
+				; check for 2 sec hold
+	 blt		t2,s1,DispMode
+	 br		Time
+	 
+DispMode:
+	 jmp		
+	 
 Res:
     addi    s0,Zero,0
     sw      s0,TIMER(Zero)
