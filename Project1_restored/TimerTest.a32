@@ -5,11 +5,11 @@
 .NAME   SW=  0xFFFFF090
 .NAME   TIMER=0xFFFFF100
 .NAME   TLIM=0xFFFFF104
+.NAME     TimerMax = 10000   ; 10 s
 
 .ORIG 0x100
-    addi    a0,Zero,10
-    addi    a1,Zero,4
-    sw      a0,TLIM(Zero) ;Set limit to 10 s
+    lw      a1,Max(Zero)
+    sw      a1,TLIM(Zero)   ; sets max of timer to max
 Loop:
     lw      s0,TIMER(Zero)
     sw      s0,HEX(Zero)
@@ -20,3 +20,6 @@ Res:
     addi    s0,Zero,0
     sw      s0,TIMER(Zero)
     br      Loop
+
+Max:
+.WORD TimerMax

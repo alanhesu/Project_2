@@ -76,9 +76,10 @@ printTime() {
     if (storeMS < printCheck) {
         seconds++
         if (seconds == 60) {
-            seconds == 0
+            seconds = 0
             minutes++
             if (minutes == 60) {
+                minutes = 0
                 hours++
             }
         }
@@ -92,13 +93,20 @@ convertHex2Dec() {
     secondTens = div(seconds,10,*secondOnes)
     minuteTens = div(minutes,10,*minuteOnes)
     hourTens = div(hours,10,*hourOnes)
-    a = secondOnes
-    b = mult(secondTens,16)
-    c = mult(minuteOnes,16)
-    d = mult(minuteTens,16)
-    e = mult(hourOnes,16)
+    val = 0
     f = mult(hourTens,16)
-    return f + e + d + c + b + a
+    val = f + hourOnes
+    f = mult(val,16)
+    val = f + minuteTens
+    f = mult(val,16)
+    val = f + minuteOnes
+    f = mult(val,16)
+    val = f + secondTens
+    f = mult(val,16)
+    val = f + secondOnes
+
+    return val
+}
 
 mult(a,b) {
     while(a > 0) {
@@ -109,7 +117,7 @@ mult(a,b) {
 
 div(a,b,rem) {
     quot = 0
-    while(a > b) {
+    while(a >= b) {
         a -= b
         quot++
     }

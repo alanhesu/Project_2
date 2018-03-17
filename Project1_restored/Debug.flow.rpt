@@ -1,5 +1,5 @@
 Flow report for Debug
-Fri Mar 16 13:55:06 2018
+Fri Mar 16 23:11:56 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Fri Mar 16 13:55:06 2018       ;
+; Flow Status                     ; Successful - Fri Mar 16 23:11:56 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Debug                                       ;
 ; Top-level Entity Name           ; Project                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CEBA4F23C7                                 ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 1,246 / 18,480 ( 7 % )                      ;
-; Total registers                 ; 1516                                        ;
+; Logic utilization (in ALMs)     ; 2,279 / 18,480 ( 12 % )                     ;
+; Total registers                 ; 2987                                        ;
 ; Total pins                      ; 68 / 224 ( 30 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 524,288 / 3,153,920 ( 17 % )                ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/16/2018 13:51:54 ;
+; Start date & time ; 03/16/2018 23:07:45 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Debug               ;
 +-------------------+---------------------+
@@ -82,7 +82,7 @@ refer to the applicable agreement for further details.
 ; ALLOW_REGISTER_RETIMING                              ; Off                                    ; On                 ; --          ; --             ;
 ; ALM_REGISTER_PACKING_EFFORT                          ; Low                                    ; Medium             ; --          ; --             ;
 ; AUTO_DELAY_CHAINS_FOR_HIGH_FANOUT_INPUT_PINS         ; On                                     ; Off                ; --          ; --             ;
-; COMPILER_SIGNATURE_ID                                ; 277351190934345.152122271309572        ; --                 ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                                ; 277351190934345.152125606408072        ; --                 ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME                             ; NA                                     ; --                 ; --          ; Project        ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH                 ; Project                                ; --                 ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT                               ; Verilog Hdl                            ; --                 ; --          ; eda_simulation ;
@@ -128,13 +128,13 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:27     ; 1.0                     ; 766 MB              ; 00:00:47                           ;
-; Fitter                    ; 00:01:47     ; 1.1                     ; 2048 MB             ; 00:02:49                           ;
-; Assembler                 ; 00:00:11     ; 1.0                     ; 776 MB              ; 00:00:08                           ;
-; TimeQuest Timing Analyzer ; 00:00:26     ; 1.4                     ; 1065 MB             ; 00:00:29                           ;
-; Design Assistant          ; 00:00:03     ; 1.0                     ; 685 MB              ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 760 MB              ; 00:00:04                           ;
-; Total                     ; 00:02:58     ; --                      ; --                  ; 00:04:20                           ;
+; Analysis & Synthesis      ; 00:00:41     ; 1.0                     ; 758 MB              ; 00:00:56                           ;
+; Fitter                    ; 00:02:29     ; 1.1                     ; 2029 MB             ; 00:04:00                           ;
+; Assembler                 ; 00:00:10     ; 1.0                     ; 785 MB              ; 00:00:08                           ;
+; TimeQuest Timing Analyzer ; 00:00:29     ; 1.6                     ; 1097 MB             ; 00:00:41                           ;
+; Design Assistant          ; 00:00:03     ; 1.0                     ; 711 MB              ; 00:00:04                           ;
+; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 788 MB              ; 00:00:04                           ;
+; Total                     ; 00:03:56     ; --                      ; --                  ; 00:05:53                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

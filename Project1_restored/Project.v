@@ -26,7 +26,7 @@ module Project(
   parameter ADDRTCNT =32'hFFFFF100;
   parameter ADDRTLIM =32'hFFFFF104;
   parameter ADDRTCTL =32'hFFFFF108;
-  parameter IMEMINITFILE="Sorter3.mif";
+  parameter IMEMINITFILE="Clock.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
@@ -416,7 +416,7 @@ module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
         ready<=DBUS[0];
       if(!DBUS[1])
         overrun<=DBUS[1];
-    end else if(clkTimer_div >= 32'd59999999) begin
+    end else if(clkTimer_div >= 32'd54999) begin
       clkTimer_div<=32'd0;
       if(atLim) begin
         if(!wrCnt)
