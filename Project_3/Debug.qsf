@@ -1,0 +1,345 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions
+# and other software and tools, and its AMPP partner logic
+# functions, and any output files from any of the foregoing
+# (including device programming or simulation files), and any
+# associated documentation or information are expressly subject
+# to the terms and conditions of the Altera Program License
+# Subscription Agreement, the Altera Quartus Prime License Agreement,
+# the Altera MegaCore Function License Agreement, or other
+# applicable license agreement, including, without limitation,
+# that your use is for the sole purpose of programming logic
+# devices manufactured by Altera and sold by Altera or its
+# authorized distributors.  Please refer to the applicable
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+# Date created = 10:58:21  February 02, 2016
+#
+# -------------------------------------------------------------------------- #
+
+set_location_assignment PIN_M9 -to CLOCK_50
+set_location_assignment PIN_H13 -to CLOCK2_50 -disable
+set_location_assignment PIN_E10 -to CLOCK3_50 -disable
+set_location_assignment PIN_V15 -to CLOCK4_50 -disable
+set_location_assignment PIN_U21 -to HEX0[0]
+set_location_assignment PIN_V21 -to HEX0[1]
+set_location_assignment PIN_W22 -to HEX0[2]
+set_location_assignment PIN_W21 -to HEX0[3]
+set_location_assignment PIN_Y22 -to HEX0[4]
+set_location_assignment PIN_Y21 -to HEX0[5]
+set_location_assignment PIN_AA22 -to HEX0[6]
+set_location_assignment PIN_AA20 -to HEX1[0]
+set_location_assignment PIN_AB20 -to HEX1[1]
+set_location_assignment PIN_AA19 -to HEX1[2]
+set_location_assignment PIN_AA18 -to HEX1[3]
+set_location_assignment PIN_AB18 -to HEX1[4]
+set_location_assignment PIN_AA17 -to HEX1[5]
+set_location_assignment PIN_U22 -to HEX1[6]
+set_location_assignment PIN_Y19 -to HEX2[0]
+set_location_assignment PIN_AB17 -to HEX2[1]
+set_location_assignment PIN_AA10 -to HEX2[2]
+set_location_assignment PIN_Y14 -to HEX2[3]
+set_location_assignment PIN_V14 -to HEX2[4]
+set_location_assignment PIN_AB22 -to HEX2[5]
+set_location_assignment PIN_AB21 -to HEX2[6]
+set_location_assignment PIN_Y16 -to HEX3[0]
+set_location_assignment PIN_W16 -to HEX3[1]
+set_location_assignment PIN_Y17 -to HEX3[2]
+set_location_assignment PIN_V16 -to HEX3[3]
+set_location_assignment PIN_U17 -to HEX3[4]
+set_location_assignment PIN_V18 -to HEX3[5]
+set_location_assignment PIN_V19 -to HEX3[6]
+set_location_assignment PIN_U20 -to HEX4[0]
+set_location_assignment PIN_Y20 -to HEX4[1]
+set_location_assignment PIN_V20 -to HEX4[2]
+set_location_assignment PIN_U16 -to HEX4[3]
+set_location_assignment PIN_U15 -to HEX4[4]
+set_location_assignment PIN_Y15 -to HEX4[5]
+set_location_assignment PIN_P9 -to HEX4[6]
+set_location_assignment PIN_N9 -to HEX5[0]
+set_location_assignment PIN_M8 -to HEX5[1]
+set_location_assignment PIN_T14 -to HEX5[2]
+set_location_assignment PIN_P14 -to HEX5[3]
+set_location_assignment PIN_C1 -to HEX5[4]
+set_location_assignment PIN_C2 -to HEX5[5]
+set_location_assignment PIN_W19 -to HEX5[6]
+set_location_assignment PIN_U7 -to KEY[0]
+set_location_assignment PIN_W9 -to KEY[1]
+set_location_assignment PIN_M7 -to KEY[2]
+set_location_assignment PIN_M6 -to KEY[3]
+set_location_assignment PIN_P22 -to RESET_N
+set_location_assignment PIN_AA2 -to LEDR[0]
+set_location_assignment PIN_AA1 -to LEDR[1]
+set_location_assignment PIN_W2 -to LEDR[2]
+set_location_assignment PIN_Y3 -to LEDR[3]
+set_location_assignment PIN_N2 -to LEDR[4]
+set_location_assignment PIN_N1 -to LEDR[5]
+set_location_assignment PIN_U2 -to LEDR[6]
+set_location_assignment PIN_U1 -to LEDR[7]
+set_location_assignment PIN_L2 -to LEDR[8]
+set_location_assignment PIN_L1 -to LEDR[9]
+set_location_assignment PIN_U13 -to SW[0]
+set_location_assignment PIN_V13 -to SW[1]
+set_location_assignment PIN_T13 -to SW[2]
+set_location_assignment PIN_T12 -to SW[3]
+set_location_assignment PIN_AA15 -to SW[4]
+set_location_assignment PIN_AB15 -to SW[5]
+set_location_assignment PIN_AA14 -to SW[6]
+set_location_assignment PIN_AA13 -to SW[7]
+set_location_assignment PIN_AB13 -to SW[8]
+set_location_assignment PIN_AB12 -to SW[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -disable
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -disable
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK4_50 -disable
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RESET_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[9]
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CEBA4F23C7
+set_global_assignment -name TOP_LEVEL_ENTITY Project
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 15.1.0
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:26:19  FEBRUARY 22, 2016"
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name ENABLE_DRC_SETTINGS ON
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+
+set_instance_assignment -name SLEW_RATE 1 -to LEDR
+set_instance_assignment -name CURRENT_STRENGTH_NEW 16MA -to LEDR
+set_instance_assignment -name SLEW_RATE 1 -to HEX*
+set_instance_assignment -name CURRENT_STRENGTH_NEW 16MA -to HEX*
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name OPTIMIZATION_MODE BALANCED
+set_global_assignment -name MUX_RESTRUCTURE OFF
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
+set_global_assignment -name OPTIMIZATION_TECHNIQUE BALANCED
+set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS OFF
+set_global_assignment -name SYNCHRONIZATION_REGISTER_CHAIN_LENGTH 3
+set_global_assignment -name PRE_MAPPING_RESYNTHESIS ON
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM
+set_global_assignment -name ROUTER_CLOCKING_TOPOLOGY_ANALYSIS OFF
+set_global_assignment -name PLACEMENT_EFFORT_MULTIPLIER 0.1
+set_global_assignment -name PERIPHERY_TO_CORE_PLACEMENT_AND_ROUTING_OPTIMIZATION AUTO
+set_global_assignment -name AUTO_DELAY_CHAINS_FOR_HIGH_FANOUT_INPUT_PINS ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING ON
+set_global_assignment -name FITTER_EFFORT "FAST FIT"
+set_global_assignment -name PHYSICAL_SYNTHESIS_EFFORT EXTRA
+set_global_assignment -name ALM_REGISTER_PACKING_EFFORT LOW
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE DebugTap.stp
+set_global_assignment -name ENABLE_IP_DEBUG OFF
+set_global_assignment -name EXTRACT_VERILOG_STATE_MACHINES ON
+set_global_assignment -name EXTRACT_VHDL_STATE_MACHINES ON
+set_global_assignment -name DSP_BLOCK_BALANCING AUTO
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
+set_global_assignment -name REMOVE_DUPLICATE_REGISTERS ON
+set_global_assignment -name IGNORE_ROW_GLOBAL_BUFFERS OFF
+set_global_assignment -name STRATIXII_CARRY_CHAIN_LENGTH 70
+set_global_assignment -name AUTO_CARRY_CHAINS ON
+set_global_assignment -name AUTO_OPEN_DRAIN_PINS ON
+set_global_assignment -name AUTO_ROM_RECOGNITION ON
+set_global_assignment -name AUTO_RAM_RECOGNITION ON
+set_global_assignment -name AUTO_DSP_RECOGNITION ON
+set_global_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION AUTO
+set_global_assignment -name ALLOW_SHIFT_REGISTER_MERGING_ACROSS_HIERARCHIES AUTO
+set_global_assignment -name AUTO_CLOCK_ENABLE_RECOGNITION ON
+set_global_assignment -name ALLOW_SYNCH_CTRL_USAGE ON
+set_global_assignment -name AUTO_RESOURCE_SHARING OFF
+set_global_assignment -name ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION OFF
+set_global_assignment -name ALLOW_ANY_ROM_SIZE_FOR_RECOGNITION OFF
+set_global_assignment -name ALLOW_ANY_SHIFT_REGISTER_SIZE_FOR_RECOGNITION OFF
+set_global_assignment -name OPTIMIZE_POWER_DURING_SYNTHESIS OFF
+set_global_assignment -name NUMBER_OF_INVERTED_REGISTERS_REPORTED 100
+set_global_assignment -name SYNTH_CLOCK_MUX_PROTECTION ON
+set_global_assignment -name BLOCK_DESIGN_NAMING AUTO
+set_global_assignment -name SYNTH_MESSAGE_LEVEL MEDIUM
+set_global_assignment -name DISABLE_REGISTER_MERGING_ACROSS_HIERARCHIES AUTO
+set_global_assignment -name AUTO_PARALLEL_SYNTHESIS ON
+set_global_assignment -name REPORT_CONNECTIVITY_CHECKS ON
+set_global_assignment -name SYNTHESIS_EFFORT AUTO
+set_global_assignment -name BLOCK_RAM_AND_MLAB_EQUIVALENT_PAUSED_READ_CAPABILITIES CARE
+set_global_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF
+set_global_assignment -name ENABLE_BENEFICIAL_SKEW_OPTIMIZATION ON
+set_global_assignment -name ADVANCED_PHYSICAL_OPTIMIZATION ON
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS AUTO
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING OFF
+set_global_assignment -name ALLOW_REGISTER_RETIMING OFF
+
+set_global_assignment -name ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS OFF
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 2
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH Project -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME Project -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Project
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Project -section_id Project
+set_global_assignment -name EDA_TEST_BENCH_FILE Project.v -section_id Project
+set_global_assignment -name MIF_FILE TimerTest.mif
+set_global_assignment -name SOURCE_FILE TimerTest.a32
+set_global_assignment -name SOURCE_FILE TestSwitches.a32
+set_global_assignment -name MIF_FILE TestHexDec.mif
+set_global_assignment -name SOURCE_FILE TestHexDec.a32
+set_global_assignment -name MIF_FILE Test4.mif
+set_global_assignment -name SOURCE_FILE Test4.a32
+set_global_assignment -name MIF_FILE Test3.mif
+set_global_assignment -name SOURCE_FILE Test3.a32
+set_global_assignment -name SOURCE_FILE qar_info.json
+set_global_assignment -name TEXT_FILE Pseudoclock.txt
+set_global_assignment -name QARLOG_FILE Project2.qarlog
+set_global_assignment -name SOURCE_FILE Project2.mpf
+set_global_assignment -name SOURCE_FILE Project2.cr.mti
+set_global_assignment -name QARLOG_FILE Project_1.qarlog
+set_global_assignment -name QAR_FILE Project_1.qar
+set_global_assignment -name SOURCE_FILE Project.v.bak
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.sta.summary
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.sta.rpt
+set_global_assignment -name SRAM_OBJECT_FILE Project.sof
+set_global_assignment -name SOURCE_FILE Project.sld
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.restore.rpt
+set_global_assignment -name SOURCE_FILE Project.qws
+set_global_assignment -name SOURCE_FILE Project.qsf
+set_global_assignment -name SOURCE_FILE Project.qpf
+set_global_assignment -name PIN_FILE Project.pin
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.map.summary
+set_global_assignment -name SOURCE_FILE Project.map.smsg
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.map.rpt
+set_global_assignment -name SOURCE_FILE Project.jdi
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.flow.rpt
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.fit.summary
+set_global_assignment -name SOURCE_FILE Project.fit.smsg
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.fit.rpt
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.drc.rpt
+set_global_assignment -name SOURCE_FILE Project.done
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.asm.rpt
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Project.archive.rpt
+set_global_assignment -name SOURCE_FILE Pll.spd
+set_global_assignment -name SOURCE_FILE Pll.cmp
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug_nativelink_simulation.rpt
+set_global_assignment -name SOURCE_FILE Debug_assignment_defaults.qdf
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.sta.summary
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.sta.rpt
+set_global_assignment -name SRAM_OBJECT_FILE Debug.sof
+set_global_assignment -name SOURCE_FILE Debug.sld
+set_global_assignment -name SOURCE_FILE Debug.qsf
+set_global_assignment -name PIN_FILE Debug.pin
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.mif_update.rpt
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.map.summary
+set_global_assignment -name SOURCE_FILE Debug.map.smsg
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.map.rpt
+set_global_assignment -name SOURCE_FILE Debug.jdi
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.flow.rpt
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.fit.summary
+set_global_assignment -name SOURCE_FILE Debug.fit.smsg
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.fit.rpt
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.eda.rpt
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.drc.rpt
+set_global_assignment -name SOURCE_FILE Debug.done
+set_global_assignment -name CDF_FILE Debug.cdf
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.asm.rpt
+set_global_assignment -name TEXT_FORMAT_REPORT_FILE Debug.archive.rpt
+set_global_assignment -name MIF_FILE Clock2.mif
+set_global_assignment -name SOURCE_FILE Clock2.a32
+set_global_assignment -name TEXT_FILE c5_pin_model_dump.txt
+set_global_assignment -name SOURCE_FILE assembler.pl~
+set_global_assignment -name SOURCE_FILE assembler.pl
+set_global_assignment -name SOURCE_FILE Sorter3.a32
+set_global_assignment -name SOURCE_FILE Clock.a32
+set_global_assignment -name MIF_FILE Sorter3.mif
+set_global_assignment -name MIF_FILE Clock.mif
+set_global_assignment -name MIF_FILE Test2.mif
+set_global_assignment -name SOURCE_FILE Test2.a32
+set_global_assignment -name MIF_FILE Sorter2.mif
+set_global_assignment -name SOURCE_FILE Sorter2.a32
+set_global_assignment -name SDC_FILE Project.sdc
+set_global_assignment -name QIP_FILE Pll.qip
+set_global_assignment -name SIP_FILE Pll.sip
+set_global_assignment -name VERILOG_FILE Project.v
+set_global_assignment -name VERILOG_FILE SevenSeg.v
+set_global_assignment -name SIGNALTAP_FILE DebugTap.stp
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

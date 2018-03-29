@@ -1,0 +1,162 @@
+Restore Archived Project report for Debug
+Fri Mar 16 23:30:51 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Fri Mar 16 23:30:51 2018 ;
+; Revision Name                   ; Debug                                 ;
+; Top-level Entity Name           ; Project                               ;
+; Family                          ; Cyclone V                             ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'C:/Users/alanh/Documents/Github/Project_2/Project2Submission.qar' into the 'C:/Users/alanh/Documents/Github/Project_2/Project2Submission_restored/' directory
+Info: Generated report 'Debug.restore.rpt'
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 776 megabytes
+    Info: Processing ended: Fri Mar 16 23:30:53 2018
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:02
+
+
++---------------------------------+
+; Files Restored                  ;
++---------------------------------+
+; File Name                       ;
++---------------------------------+
+; qar_info.json                   ;
+; Clock.a32                       ;
+; Clock.mif                       ;
+; Clock2.a32                      ;
+; Clock2.mif                      ;
+; Debug.archive.rpt               ;
+; Debug.asm.rpt                   ;
+; Debug.cdf                       ;
+; Debug.done                      ;
+; Debug.drc.rpt                   ;
+; Debug.eda.rpt                   ;
+; Debug.fit.rpt                   ;
+; Debug.fit.smsg                  ;
+; Debug.fit.summary               ;
+; Debug.flow.rpt                  ;
+; Debug.jdi                       ;
+; Debug.map.rpt                   ;
+; Debug.map.smsg                  ;
+; Debug.map.summary               ;
+; Debug.mif_update.rpt            ;
+; Debug.pin                       ;
+; Debug.qsf                       ;
+; Debug.sld                       ;
+; Debug.sof                       ;
+; Debug.sta.rpt                   ;
+; Debug.sta.summary               ;
+; DebugTap.stp                    ;
+; Debug_assignment_defaults.qdf   ;
+; Debug_nativelink_simulation.rpt ;
+; Pll.cmp                         ;
+; Pll.qip                         ;
+; Pll.sip                         ;
+; Pll.spd                         ;
+; Pll.v                           ;
+; Pll/Pll_0002.qip                ;
+; Pll/Pll_0002.v                  ;
+; Pll_sim/Pll.vo                  ;
+; Project.archive.rpt             ;
+; Project.asm.rpt                 ;
+; Project.done                    ;
+; Project.drc.rpt                 ;
+; Project.fit.rpt                 ;
+; Project.fit.smsg                ;
+; Project.fit.summary             ;
+; Project.flow.rpt                ;
+; Project.jdi                     ;
+; Project.map.rpt                 ;
+; Project.map.smsg                ;
+; Project.map.summary             ;
+; Project.pin                     ;
+; Project.qpf                     ;
+; Project.qsf                     ;
+; Project.qws                     ;
+; Project.restore.rpt             ;
+; Project.sdc                     ;
+; Project.sld                     ;
+; Project.sof                     ;
+; Project.sta.rpt                 ;
+; Project.sta.summary             ;
+; Project.v                       ;
+; Project.v.bak                   ;
+; Project2.cr.mti                 ;
+; Project2.mpf                    ;
+; Project2.qarlog                 ;
+; Project_1.qar                   ;
+; Project_1.qarlog                ;
+; Pseudoclock.txt                 ;
+; SevenSeg.v                      ;
+; Sorter2.a32                     ;
+; Sorter2.mif                     ;
+; Sorter3.a32                     ;
+; Sorter3.mif                     ;
+; Test2.a32                       ;
+; Test2.mif                       ;
+; Test3.a32                       ;
+; Test3.mif                       ;
+; Test4.a32                       ;
+; Test4.mif                       ;
+; TestHexDec.a32                  ;
+; TestHexDec.mif                  ;
+; TestSwitches.a32                ;
+; TimerTest.a32                   ;
+; TimerTest.mif                   ;
+; assembler.pl                    ;
+; assembler.pl~                   ;
+; c5_pin_model_dump.txt           ;
+; assignment_defaults.qdf         ;
++---------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+; qar_info.json      ;
++--------------------+
+
+

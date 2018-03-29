@@ -1,0 +1,77 @@
+; Addresses for I/O
+.NAME   HEX= 0xFFFFF000
+.NAME   LEDR=0xFFFFF020
+.NAME   KEY= 0xFFFFF080
+.NAME   SW=  0xFFFFF090
+.NAME   TIMER=0xFFFFF100
+.NAME   TLIM=0xFFFFF104
+.NAME   TCTL=0xFFFFF108
+.NAME     TimerMax = 86399000   ; 23:59:29
+.NAME     Count = 86390000      ; 23:59:50
+.NAME   Shift4 = 16
+.NAME   Shift8 = 256
+.NAME   Shift12 = 4096
+.NAME   Shift16 = 65536
+.NAME   Shift20 = 1048576
+.NAME   Testmem=40
+
+.ORIG 0x100
+Start:
+    lw      s10,Max(Zero)
+    sw      s10,Testmem(Zero)
+    addi    t12,Zero,50
+    addi    t13,Zero,59
+    addi    t14,Zero,23
+
+    jmp    hextoDec(Zero)
+Disphex:
+    sw      rv,HEX(Zero)
+    br      start
+    ;sw      s0,HEX(Zero)
+
+hextoDec:
+    ;hourTens = div(hours, 10, *hourOnes)
+    addi    s14,Zero,10
+    add     s13,Zero,t14
+    call    div(Zero)
+    add     a13,Zero,s15
+    add     a14,Zero,rv
+
+    addi    a15,Zero,0 ;val = 0
+    ;f = mult(hourTens,16)
+    addi    s14,Zero,16
+    add     s15,Zero,a14
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a13  ; val = f + hourOnes
+    add     rv,Zero,a15 ; rv = val
+    jmp     Disphex(Zero)
+
+mult:                               ;multiply(s14,s15)
+    add         s13,s15,Zero
+mult2:
+     bne        s14, Zero, endMult
+     add        s15, s13, s15
+     subi       s14, s14, 1
+     br     mult2
+
+endMult:                            ;return s15
+     add        rv, Zero, s15
+     ret
+
+div:                                    ;divide s13/s14
+     addi       s12, Zero, 0        ;initialize quotient register
+div2:
+     blt        s13, s14, endDiv
+     sub        s13, s13, s14
+     addi       s12, s12, 1
+     br     div2
+
+endDiv:
+     add        s15, Zero, s13
+     add        rv, Zero, s12
+     ret
+
+
+Max:
+.WORD TimerMax

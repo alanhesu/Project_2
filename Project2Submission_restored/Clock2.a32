@@ -1,0 +1,256 @@
+; Addresses for I/O
+.NAME   HEX= 0xFFFFF000
+.NAME   LEDR=0xFFFFF020
+.NAME   KEY= 0xFFFFF080
+.NAME   SW=  0xFFFFF090
+.NAME   TIMER=0xFFFFF100
+.NAME   TLIM=0xFFFFF104
+.NAME   TCTL=0xFFFFF108
+.NAME	  TimerMax = 86399000	; 23:59:29
+.NAME	  Count = 86390000		; 23:59:50
+.NAME   Shift4 = 16
+.NAME   Shift8 = 256
+.NAME   Shift12 = 4096
+.NAME   Shift16 = 65536
+.NAME   Shift20 = 1048576
+.NAME   StkTop=65536
+
+
+;a0 = 1, a1 = 2, a2 = 4, a3 = 8, a15 = misc
+;t1 = KEY, t2 = stored time, t3 = led stored time, t4 = storeMS, t12 = seconds, t13 = minutes, t14 = hours
+;s0 = TIMER, s1 = timer check, s2 = led blink check, s3 = printCheck, s4 = ledIncrCheck
+
+.ORIG 0x100
+	lw		a1,Max(Zero)
+    sw      a1,TLIM(Zero)	; sets max of timer to 23:59:59
+	lw		a2,Reset(Zero)
+    sw      a2,TIMER(Zero)	; sets initial value of timer to 23:59:50
+	addi		a0,Zero,1
+	addi		a1,Zero,2
+	addi		a2,Zero,4
+	addi		a3,Zero,8
+    addi        t4,Zero,0  ; storeMS = 0
+    addi        t12,Zero,50 ;Initial value of seconds, minutes, hours
+    addi        t13,Zero,59
+    addi        t14,Zero,23
+    ; Load the initial stack-top value into the SP
+    LW      SP,StackTopVal(Zero)
+Disploop:
+    sw      ra,0(sp)
+    addi    sp,sp,1
+    call    printTime(Zero)
+    subi    sp,sp,1
+    lw      ra,0(sp)
+
+	lw      t1,KEY(Zero)   ;	If key pressed, store time
+	lw		t2, TIMER(Zero)
+    beq     t1,a0,Time
+    br      Disploop
+
+Time: 		; checks that key[0] is pressed for 2 seconds
+	lw      s0,TIMER(Zero)
+	subi		s1, s0, 2000
+    sw      ra,0(sp)
+    addi    sp,sp,1
+    call    printTime(Zero)
+    subi    sp,sp,1
+    lw      ra,0(sp)
+				; check if key has been released -> break to main loop
+	lw		t1,KEY(Zero)
+	beq		t1,Zero,Disploop
+				; check for 2 sec hold
+	blt		t2,s1,SetMode
+	br		Time
+
+SetMode:
+    ; Check if all SW are 0 and store time
+    lw      a15,SW(Zero)
+    lw      t2,TIMER(Zero)
+    lw      t3,TIMER(Zero)
+    beq     a15,Zero,SetModeBlink
+    sw      Zero,LEDR(Zero) ; turn off all LEDS at first
+    sw      ra,0(sp)
+    addi    sp,sp,1
+    call    SetloopCount(Zero)
+    subi    sp,sp,1
+    lw      ra,0(sp)
+
+SetModeBlink:
+    not     a15,Zero ;Turn on all LEDS at first
+    sw      a15,LEDR(Zero)
+    sw      ra,0(sp)
+    addi    sp,sp,1
+    call    SetloopBlink(Zero)
+    subi    sp,sp,1
+    lw      ra,0(sp)
+
+SetloopBlink:
+    lw      s0,TIMER(Zero)
+    subi    s2, s0, 500
+    subi    s1,s0,5000
+    sw      ra,0(sp)
+    addi    sp,sp,1
+    call    printTime(Zero)
+    subi    sp,sp,1
+    lw      ra,0(sp)
+    blt     t3,s2,BlinkLED ; check if .5 seconds have passed
+    br      SetloopBlink
+
+BlinkLED:
+    lw      a15,LEDR(Zero) ; blink leds
+    not     a15,a15
+    sw      a15,LEDR(Zero)
+    lw      t3,TIMER(Zero) ; store time
+    br      SetloopBlink
+
+SetloopCount:
+    sw      ra,0(sp)
+    addi    sp,sp,1
+    call    printTime(Zero)
+    subi    sp,sp,1
+    lw      ra,0(sp)
+    lw      s0,TIMER(Zero)
+    subi    s4,s0,10
+    subi    s1,s0,5000
+    blt     t3,s4,IncrLED  ;check if 100ths of a second has passed
+    br      SetloopCount
+
+IncrLED:
+    lw      a15,LEDR(Zero) ;increment led
+    addi    a15,a15,1
+    sw      a15,LEDR(Zero)
+    lw      t3,TIMER(Zero) ; store time
+    br      SetloopCount
+
+printTime:
+    lw      s0,TCTL(Zero) ; if (TCTL != 0) {
+    bne     s0,Zero,updateStore
+    lw      s0,TIMER(Zero)
+    subi    s3,s0,1000
+    ble     t4,s3,updateTime
+printTimeEnd:
+    ret
+
+updateStore:
+    lw      s0,TLIM(Zero)
+    sub     t2,t2,s0 ;storedTime = TLIM - storedTime
+    sub     t3,t3,s0 ; ledStoredTime = TLIM - ledStoredTime
+    sub     t4,t4,s0 ; storeMS = TLIM - storeMS
+    sw      Zero,TCTL(Zero) ; reset TCTL
+    br      printTime
+
+updateTime:
+    addi    t12,t12,1 ; seconds++
+    addi    a15,Zero,60
+    beq     t12,a15,incrMinutes ; if(seconds == 60)
+contUpdateTime:
+    lw      t4,TIMER(Zero) ;storeMS = TIMER
+    sw      ra,0(sp)
+    addi    sp,sp,1
+    call    hextoDec(Zero)
+    subi    sp,sp,1
+    lw      ra,0(sp)
+    sw      rv,HEX(Zero)
+    br      printTimeEnd
+
+incrMinutes:
+    addi    t13,t13,1 ; minutes++
+    addi    t12,Zero,0 ; seconds = 0
+    addi    a15,Zero,60
+    beq     t13,a15,incrHours ;if(minutes == 60)
+    br      contUpdateTime
+
+incrHours:
+    addi    t14,t14,1 ;hours++
+    addi    t13,Zero,0 ; minutes = 0
+    br      contUpdateTime
+
+hextoDec:
+    ;secondTens = div(seconds, 10, *secondOnes)
+    addi    s14,Zero,10
+    add     s13,Zero,t12
+    call    div(Zero)
+    add     a9,Zero,s15
+    add     a10,Zero,rv
+    ;minuteTens = div(minutes, 10, *minuteOnes)
+    addi    s14,Zero,10
+    add     s13,Zero,t13
+    call    div(Zero)
+    add     a11,Zero,s15
+    add     a12,Zero,rv
+    ;hourTens = div(hours, 10, *hourOnes)
+    addi    s14,Zero,10
+    add     s13,Zero,t14
+    call    div(Zero)
+    add     a13,Zero,s15
+    add     a14,Zero,rv
+
+    addi    a15,Zero,0 ;val = 0
+    ;f = mult(hourTens,16)
+    addi    s14,Zero,16
+    add     s15,Zero,a14
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a13  ; val = f + hourOnes
+    ;f = mult(val,16)
+    addi    s14,Zero,16
+    add     s15,Zero,a15
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a12  ; val = f + minuteTens
+    ;f = mult(val,16)
+    addi    s14,Zero,16
+    add     s15,Zero,a15
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a11  ; val = f + minuteOnes
+    ;f = mult(val,16)
+    addi    s14,Zero,16
+    add     s15,Zero,a15
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a10  ; val = f + secondTens
+    ;f = mult(val,16)
+    addi    s14,Zero,16
+    add     s15,Zero,a15
+    call    mult(Zero)
+    add     a14,Zero,rv
+    add     a15,a14,a9  ; val = f + secondOnes
+    add     rv,Zero,a15 ; rv = val
+    ret
+
+mult:                               ;multiply(s14,s15)
+    add         s13,s15,Zero
+mult2:
+     bne        s14, Zero, endMult
+     add        s15, s13, s15
+     subi       s14, s14, 1
+     br     mult2
+
+endMult:                            ;return s15
+     add        rv, Zero, s15
+     ret
+
+div:                                    ;divide s13/s14
+     addi       s12, Zero, 0        ;initialize quotient register
+div2:
+     blt        s13, s14, endDiv
+     sub        s13, s13, s14
+     addi       s12, s12, 1
+     br     div2
+
+endDiv:
+     add        s15, Zero, s13
+     add        rv, Zero, s12
+     ret
+
+Max:
+.WORD TimerMax
+Reset:
+.WORD Count
+RSH16:
+.WORD Shift16
+RSH20:
+.WORD Shift20
+StackTopVal:
+.WORD StkTop
