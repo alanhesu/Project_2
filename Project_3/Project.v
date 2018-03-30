@@ -26,7 +26,7 @@ module Project(
   parameter ADDRTCNT =32'hFFFFF100;
   parameter ADDRTLIM =32'hFFFFF104;
   parameter ADDRTCTL =32'hFFFFF108;
-  parameter IMEMINITFILE="Clock.mif";
+  parameter IMEMINITFILE="Test2.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
@@ -50,6 +50,7 @@ module Project(
   parameter OP1_XORI =6'b100110;
 
   parameter OP2BITS=6;
+  parameter OP2_NOP  =6'b000000;
   parameter OP2_EQ   =OP1_BEQ;
   parameter OP2_LT   =OP1_BLT;
   parameter OP2_LE   =OP1_BLE;
@@ -100,20 +101,20 @@ module Project(
 
   	// If fetch and decoding stages are the same stage,
 	// just connect signals from fetch to decode
-	wire [(DBITS-1):0] inst_D=inst_F;
-	wire [(DBITS-1):0] pcplus_D=pcplus_F;
-	wire [(DBITS-1):0] pcpred_D=pcpred_F;
-  wire [(DBITS-1):0] pcpred_A=pcpred_D;
+	// wire [(DBITS-1):0] inst_D=inst_F;
+	// wire [(DBITS-1):0] pcplus_D=pcplus_F;
+	// wire [(DBITS-1):0] pcpred_D=pcpred_F;
+ //  wire [(DBITS-1):0] pcpred_A=pcpred_D;
 	// Instruction decoding
 	// These have zero delay from inst_D
 	// because they are just new names for those signals
-  wire [(DBITS-1):0] off;
+  wire [(DBITS-1):0] off_D;
 	wire [(OP1BITS-1):0]   op1_D=inst_D[(DBITS-1):(DBITS-OP1BITS)];
 	wire [(REGNOBITS-1):0] rs_D,rt_D,rd_D;
 	assign {rs_D,rt_D,rd_D}=inst_D[(DBITS-OP1BITS-1):(DBITS-OP1BITS-3*REGNOBITS)];
 	wire [(OP2BITS-1):0] op2_D=inst_D[(OP2BITS-1): 0];
 	wire [(IMMBITS-1):0] rawimm_D=inst_D[(IMMBITS-1):0];
-  SXT #(.IBITS(IMMBITS),.OBITS(DBITS)) sxt1(rawimm_D,off);
+  SXT #(.IBITS(IMMBITS),.OBITS(DBITS)) sxt1(rawimm_D,off_D);
 
 	// Register-read
 	reg [(DBITS-1):0] regs[(REGWORDS-1):0];
@@ -121,13 +122,13 @@ module Project(
 	wire [(REGNOBITS-1):0] rregno1_D=rs_D, rregno2_D=rt_D;
 	wire [(DBITS-1):0] regval1_D=regs[rregno1_D];
 	wire [(DBITS-1):0] regval2_D=regs[rregno2_D];
-  wire [(DBITS-1):0] regval2_A=regval2_D;
+  // wire [(DBITS-1):0] regval2_A=regval2_D;
 
 	// TODO: Get these signals to the ALU somehow
   reg aluimm_D;
   reg [(OP2BITS-1):0] alufunc_D;
-  wire signed [(DBITS-1):0] aluin1_A=regval1_D;
-  wire signed [(DBITS-1):0] aluin2_A=aluimm_D?off:regval2_D;
+  wire signed [(DBITS-1):0] aluin1_A=regval1_A;
+  wire signed [(DBITS-1):0] aluin2_A=aluimm_A?off_A:regval2_A;
   // wire [(DBITS-1):0] aluin2_A=32'h12345678;
 
 	reg signed [(DBITS-1):0] aluout_A;
@@ -150,54 +151,63 @@ module Project(
 
 	// TODO: Generate the dobranch, brtarg, isjump, and jmptarg signals somehow...
   reg isbranch_D;
-  wire dobranch_A=isbranch_D&&aluout_A[0];
-  wire [(DBITS-1):0] brtarg_A = pcplus_A + (off << 2);
-  reg isjump_D, isjumpR_D;
+  wire dobranch_A=isbranch_A&&aluout_A[0];
+  wire [(DBITS-1):0] brtarg_A = pcplus_A + (off_A << 2);
+  reg isjump_D;
   // wire isjump_A=isjump_D;
-  wire [(DBITS-1):0] jmptarg_A=isjumpR_A?regval1_D:regval1_D+(off<<2);
+  wire [(DBITS-1):0] jmptarg_A=regval1_A+(off_A<<2);
   // TODO: fix jmptarg to get rs + 4*imm
 
-  wire [(DBITS-1):0] pcplus_A=pcplus_D;
-  wire [(DBITS-1):0] pcgood_A=
-  	dobranch_A?brtarg_A:
-  	isjump_A?jmptarg_A:
-  	pcplus_A;
+  // wire [(DBITS-1):0] pcplus_A=pcplus_D;
+  wire [(DBITS-1):0] pcgood_M=
+  	dobranch_M?brtarg_M:
+  	isjump_M?jmptarg_M:
+  	pcplus_M;
 	// wire mispred_A=(pcgood_A!=pcpred_A);
 	// wire mispred_B=mispred_A&&!isnop_A;
-  wire mispred_B=(pcgood_A!=pcpred_A)&&!isnop_A;
-	wire [(DBITS-1):0] pcgood_B=pcgood_A;
+  wire mispred_B=(pcgood_M!=pcpred_M)&&!isnop_M;
+	wire [(DBITS-1):0] pcgood_B=pcgood_M;
 
 	// TODO: This is a good place to generate the flush_? signals
   // TODO: Flush less often or increase clock frequency
-  /*reg flush_D;
-  always @(posedge clk)
-      flush_D<=!flush_D;*/
-  wire flush_D;
-  assign flush_D=wrreg_M&&((wregno_M==rs_D)
-    ||(wregno_M==rt_D)
-    ||(isjump_M));
+  reg flush_D;
+  /*
+  reg [2:0] flushCount;
+  always @(posedge clk or posedge reset)
+    if(reset) begin
+      flushCount<=3'b0;
+      flush_D<=1'b0;
+    end
+    else
+      if(flushCount == 5)
+        flush_D<=1'b1;
+        flushCount<=3'b0;
+      else begin
+        flushCount<=flushCount + 1;
+        flush_D<=1'b0;
+      end
+  */
+
+  // wire flush_D;
+  // assign flush_D=wrreg_M&&((wregno_M==rs_D)
+  //   ||(wregno_M==rt_D)
+  //   ||(isjump_M));
 
 	// TODO: Write code that produces wmemval_M, wrmem_M, wrreg_M, etc.
-    reg wrmem_M, wrreg_M;
+    reg wrmem_M, wrreg_W;
     reg [(DBITS-1):0] wmemval_M;
     wire [(DBITS-1):0] memaddr_M;
     always @(posedge clk or posedge reset)
         if(reset) begin
-            wrreg_M<=1'b0;
+            wrreg_W<=1'b0;
             wrmem_M<=1'b0;
             wmemval_M<={DBITS{1'b0}};
         end
         else begin
-            wrreg_M<=isnop_A?1'b0:wrreg_A;
+            wrreg_W<=isnop_M?1'b0:wrreg_M;
             wrmem_M<=isnop_A?1'b0:wrmem_A;
             wmemval_M<=regval2_A;
         end
-
-	reg [(DBITS-1):0] aluout_M,pcplus_M;
-	always @(posedge clk)
-		{aluout_M,pcplus_M}<=
-		{aluout_A,pcplus_A};
-    assign memaddr_M=aluout_M;
 
 	// Create and connect HEX register
 	reg [23:0] HexOut;
@@ -254,8 +264,8 @@ module Project(
   assign we=wrmem_M;
   assign dbus=wrmem_M?wmemval_M:{DBITS{1'bz}};
 
-  Timer #(.BITS(DBITS), .BASE(ADDRTCNT))
-    timer(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG());
+  // Timer #(.BITS(DBITS), .BASE(ADDRTCNT))
+  //   timer(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG());
   Keys #(.BITS(DBITS), .BASE(ADDRKEY))
     keys(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.KEY(KEY));
   Switches #(.BITS(DBITS), .BASE(ADDRSW))
@@ -272,22 +282,22 @@ module Project(
 
 	// TODO: Decide what gets written into the destination register (wregval_M),
 	// when it gets written (wrreg_M) and to which register it gets written (wregno_M)
-    reg [(REGNOBITS-1):0] wregno_M;
+    reg [(REGNOBITS-1):0] wregno_W;
     always @(posedge clk or posedge reset)
         if(reset)
-            wregno_M<={REGNOBITS{1'b0}};
+            wregno_W<={REGNOBITS{1'b0}};
         else
-            wregno_M<=wregno_A;
+            wregno_W<=wregno_M;
 
-    wire [(DBITS-1):0] wregval_M=
-        selaluout_M?aluout_M:
-        selmemout_M?memout_M:
-        selpcplus_M?pcplus_M:
+    wire [(DBITS-1):0] wregval_W=
+        selaluout_W?aluout_W:
+        selmemout_W?memout_W:
+        selpcplus_W?pcplus_W:
         {DBITS{1'b0}};
 
 	always @(posedge clk)
-		if(wrreg_M&&!reset)
-			regs[wregno_M]<=wregval_M;
+		if(wrreg_W&&!reset)
+			regs[wregno_W]<=wregval_W;
 
 	// Decoding logic
   reg isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D;
@@ -299,13 +309,19 @@ module Project(
 		{      1'b0,    1'b0,   1'b0,   1'b0};
 		{selaluout_D,selmemout_D,selpcplus_D,wregno_D,          wrreg_D}=
 		{       1'bX,       1'bX,       1'bX,{REGNOBITS{1'bX}},   1'b0};
-        {isjumpR_D}={1'b0};
 		if(reset|flush_D)
 			isnop_D=1'b1;
 		else case(op1_D)
 		  OP1_ALUR:
-  			{aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-  			{    1'b0,    op2_D,       1'b1,       1'b0,       1'b0,    rd_D,   1'b1};
+        case(op2_D)
+          OP2_NOP:
+            {isnop_D}<=
+            {1'b1};
+          default:
+      			{aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
+      			{    1'b0,    op2_D,       1'b1,       1'b0,       1'b0,    rd_D,   1'b1};
+        endcase
+
 
       OP1_ADDI,OP1_ANDI,OP1_ORI,OP1_XORI:
         {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
@@ -332,22 +348,83 @@ module Project(
 		endcase
 	end
 
-    wire aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, wrreg_A, isjumpR_A;
-    assign {aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, wrreg_A, isjumpR_A}=
-        {aluimm_D, isbranch_D, isjump_D, isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D, isjumpR_D};
-    wire [(OP2BITS-1):0] alufunc_A=alufunc_D;
-    wire [(REGNOBITS-1):0] wregno_A=wregno_D;
+    // F->D buffer
+    reg [(DBITS-1):0] pcplus_D, inst_D, pcpred_D;
+    always @(posedge clk or posedge reset)
+      if(reset) begin
+        {pcplus_D, inst_D, pcpred_D}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
+      end
+      else begin
+        {pcplus_D, inst_D}<=
+          {pcplus_F, inst_F, pcpred_F};
+      end
 
-    reg aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, isjumpR_M;
+    // D->A buffer
+    reg [(DBITS-1):0] pcplus_A, regval1_A, regval2_A, off_A, pcpred_A;
+    reg [(OP1BITS-1):0] op1_A, op2_A;
+    reg [(REGNOBITS-1):0] rs_A, rt_A, rd_A;
+    reg aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, wrreg_A;
+    reg [(OP2BITS-1):0] alufunc_A;
+    reg [(REGNOBITS-1):0] wregno_A;
+    always @(posedge clk or posedge reset)
+      if(reset) begin
+        {pcplus_A, regval1_A, regval2_A, off_A, op1_A, op2_A, rs_A, rt_A, rd_A, pcpred_A}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {OP1BITS{1'b0}}, {OP2BITS{1'b0}}, {REGNOBITS{1'b0}}, {REGNOBITS{1'b0}}, {REGNOBITS{1'b0}}, {DBITS{1'b0}}};
+        {aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, wrreg_A}<=
+          {9'b0};
+        {alufunc_A, wregno_A}<=
+          {{OP2BITS{1'b0}}, {REGNOBITS{1'b0}}};
+      end
+      else begin
+        {pcplus_A, regval1_A, regval2_A, off_A, op1_A, op2_A, rs_A, rt_A, rd_A, pcpred_A}<=
+          {pcplus_D, regval1_D, regval2_D, off_D, op1_D, op2_D, rs_D, rt_D, rd_D, pcpred_D};
+        {aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, wrreg_A}<=
+          {aluimm_D, isbranch_D, isjump_D, isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D};
+        {alufunc_A, wregno_A}<=
+          {alufunc_D, wregno_D};
+      end
+
+    // A->M buffer
+    reg [(DBITS-1):0] pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M;
+    reg aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M;
+    reg [(REGNOBITS-1):0] wregno_M;
+    assign memaddr_M=aluout_M;
     always @(posedge clk or posedge reset)
         if(reset) begin
-            {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, isjumpR_M}<=
-                {8'b0};
+            {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M}<=
+                {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
+            {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M}<=
+                {9'b0};
+            {wregno_M}<=
+                {{REGNOBITS{1'b0}}};
         end
         else begin
-            {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, isjumpR_M}<=
-                {aluimm_A, isbranch_A, isjump_A, isnop_A, selaluout_A, selmemout_A, selpcplus_A, isjumpR_A};
+            {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M}<=
+                {pcplus_A, brtarg_A, jmptarg_A, aluout_A, pcpred_A};
+            {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M}<=
+                {aluimm_A, isbranch_A, isjump_A, isnop_A, selaluout_A, selmemout_A, selpcplus_A, dobranch_A, wrreg_A};
+            {wregno_M}<=
+                {wregno_A};
         end
+
+    // M->W buffer
+    reg [(DBITS-1):0] pcplus_W, memout_W, aluout_W;
+    reg isbranch_W, isjump_W, isnop_W, selaluout_W, selmemout_W, selpcplus_W;
+    always @(posedge clk or posedge reset)
+      if(reset) begin
+        {pcplus_W, memout_W, aluout_W}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
+        {isbranch_W, isjump_W, isnop_W, selaluout_W, selmemout_W, selpcplus_W}<=
+          {6'b0};
+      end
+      else begin
+        {pcplus_W, memout_W, aluout_W}<=
+          {pcplus_M, memout_M, aluout_M};
+        {isbranch_W, isjump_W, isnop_W, selaluout_W, selmemout_W, selpcplus_W}<=
+          {isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M};
+      end
+
 endmodule
 
 module SXT(IN,OUT);
@@ -358,7 +435,7 @@ module SXT(IN,OUT);
   assign OUT={{(OBITS-IBITS){IN[IBITS-1]}},IN};
 endmodule
 
-
+/*
 module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
   parameter BITS;
   parameter BASE;
@@ -390,15 +467,15 @@ module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
   // reg tick;
   // initial tick=1;
   wire atLim=(cnt==lim-1)&&(lim!=0);
-  /*
-  always @(posedge CLK) begin
-    if(clkTimer_div == 32'd24999999) begin
-      clkTimer_div<=32'd0;
-      tick=!tick;
-    end else
-      clkTimer_div<=clkTimer_div+32'd1;
-  end
-  */
+
+  // always @(posedge CLK) begin
+  //   if(clkTimer_div == 32'd24999999) begin
+  //     clkTimer_div<=32'd0;
+  //     tick=!tick;
+  //   end else
+  //     clkTimer_div<=clkTimer_div+32'd1;
+  // end
+
   always @(posedge CLK or posedge RESET) begin
     if(RESET) begin
       // tick<=1'b1;
@@ -432,62 +509,8 @@ module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
       clkTimer_div<=clkTimer_div+32'd1;
   end
 
-/*
-  reg [(BITS-1):0] cntStore;
-  reg [(BITS-1):0] limStore;
-  reg [(BITS-1):0] ctlStore;
-  reg wrCntStore,wrLimStore,wrCtlStore;
 
-  always @(posedge CLK or posedge RESET) begin
-    if(RESET) begin
-      cntStore<={BITS{1'b0}};
-      limStore<={BITS{1'b0}};
-      ctlStore<={BITS{1'b0}};
-      {wrCntStore,wrLimStore,wrCtlStore}={3'b0};
-    end else if(wrCnt) begin
-      cntStore<=DBUS;
-      ctlStore[0]<=1'b0;
-      ctlStore[1]<=1'b0;
-      wrCntStore<=1'b1;
-    end else if(wrLim) begin
-      limStore<=DBUS;
-      cntStore<={BITS{1'b0}};
-      wrLimStore<=1'b1;
-    end else if(wrCtl) begin
-      ctlStore[0]<=DBUS[0]?1'bX:DBUS[0];
-      ctlStore[1]<=DBUS[1]?1'bX:DBUS[1];
-      wrCtlStore<=1'b1;
-  end
 
-  always @(posedge tick or posedge RESET) begin
-    if(RESET) begin
-      tick<=1'b1;
-      cnt<={BITS{1'b0}};
-      lim<={BITS{1'b0}};
-      ctl<={BITS{1'b0}};
-    end else if(wrCntStore) begin
-      cnt<=cntStore;
-      ctl[0]<=ctlStore[0];
-      ctl[1]<=ctlStore[0];
-    end else if(wrLimStore) begin
-      lim<=limStore;
-      cnt<=cntStore;
-    end else if(wrCtlStore) begin
-      ctl[0]<=ctlStore[0];
-      ctl[1]<=ctlStore[0];
-    end else begin
-      if(atLim) begin
-        cnt<={BITS{1'b0}};
-        if(ctl[0])
-          ctl[1]<=1'b1;
-        else
-          ctl[0]<=1'b1;
-      end else begin
-        cnt<=cnt+1;
-      end
-    end
-  end
-*/
 
   assign DBUS=
       rdCtl?{30'b0,overrun,ready}:
@@ -495,6 +518,7 @@ module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
       rdLim?lim:
       {BITS{1'bz}};
 endmodule
+*/
 
 module Keys(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,KEY);
   parameter BITS;

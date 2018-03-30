@@ -364,7 +364,7 @@ GND                          : M1        : gnd    :                   :         
 GND                          : M2        : gnd    :                   :         :           :                
 VCCA_FPLL                    : M3        : power  :                   : 2.5V    :           :                
 GND                          : M4        : gnd    :                   :         :           :                
-TDO                          : M5        : output :                   :         : 3A        :                
+altera_reserved_tdo          : M5        : output : 3.3-V LVTTL       :         : 3A        : N              
 KEY[3]                       : M6        : input  : 3.3-V LVTTL       :         : 3A        : Y              
 KEY[2]                       : M7        : input  : 3.3-V LVTTL       :         : 3A        : Y              
 HEX5[1]                      : M8        : output : 3.3-V LVTTL       :         : 3B        : Y              
@@ -408,7 +408,7 @@ GND                          : P1        : gnd    :                   :         
 GND                          : P2        : gnd    :                   :         :           :                
 VCC                          : P3        : power  :                   : 1.1V    :           :                
 GND                          : P4        : gnd    :                   :         :           :                
-TMS                          : P5        : input  :                   :         : 3A        :                
+altera_reserved_tms          : P5        : input  : 3.3-V LVTTL       :         : 3A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : P6        :        :                   :         : 3A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : P7        :        :                   :         : 3A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : P8        :        :                   :         : 3B        :                
@@ -496,7 +496,7 @@ GND                          : V1        : gnd    :                   :         
 GND                          : V2        : gnd    :                   :         :           :                
 DCLK                         : V3        :        :                   :         : 3A        :                
 GND                          : V4        : gnd    :                   :         :           :                
-TCK                          : V5        : input  :                   :         : 3A        :                
+altera_reserved_tck          : V5        : input  : 3.3-V LVTTL       :         : 3A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : V6        :        :                   :         : 3A        :                
 GND                          : V7        : gnd    :                   :         :           :                
 VCCPGM                       : V8        : power  :                   : 1.8V/2.5V/3.0V/3.3V :           :                
@@ -518,7 +518,7 @@ VREFB2AN0                    : W1        : power  :                   :         
 LEDR[2]                      : W2        : output : 3.3-V LVTTL       :         : 2A        : Y              
 GND                          : W3        : gnd    :                   :         :           :                
 GND                          : W4        : gnd    :                   :         :           :                
-TDI                          : W5        : input  :                   :         : 3A        :                
+altera_reserved_tdi          : W5        : input  : 3.3-V LVTTL       :         : 3A        : N              
 VCCPD3A                      : W6        : power  :                   : 3.3V    : 3A        :                
 VCC_AUX                      : W7        : power  :                   : 2.5V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W8        :        :                   :         : 3A        :                

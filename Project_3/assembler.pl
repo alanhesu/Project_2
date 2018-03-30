@@ -4,6 +4,7 @@ local $addr=0;
 local $lnum=0;
 local %mem;
 %opmap = (
+    NOP   => {FMT=> "",  IWORD=>"000000 000000  000000  000000  000000 00"},
     EQ    => {FMT=> "RD,RS1,RS2",  IWORD=>"000000 RS1  RS2  RD   00 001000"},
     LT    => {FMT=> "RD,RS1,RS2",  IWORD=>"000000 RS1  RS2  RD   00 001001"},
     LE    => {FMT=> "RD,RS1,RS2",  IWORD=>"000000 RS1  RS2  RD   00 001010"},
@@ -31,7 +32,7 @@ local %mem;
     ANDI  => {FMT=> "RD,RS1,Imm",  IWORD=>"100100 RS1  RD              Imm"},
     ORI   => {FMT=> "RD,RS1,Imm",  IWORD=>"100101 RS1  RD              Imm"},
     XORI  => {FMT=> "RD,RS1,Imm",  IWORD=>"100110 RS1  RD              Imm"},
-	
+
     # NOT is implemented using XORI
 	NOT    => {FMT=>"RD,RS",      ITEXT=>["NAND RD,RS,RS"]},
 	# Variants of JAL
@@ -95,7 +96,7 @@ sub IntToBinStr{
   }
   return $binstr;
 }
-# RegNums maps a register name to the corresponding bit-string 
+# RegNums maps a register name to the corresponding bit-string
 %RegNums = ();
 sub InitRegnums{
   print "In regnums now\n";
@@ -185,7 +186,7 @@ sub AsmInst{
    # Remove spaces from the instruction word binary string
    $mfmt=~s/ //g;
    ($mfmt=~/^[01]{$InstSize}$/) or
-      die "Internal error at line $lnum: IWORD fields not present in FMT for opcode $op\n"; 
+      die "Internal error at line $lnum: IWORD fields not present in FMT for opcode $op\n";
    my $iword=0;
    while($mfmt ne ""){
      ($mfmt=~/^([01])(.*)$/) or
@@ -203,7 +204,7 @@ sub SubInst{
   my @arglist=split(/\s*,\s*/,$args);
   my @fmtlist=split(/\s*,\s*/,$argsfmt);
   (@arglist == @fmtlist) or
-    die "Line $lnum: Invalid number of arguments for pseudo-instruction $op\n"; 
+    die "Line $lnum: Invalid number of arguments for pseudo-instruction $op\n";
   for(my $i=0;$i<@arglist;$i++){
 	$substfmt=~s/$fmtlist[$i]/$arglist[$i]/g;
   }
