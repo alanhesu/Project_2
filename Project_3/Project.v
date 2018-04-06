@@ -26,7 +26,7 @@ module Project(
   parameter ADDRTCNT =32'hFFFFF100;
   parameter ADDRTLIM =32'hFFFFF104;
   parameter ADDRTCTL =32'hFFFFF108;
-  parameter IMEMINITFILE="Test2.mif";
+  parameter IMEMINITFILE="TestNOPS.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
@@ -79,7 +79,6 @@ module Project(
 
 	// The PC register and update logic
 	reg  [(DBITS-1):0] PC;
-    wire stall_F=isnop_D;
 	always @(posedge clk) begin
 	if(reset)
 		PC<=STARTPC;
@@ -170,23 +169,17 @@ module Project(
 
 	// TODO: This is a good place to generate the flush_? signals
   // TODO: Flush less often or increase clock frequency
-  reg flush_D;
-  /*
-  reg [2:0] flushCount;
-  always @(posedge clk or posedge reset)
-    if(reset) begin
-      flushCount<=3'b0;
-      flush_D<=1'b0;
-    end
-    else
-      if(flushCount == 5)
-        flush_D<=1'b1;
-        flushCount<=3'b0;
-      else begin
-        flushCount<=flushCount + 1;
-        flush_D<=1'b0;
-      end
-  */
+  wire flush_F, flush_D, flush_A;
+  assign flush_F=(dobranch_M || isjump_M);
+  assign flush_D=flush_D;
+  assign flush_A=flush_F;
+
+  wire stall_F, stall_D;
+  // wire stall_F=1'b0;
+  assign stall_D=((rs_D == wregno_A) || (rs_D == wregno_M) || (rs_D == wregno_W))
+                    || ((rt_D == wregno_A) || (rt_D == wregno_M) || (rt_D == wregno_W))
+                    && (wrreg_A || wrreg_M || wrreg_W);
+  assign stall_F=stall_D;
 
   // wire flush_D;
   // assign flush_D=wrreg_M&&((wregno_M==rs_D)
@@ -355,9 +348,12 @@ module Project(
         {pcplus_D, inst_D, pcpred_D}<=
           {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
       end
-      else begin
-        {pcplus_D, inst_D}<=
+      else if(!flush_F) begin
+        {pcplus_D, inst_D, pcpred_D}<=
           {pcplus_F, inst_F, pcpred_F};
+      end else begin
+        {pcplus_D, inst_D, pcpred_D}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
       end
 
     // D->A buffer
@@ -376,13 +372,20 @@ module Project(
         {alufunc_A, wregno_A}<=
           {{OP2BITS{1'b0}}, {REGNOBITS{1'b0}}};
       end
-      else begin
+      else if(!stall_D && !flush_D) begin
         {pcplus_A, regval1_A, regval2_A, off_A, op1_A, op2_A, rs_A, rt_A, rd_A, pcpred_A}<=
           {pcplus_D, regval1_D, regval2_D, off_D, op1_D, op2_D, rs_D, rt_D, rd_D, pcpred_D};
         {aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, wrreg_A}<=
           {aluimm_D, isbranch_D, isjump_D, isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D};
         {alufunc_A, wregno_A}<=
           {alufunc_D, wregno_D};
+      end else begin
+        {pcplus_A, regval1_A, regval2_A, off_A, op1_A, op2_A, rs_A, rt_A, rd_A, pcpred_A}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {OP1BITS{1'b0}}, {OP2BITS{1'b0}}, {REGNOBITS{1'b0}}, {REGNOBITS{1'b0}}, {REGNOBITS{1'b0}}, {DBITS{1'b0}}};
+        {aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, wrreg_A}<=
+          {9'b0};
+        {alufunc_A, wregno_A}<=
+          {{OP2BITS{1'b0}}, {REGNOBITS{1'b0}}};
       end
 
     // A->M buffer
@@ -391,22 +394,29 @@ module Project(
     reg [(REGNOBITS-1):0] wregno_M;
     assign memaddr_M=aluout_M;
     always @(posedge clk or posedge reset)
-        if(reset) begin
-            {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M}<=
-                {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
-            {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M}<=
-                {9'b0};
-            {wregno_M}<=
-                {{REGNOBITS{1'b0}}};
-        end
-        else begin
-            {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M}<=
-                {pcplus_A, brtarg_A, jmptarg_A, aluout_A, pcpred_A};
-            {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M}<=
-                {aluimm_A, isbranch_A, isjump_A, isnop_A, selaluout_A, selmemout_A, selpcplus_A, dobranch_A, wrreg_A};
-            {wregno_M}<=
-                {wregno_A};
-        end
+      if(reset) begin
+        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
+        {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M}<=
+          {9'b0};
+        {wregno_M}<=
+          {{REGNOBITS{1'b0}}};
+      end
+      else if(!flush_A) begin
+        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M}<=
+          {pcplus_A, brtarg_A, jmptarg_A, aluout_A, pcpred_A};
+        {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M}<=
+          {aluimm_A, isbranch_A, isjump_A, isnop_A, selaluout_A, selmemout_A, selpcplus_A, dobranch_A, wrreg_A};
+        {wregno_M}<=
+          {wregno_A};
+      end else begin
+        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
+        {aluimm_M, isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M}<=
+          {9'b0};
+        {wregno_M}<=
+          {{REGNOBITS{1'b0}}};
+      end
 
     // M->W buffer
     reg [(DBITS-1):0] pcplus_W, memout_W, aluout_W;
