@@ -171,14 +171,22 @@ module Project(
   // TODO: Flush less often or increase clock frequency
   wire flush_F, flush_D, flush_A;
   assign flush_F=(dobranch_M || isjump_M);
-  assign flush_D=flush_D;
+  assign flush_D=flush_F;
   assign flush_A=flush_F;
 
   wire stall_F, stall_D;
+  assign stall_D=1'b0;
   // wire stall_F=1'b0;
+  /*
+  assign stall_D=(((rs_D == wregno_A || rt_D == wregno_A) && wrreg_A)
+                    || ((rs_D == wregno_M || rt_D == wregno_M) && wrreg_M)
+                    || ((rs_D == wregno_W || rt_D == wregno_W) && wrreg_W));
+  */
+  /*
   assign stall_D=((rs_D == wregno_A) || (rs_D == wregno_M) || (rs_D == wregno_W))
                     || ((rt_D == wregno_A) || (rt_D == wregno_M) || (rt_D == wregno_W))
                     && (wrreg_A || wrreg_M || wrreg_W);
+  */
   assign stall_F=stall_D;
 
   // wire flush_D;
@@ -308,8 +316,8 @@ module Project(
 		  OP1_ALUR:
         case(op2_D)
           OP2_NOP:
-            {isnop_D}<=
-            {1'b1};
+            {wrmem_D,wrreg_D}<=
+            {1'b0,1'b0};
           default:
       			{aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
       			{    1'b0,    op2_D,       1'b1,       1'b0,       1'b0,    rd_D,   1'b1};
