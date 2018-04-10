@@ -7,36 +7,14 @@
 .ORIG 0x100
 Starto:
     andi    Zero,Zero,0
+    ;addi    s3,Zero,0
     addi    s2,s3,7531
-    addi    s2,s2,1
-    addi    s2,s2,1
-    sw      s2,0(Zero)
-    lw      s2,0(Zero)
-    addi    s2,s2,1
-    not     t0,Zero
+    ;addi    s2,s2,1
+    ;addi    s2,s2,3
+    ;sw      s2,100(Zero)
+    ;lw      s2,100(Zero)
+    ;addi    s2,s2,5
+    ;not     t0,Zero
     sw      s2,HEX(Zero)
-    br      Starto
-    bne     t0,s1,Branc
-    not     t0,Zero
-Branc:
-    eq      s1,Zero,Zero
-    br      Btwo
-    not     t0,Zero
-    not     t0,Zero
-Btwo:
-    le      s1,Zero,s2
-    ble     Zero,s2,Bthree
-    not     t0,Zero
-Bthree:
-    lt      s1,Zero,s2
-    blt     Zero,s2,TestMem
-    not     t0,Zero
-TestMem:
-    andi    s2,Zero,0
-    andi    s1,Zero,0
-    addi    s2,s2,7531
-    addi    s1,s1,500
-    sw      s2,0(s1)
-    andi    s3,Zero,0
-    lw      s3,0(s1)
-    beq     s2,s3,Starto
+Fin:
+    br      Fin
