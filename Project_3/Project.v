@@ -26,7 +26,7 @@ module Project(
   parameter ADDRTCNT =32'hFFFFF100;
   parameter ADDRTLIM =32'hFFFFF104;
   parameter ADDRTCTL =32'hFFFFF108;
-  parameter IMEMINITFILE="TestNOPS.mif";
+  parameter IMEMINITFILE="Test2.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
@@ -350,15 +350,12 @@ module Project(
       if(reset) begin
         {pcplus_D, inst_D, pcpred_D}<=
           {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
-      end
-      else if(!flush_F) begin
-        {pcplus_D, inst_D, pcpred_D}<=
-          {pcplus_F, inst_F, pcpred_F};
-      end else begin
-        // {pcplus_D, inst_D, pcpred_D}<=
-        //   {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
+      end else if(flush_F) begin
         {inst_D}<=
           {{DBITS{1'b0}}};
+      end else if(!stall_F) begin
+        {pcplus_D, inst_D, pcpred_D}<=
+          {pcplus_F, inst_F, pcpred_F};
       end
 
     // D->A buffer
