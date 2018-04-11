@@ -26,7 +26,7 @@ module Project(
   parameter ADDRTCNT =32'hFFFFF100;
   parameter ADDRTLIM =32'hFFFFF104;
   parameter ADDRTCTL =32'hFFFFF108;
-  parameter IMEMINITFILE="Test2.mif";
+  parameter IMEMINITFILE="Sorter3.mif";
   parameter IMEMADDRBITS=16;
   parameter IMEMWORDBITS=2;
   parameter IMEMWORDS=(1<<(IMEMADDRBITS-IMEMWORDBITS));
