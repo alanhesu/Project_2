@@ -175,18 +175,17 @@ module Project(
   assign flush_A=flush_F;
 
   wire stall_F, stall_D;
-  assign stall_D=1'b0;
   // wire stall_F=1'b0;
   /*
   assign stall_D=(((rs_D == wregno_A || rt_D == wregno_A) && wrreg_A)
                     || ((rs_D == wregno_M || rt_D == wregno_M) && wrreg_M)
                     || ((rs_D == wregno_W || rt_D == wregno_W) && wrreg_W));
   */
-  /*
-  assign stall_D=((rs_D == wregno_A) || (rs_D == wregno_M) || (rs_D == wregno_W))
-                    || ((rt_D == wregno_A) || (rt_D == wregno_M) || (rt_D == wregno_W))
+
+  assign stall_D=(((rs_D == wregno_A) || (rs_D == wregno_M) || (rs_D == wregno_W))
+                    || ((rt_D == wregno_A) || (rt_D == wregno_M) || (rt_D == wregno_W)))
                     && (wrreg_A || wrreg_M || wrreg_W);
-  */
+
   assign stall_F=stall_D;
 
   // wire flush_D;
@@ -205,8 +204,8 @@ module Project(
             wmemval_M<={DBITS{1'b0}};
         end
         else begin
-            wrreg_W<=isnop_M?1'b0:wrreg_M;
-            wrmem_M<=isnop_A?1'b0:wrmem_A;
+            wrreg_W<=wrreg_M;
+            wrmem_M<=wrmem_A;
             wmemval_M<=regval2_A;
         end
 
