@@ -216,11 +216,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[1]",
+					"name" : "KEY[2]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[2]",
+					"name" : "KEY[1]",
 					"strict" : false
 				},
 				{
@@ -232,15 +232,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[1]",
+					"name" : "SW[5]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[2]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
+					"name" : "SW[7]",
 					"strict" : false
 				},
 				{
@@ -248,15 +244,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[5]",
+					"name" : "SW[2]",
 					"strict" : false
 				},
 				{
 					"name" : "SW[6]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[7]",
 					"strict" : false
 				},
 				{
@@ -265,6 +257,14 @@
 				},
 				{
 					"name" : "SW[9]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[3]",
 					"strict" : false
 				}
 			]

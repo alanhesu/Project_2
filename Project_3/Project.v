@@ -119,9 +119,18 @@ module Project(
 	reg [(DBITS-1):0] regs[(REGWORDS-1):0];
 	// Two read ports, always using rs and rt for register numbers
 	wire [(REGNOBITS-1):0] rregno1_D=rs_D, rregno2_D=rt_D;
-	wire [(DBITS-1):0] regval1_D=regs[rregno1_D];
-	wire [(DBITS-1):0] regval2_D=regs[rregno2_D];
-  // wire [(DBITS-1):0] regval2_A=regval2_D;
+	// wire [(DBITS-1):0] regval1_D=regs[rregno1_D];
+	// wire [(DBITS-1):0] regval2_D=regs[rregno2_D];
+  wire [(DBITS-1):0] regval1_D=
+    forw1A_D?result_A:
+    forw1M_D?result_M:
+    forw1W_D?result_W:
+    regs[rregno1_D];
+  wire [(DBITS-1):0] regval2_D=
+    forw2A_D?result_A:
+    forw2M_D?result_M:
+    forw2W_D?result_W:
+    regs[rregno2_D];
 
 	// TODO: Get these signals to the ALU somehow
   reg aluimm_D;
@@ -147,6 +156,15 @@ module Project(
 		OP2_NXOR:aluout_A=~(aluin1_A^aluin2_A);
 		default: aluout_A={DBITS{1'bX}};
 	endcase
+
+  wire signed [(DBITS-1):0] result_A=
+    selaluout_A?aluout_A:
+    selpcplus_A?pcplus_A:
+    {DBITS{1'bX}};
+  wire signed [(DBITS-1):0] result_M=
+    selmemout_M?memout_M:
+    restmp_M;
+  wire gotresult_A=(selaluout_A || selpcplus_A);
 
 	// TODO: Generate the dobranch, brtarg, isjump, and jmptarg signals somehow...
   reg isbranch_D;
@@ -174,15 +192,19 @@ module Project(
   assign flush_D=flush_F;
   assign flush_A=flush_F;
 
-  wire stall_F, stall_D;
-  // wire stall_F=1'b0;
-  // assign stall_D=(((rs_D == wregno_A) || (rs_D == wregno_M) || (rs_D == wregno_W))
-  //                   || ((rt_D == wregno_A) || (rt_D == wregno_M) || (rt_D == wregno_W)))
-  //                   && (wrreg_A || wrreg_M || wrreg_W);
+  // Forwarding
+  wire forw1A_D=wrreg_A&&(rs_D == wregno_A);
+  wire forw2A_D=wrreg_A&&(rt_D == wregno_A);
+  wire forw1M_D=wrreg_M&&(rs_D == wregno_M);
+  wire forw2M_D=wrreg_M&&(rt_D == wregno_M);
+  wire forw1W_D=wrreg_W&&(rs_D == wregno_W);
+  wire forw2W_D=wrreg_W&&(rt_D == wregno_W);
 
-  assign stall_D=(((rs_D == wregno_A || rt_D == wregno_A) && wrreg_A)
-                    || ((rs_D == wregno_M || rt_D == wregno_M) && wrreg_M)
-                    || ((rs_D == wregno_W || rt_D == wregno_W) && wrreg_W));
+  wire stall_F, stall_D;
+  assign stall_D=((forw1A_D||forw2A_D)&&!gotresult_A);
+  // assign stall_D=(((rs_D == wregno_A || rt_D == wregno_A) && wrreg_A)
+  //                   || ((rs_D == wregno_M || rt_D == wregno_M) && wrreg_M)
+  //                   || ((rs_D == wregno_W || rt_D == wregno_W) && wrreg_W));
 
   assign stall_F=stall_D;
 
@@ -393,22 +415,22 @@ module Project(
       end
 
     // A->M buffer
-    reg [(DBITS-1):0] pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M;
+    reg [(DBITS-1):0] pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M, restmp_M;
     reg aluimm_M, isbranch_M, isjump_M, isnop_M, wrmem_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M;
     reg [(REGNOBITS-1):0] wregno_M;
     assign memaddr_M=aluout_M;
     always @(posedge clk or posedge reset)
       if(reset) begin
-        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M}<=
-          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
+        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M, restmp_M}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
         {aluimm_M, isbranch_M, isjump_M, isnop_M, wrmem_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M}<=
           {1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0, 1'b0};
         {wregno_M}<=
           {{REGNOBITS{1'b0}}};
       end
       else if(!flush_A) begin
-        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M}<=
-          {pcplus_A, brtarg_A, jmptarg_A, aluout_A, pcpred_A};
+        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M, restmp_M}<=
+          {pcplus_A, brtarg_A, jmptarg_A, aluout_A, pcpred_A, result_A};
         {aluimm_M, isbranch_M, isjump_M, isnop_M, wrmem_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M}<=
           {aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, dobranch_A, wrreg_A};
         {wregno_M}<=
@@ -425,18 +447,18 @@ module Project(
       end
 
     // M->W buffer
-    reg [(DBITS-1):0] pcplus_W, memout_W, aluout_W;
+    reg [(DBITS-1):0] pcplus_W, memout_W, aluout_W, result_W;
     reg isbranch_W, isjump_W, isnop_W, selaluout_W, selmemout_W, selpcplus_W;
     always @(posedge clk or posedge reset)
       if(reset) begin
-        {pcplus_W, memout_W, aluout_W}<=
-          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
+        {pcplus_W, memout_W, aluout_W, result_W}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
         {isbranch_W, isjump_W, isnop_W, selaluout_W, selmemout_W, selpcplus_W}<=
           {1'b0,1'b0,1'b0,1'b0,1'b0,1'b0};
       end
       else begin
-        {pcplus_W, memout_W, aluout_W}<=
-          {pcplus_M, memout_M, aluout_M};
+        {pcplus_W, memout_W, aluout_W, result_W}<=
+          {pcplus_M, memout_M, aluout_M, result_M};
         {isbranch_W, isjump_W, isnop_W, selaluout_W, selmemout_W, selpcplus_W}<=
           {isbranch_M, isjump_M, isnop_M, selaluout_M, selmemout_M, selpcplus_M};
       end
