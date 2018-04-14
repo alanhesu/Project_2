@@ -201,7 +201,7 @@ module Project(
   wire forw2W_D=wrreg_W&&(rt_D == wregno_W);
 
   wire stall_F, stall_D;
-  assign stall_D=((forw1A_D||forw2A_D)&&!gotresult_A);
+  assign stall_D=(((forw1A_D&&rdreg1_D)||(forw2A_D&&rdreg2_D))&&!gotresult_A);
   // assign stall_D=(((rs_D == wregno_A || rt_D == wregno_A) && wrreg_A)
   //                   || ((rs_D == wregno_M || rt_D == wregno_M) && wrreg_M)
   //                   || ((rs_D == wregno_W || rt_D == wregno_W) && wrreg_W));
@@ -237,7 +237,7 @@ module Project(
 	SevenSeg ss0(.OUT(HEX0),.IN(HexOut[3:0]));
 	always @(posedge clk or posedge reset)
 		if(reset)
-			HexOut<=24'h123456;
+			HexOut<=24'h0;
 		else if(wrmem_M&&(memaddr_M==ADDRHEX))
 			HexOut <= wmemval_M[23:0];
     /*
@@ -318,7 +318,7 @@ module Project(
 			regs[wregno_W]<=wregval_W;
 
 	// Decoding logic
-  reg isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D;
+  reg isnop_D, wrmem_D, selaluout_D, selmemout_D, selpcplus_D, wrreg_D, rdreg1_D, rdreg2_D;
   reg [(REGNOBITS-1):0] wregno_D;
 	always @* begin
 		{aluimm_D,      alufunc_D}=
@@ -327,6 +327,8 @@ module Project(
 		{      1'b0,    1'b0,   1'b0,   1'b0};
 		{selaluout_D,selmemout_D,selpcplus_D,wregno_D,          wrreg_D}=
 		{       1'bX,       1'bX,       1'bX,{REGNOBITS{1'bX}},   1'b0};
+    {rdreg1_D,rdreg2_D}=
+    {1'b0, 1'b0};
 		if(reset|flush_D)
 			isnop_D=1'b1;
 		else case(op1_D)
@@ -336,32 +338,32 @@ module Project(
             {wrmem_D,wrreg_D}<=
             {1'b0,1'b0};
           default:
-      			{aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-      			{    1'b0,    op2_D,       1'b1,       1'b0,       1'b0,    rd_D,   1'b1};
+      			{aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D,rdreg1_D,rdreg2_D}=
+      			{    1'b0,    op2_D,       1'b1,       1'b0,       1'b0,    rd_D,   1'b1, 1'b1, 1'b1};
         endcase
 
 
       OP1_ADDI,OP1_ANDI,OP1_ORI,OP1_XORI:
-        {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-        {1'b1,op1_D,1'b1,1'b0,1'b0,rt_D,1'b1};
+        {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D,rdreg1_D}=
+        {1'b1,op1_D,1'b1,1'b0,1'b0,rt_D,1'b1,1'b1};
 
       OP1_BEQ,OP1_BLT,OP1_BNE,OP1_BLE:
-        {aluimm_D,alufunc_D,isbranch_D}=
-        {1'b0,op1_D,1'b1};
+        {aluimm_D,alufunc_D,isbranch_D,rdreg1_D,rdreg2_D}=
+        {1'b0,op1_D,1'b1,1'b1,1'b1};
 
       OP1_JAL:
         // {aluimm_D,alufunc_D,isjump_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
         // {1'b1,OP2_ADD,1'b1,1'b0,1'b0,1'b1,rt_D,1'b1};
-        {isjump_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-        {1'b1,1'b0,1'b0,1'b1,rt_D,1'b1};
+        {isjump_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D,rdreg1_D}=
+        {1'b1,1'b0,1'b0,1'b1,rt_D,1'b1,1'b1};
 
       OP1_LW:
-        {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D}=
-        {1'b1,OP2_ADD,1'b0,1'b1,1'b0,rt_D,1'b1};
+        {aluimm_D,alufunc_D,selaluout_D,selmemout_D,selpcplus_D,wregno_D,wrreg_D,rdreg1_D}=
+        {1'b1,OP2_ADD,1'b0,1'b1,1'b0,rt_D,1'b1,1'b1};
 
       OP1_SW:
-        {aluimm_D,alufunc_D,wrmem_D}=
-        {1'b1,OP2_ADD,1'b1};
+        {aluimm_D,alufunc_D,wrmem_D,rdreg1_D,rdreg2_D}=
+        {1'b1,OP2_ADD,1'b1,1'b1,1'b1};
 		default:  ;
 		endcase
 	end
