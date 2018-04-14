@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Debug
-Fri Apr 13 02:45:39 2018
+Sat Apr 14 01:56:46 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -21,30 +21,32 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  13. Inverted Register Statistics
  14. Registers Added for RAM Pass-Through Logic
  15. Multiplexer Restructuring Statistics (No Restructuring Performed)
- 16. Source assignments for altsyncram:regs_rtl_0|altsyncram_9ji1:auto_generated
- 17. Source assignments for altsyncram:regs_rtl_1|altsyncram_9ji1:auto_generated
- 18. Source assignments for altsyncram:dmem_rtl_0|altsyncram_mjm1:auto_generated
- 19. Parameter Settings for User Entity Instance: Top-level Entity: |Project
- 20. Parameter Settings for User Entity Instance: Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i
- 21. Parameter Settings for User Entity Instance: SXT:sxt1
- 22. Parameter Settings for User Entity Instance: Keys:keys
- 23. Parameter Settings for User Entity Instance: Switches:switches
- 24. Parameter Settings for Inferred Entity Instance: altsyncram:regs_rtl_0
- 25. Parameter Settings for Inferred Entity Instance: altsyncram:regs_rtl_1
- 26. Parameter Settings for Inferred Entity Instance: altsyncram:dmem_rtl_0
- 27. altsyncram Parameter Settings by Entity Instance
- 28. Port Connectivity Checks: "Switches:switches"
- 29. Port Connectivity Checks: "Keys:keys"
- 30. Port Connectivity Checks: "SevenSeg:ss0"
- 31. Port Connectivity Checks: "SevenSeg:ss1"
- 32. Port Connectivity Checks: "SevenSeg:ss2"
- 33. Port Connectivity Checks: "SevenSeg:ss3"
- 34. Port Connectivity Checks: "SevenSeg:ss4"
- 35. Port Connectivity Checks: "SevenSeg:ss5"
- 36. Post-Synthesis Netlist Statistics for Top Partition
- 37. Elapsed Time Per Partition
- 38. Analysis & Synthesis Messages
- 39. Analysis & Synthesis Suppressed Messages
+ 16. Source assignments for altsyncram:bptable_rtl_0|altsyncram_jmi1:auto_generated
+ 17. Source assignments for altsyncram:regs_rtl_0|altsyncram_9ji1:auto_generated
+ 18. Source assignments for altsyncram:regs_rtl_1|altsyncram_9ji1:auto_generated
+ 19. Source assignments for altsyncram:dmem_rtl_0|altsyncram_mjm1:auto_generated
+ 20. Parameter Settings for User Entity Instance: Top-level Entity: |Project
+ 21. Parameter Settings for User Entity Instance: Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i
+ 22. Parameter Settings for User Entity Instance: SXT:sxt1
+ 23. Parameter Settings for User Entity Instance: Keys:keys
+ 24. Parameter Settings for User Entity Instance: Switches:switches
+ 25. Parameter Settings for Inferred Entity Instance: altsyncram:bptable_rtl_0
+ 26. Parameter Settings for Inferred Entity Instance: altsyncram:regs_rtl_0
+ 27. Parameter Settings for Inferred Entity Instance: altsyncram:regs_rtl_1
+ 28. Parameter Settings for Inferred Entity Instance: altsyncram:dmem_rtl_0
+ 29. altsyncram Parameter Settings by Entity Instance
+ 30. Port Connectivity Checks: "Switches:switches"
+ 31. Port Connectivity Checks: "Keys:keys"
+ 32. Port Connectivity Checks: "SevenSeg:ss0"
+ 33. Port Connectivity Checks: "SevenSeg:ss1"
+ 34. Port Connectivity Checks: "SevenSeg:ss2"
+ 35. Port Connectivity Checks: "SevenSeg:ss3"
+ 36. Port Connectivity Checks: "SevenSeg:ss4"
+ 37. Port Connectivity Checks: "SevenSeg:ss5"
+ 38. Post-Synthesis Netlist Statistics for Top Partition
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+ 41. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -70,16 +72,16 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Apr 13 02:45:39 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sat Apr 14 01:56:46 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Debug                                       ;
 ; Top-level Entity Name           ; Project                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 939                                         ;
+; Total registers                 ; 1240                                        ;
 ; Total pins                      ; 68                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 528,384                                     ;
+; Total block memory bits         ; 536,576                                     ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -214,6 +216,7 @@ refer to the applicable agreement for further details.
 ; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
 ; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_jmi1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/alanh/Documents/Github/Project_2/Project_3/db/altsyncram_jmi1.tdf   ;         ;
 ; db/altsyncram_9ji1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/alanh/Documents/Github/Project_2/Project_3/db/altsyncram_9ji1.tdf   ;         ;
 ; db/altsyncram_mjm1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/alanh/Documents/Github/Project_2/Project_3/db/altsyncram_mjm1.tdf   ;         ;
 ; db/decode_5la.tdf                ; yes             ; Auto-Generated Megafunction      ; C:/Users/alanh/Documents/Github/Project_2/Project_3/db/decode_5la.tdf        ;         ;
@@ -226,20 +229,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                              ;
 +---------------------------------------------+--------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 887                                                                ;
+; Estimate of Logic utilization (ALMs needed) ; 941                                                                ;
 ;                                             ;                                                                    ;
-; Combinational ALUT usage for logic          ; 1259                                                               ;
-;     -- 7 input functions                    ; 67                                                                 ;
-;     -- 6 input functions                    ; 386                                                                ;
-;     -- 5 input functions                    ; 214                                                                ;
-;     -- 4 input functions                    ; 256                                                                ;
-;     -- <=3 input functions                  ; 336                                                                ;
+; Combinational ALUT usage for logic          ; 1317                                                               ;
+;     -- 7 input functions                    ; 58                                                                 ;
+;     -- 6 input functions                    ; 421                                                                ;
+;     -- 5 input functions                    ; 240                                                                ;
+;     -- 4 input functions                    ; 232                                                                ;
+;     -- <=3 input functions                  ; 366                                                                ;
 ;                                             ;                                                                    ;
-; Dedicated logic registers                   ; 939                                                                ;
+; Dedicated logic registers                   ; 1240                                                               ;
 ;                                             ;                                                                    ;
 ; I/O pins                                    ; 68                                                                 ;
 ; Total MLAB memory bits                      ; 0                                                                  ;
-; Total block memory bits                     ; 528384                                                             ;
+; Total block memory bits                     ; 536576                                                             ;
 ;                                             ;                                                                    ;
 ; Total DSP Blocks                            ; 0                                                                  ;
 ;                                             ;                                                                    ;
@@ -247,9 +250,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                  ;
 ;                                             ;                                                                    ;
 ; Maximum fan-out node                        ; Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 1112                                                               ;
-; Total fan-out                               ; 11261                                                              ;
-; Average fan-out                             ; 4.57                                                               ;
+; Maximum fan-out                             ; 1423                                                               ;
+; Total fan-out                               ; 12873                                                              ;
+; Average fan-out                             ; 4.51                                                               ;
 +---------------------------------------------+--------------------------------------------------------------------+
 
 
@@ -258,8 +261,8 @@ refer to the applicable agreement for further details.
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Entity Name     ; Library Name ;
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
-; |Project                               ; 1259 (1135)         ; 939 (874)                 ; 528384            ; 0          ; 68   ; 0            ; |Project                                                                         ; Project         ; work         ;
-;    |Keys:keys|                         ; 18 (18)             ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Keys:keys                                                               ; Keys            ; work         ;
+; |Project                               ; 1317 (1198)         ; 1240 (1175)               ; 536576            ; 0          ; 68   ; 0            ; |Project                                                                         ; Project         ; work         ;
+;    |Keys:keys|                         ; 16 (16)             ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Keys:keys                                                               ; Keys            ; work         ;
 ;    |Pll:myPll|                         ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Pll:myPll                                                               ; Pll             ; Pll          ;
 ;       |Pll_0002:pll_inst|              ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Pll:myPll|Pll_0002:pll_inst                                             ; Pll_0002        ; Pll          ;
 ;          |altera_pll:altera_pll_i|     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i                     ; altera_pll      ; work         ;
@@ -269,7 +272,9 @@ refer to the applicable agreement for further details.
 ;    |SevenSeg:ss3|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss3                                                            ; SevenSeg        ; work         ;
 ;    |SevenSeg:ss4|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss4                                                            ; SevenSeg        ; work         ;
 ;    |SevenSeg:ss5|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss5                                                            ; SevenSeg        ; work         ;
-;    |Switches:switches|                 ; 62 (62)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |Project|Switches:switches                                                       ; Switches        ; work         ;
+;    |Switches:switches|                 ; 59 (59)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |Project|Switches:switches                                                       ; Switches        ; work         ;
+;    |altsyncram:bptable_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |Project|altsyncram:bptable_rtl_0                                                ; altsyncram      ; work         ;
+;       |altsyncram_jmi1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |Project|altsyncram:bptable_rtl_0|altsyncram_jmi1:auto_generated                 ; altsyncram_jmi1 ; work         ;
 ;    |altsyncram:dmem_rtl_0|             ; 2 (0)               ; 2 (0)                     ; 524288            ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0                                                   ; altsyncram      ; work         ;
 ;       |altsyncram_mjm1:auto_generated| ; 2 (1)               ; 2 (2)                     ; 524288            ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0|altsyncram_mjm1:auto_generated                    ; altsyncram_mjm1 ; work         ;
 ;          |decode_5la:decode2|          ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0|altsyncram_mjm1:auto_generated|decode_5la:decode2 ; decode_5la      ; work         ;
@@ -281,15 +286,16 @@ refer to the applicable agreement for further details.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                             ;
-+-----------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-------------+
-; Name                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF         ;
-+-----------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-------------+
-; altsyncram:dmem_rtl_0|altsyncram_mjm1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 16384        ; 32           ; 16384        ; 32           ; 524288 ; Sorter3.mif ;
-; altsyncram:regs_rtl_0|altsyncram_9ji1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 64           ; 32           ; 64           ; 32           ; 2048   ; None        ;
-; altsyncram:regs_rtl_1|altsyncram_9ji1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 64           ; 32           ; 64           ; 32           ; 2048   ; None        ;
-+-----------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                ;
++--------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-------------+
+; Name                                                               ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF         ;
++--------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-------------+
+; altsyncram:bptable_rtl_0|altsyncram_jmi1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 256          ; 32           ; 256          ; 32           ; 8192   ; None        ;
+; altsyncram:dmem_rtl_0|altsyncram_mjm1:auto_generated|ALTSYNCRAM    ; AUTO ; Simple Dual Port ; 16384        ; 32           ; 16384        ; 32           ; 524288 ; Sorter3.mif ;
+; altsyncram:regs_rtl_0|altsyncram_9ji1:auto_generated|ALTSYNCRAM    ; AUTO ; Simple Dual Port ; 64           ; 32           ; 64           ; 32           ; 2048   ; None        ;
+; altsyncram:regs_rtl_1|altsyncram_9ji1:auto_generated|ALTSYNCRAM    ; AUTO ; Simple Dual Port ; 64           ; 32           ; 64           ; 32           ; 2048   ; None        ;
++--------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-------------+
 
 
 +------------------------------------------------------------------------------------------------------+
@@ -312,102 +318,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; off_A[13..30]                           ; Merged with off_A[31]                  ;
 ; brtarg_M[1]                             ; Merged with pcplus_M[1]                ;
 ; brtarg_M[0]                             ; Merged with pcplus_M[0]                ;
-; pcpred_A[3]                             ; Merged with pcplus_A[3]                ;
-; pcpred_A[31]                            ; Merged with pcplus_A[31]               ;
-; pcpred_A[30]                            ; Merged with pcplus_A[30]               ;
-; pcpred_A[29]                            ; Merged with pcplus_A[29]               ;
-; pcpred_A[28]                            ; Merged with pcplus_A[28]               ;
-; pcpred_A[27]                            ; Merged with pcplus_A[27]               ;
-; pcpred_A[26]                            ; Merged with pcplus_A[26]               ;
-; pcpred_A[25]                            ; Merged with pcplus_A[25]               ;
-; pcpred_A[24]                            ; Merged with pcplus_A[24]               ;
-; pcpred_A[23]                            ; Merged with pcplus_A[23]               ;
-; pcpred_A[22]                            ; Merged with pcplus_A[22]               ;
-; pcpred_A[21]                            ; Merged with pcplus_A[21]               ;
-; pcpred_A[20]                            ; Merged with pcplus_A[20]               ;
-; pcpred_A[19]                            ; Merged with pcplus_A[19]               ;
-; pcpred_A[18]                            ; Merged with pcplus_A[18]               ;
-; pcpred_A[17]                            ; Merged with pcplus_A[17]               ;
-; pcpred_A[16]                            ; Merged with pcplus_A[16]               ;
-; pcpred_A[15]                            ; Merged with pcplus_A[15]               ;
-; pcpred_A[14]                            ; Merged with pcplus_A[14]               ;
-; pcpred_A[13]                            ; Merged with pcplus_A[13]               ;
-; pcpred_A[12]                            ; Merged with pcplus_A[12]               ;
-; pcpred_A[11]                            ; Merged with pcplus_A[11]               ;
-; pcpred_A[10]                            ; Merged with pcplus_A[10]               ;
-; pcpred_A[9]                             ; Merged with pcplus_A[9]                ;
-; pcpred_A[8]                             ; Merged with pcplus_A[8]                ;
-; pcpred_A[7]                             ; Merged with pcplus_A[7]                ;
-; pcpred_A[6]                             ; Merged with pcplus_A[6]                ;
-; pcpred_A[5]                             ; Merged with pcplus_A[5]                ;
-; pcpred_A[4]                             ; Merged with pcplus_A[4]                ;
-; pcpred_A[2]                             ; Merged with pcplus_A[2]                ;
-; pcpred_A[1]                             ; Merged with pcplus_A[1]                ;
-; pcpred_A[0]                             ; Merged with pcplus_A[0]                ;
-; pcpred_D[3]                             ; Merged with pcplus_D[3]                ;
-; pcpred_D[31]                            ; Merged with pcplus_D[31]               ;
-; pcpred_D[30]                            ; Merged with pcplus_D[30]               ;
-; pcpred_D[29]                            ; Merged with pcplus_D[29]               ;
-; pcpred_D[28]                            ; Merged with pcplus_D[28]               ;
-; pcpred_D[27]                            ; Merged with pcplus_D[27]               ;
-; pcpred_D[26]                            ; Merged with pcplus_D[26]               ;
-; pcpred_D[25]                            ; Merged with pcplus_D[25]               ;
-; pcpred_D[24]                            ; Merged with pcplus_D[24]               ;
-; pcpred_D[23]                            ; Merged with pcplus_D[23]               ;
-; pcpred_D[22]                            ; Merged with pcplus_D[22]               ;
-; pcpred_D[21]                            ; Merged with pcplus_D[21]               ;
-; pcpred_D[20]                            ; Merged with pcplus_D[20]               ;
-; pcpred_D[19]                            ; Merged with pcplus_D[19]               ;
-; pcpred_D[18]                            ; Merged with pcplus_D[18]               ;
-; pcpred_D[17]                            ; Merged with pcplus_D[17]               ;
-; pcpred_D[16]                            ; Merged with pcplus_D[16]               ;
-; pcpred_D[15]                            ; Merged with pcplus_D[15]               ;
-; pcpred_D[14]                            ; Merged with pcplus_D[14]               ;
-; pcpred_D[13]                            ; Merged with pcplus_D[13]               ;
-; pcpred_D[12]                            ; Merged with pcplus_D[12]               ;
-; pcpred_D[11]                            ; Merged with pcplus_D[11]               ;
-; pcpred_D[10]                            ; Merged with pcplus_D[10]               ;
-; pcpred_D[9]                             ; Merged with pcplus_D[9]                ;
-; pcpred_D[8]                             ; Merged with pcplus_D[8]                ;
-; pcpred_D[7]                             ; Merged with pcplus_D[7]                ;
-; pcpred_D[6]                             ; Merged with pcplus_D[6]                ;
-; pcpred_D[5]                             ; Merged with pcplus_D[5]                ;
-; pcpred_D[4]                             ; Merged with pcplus_D[4]                ;
-; pcpred_D[2]                             ; Merged with pcplus_D[2]                ;
-; pcpred_D[1]                             ; Merged with pcplus_D[1]                ;
-; pcpred_D[0]                             ; Merged with pcplus_D[0]                ;
-; pcpred_M[0]                             ; Merged with pcplus_M[0]                ;
-; pcpred_M[1]                             ; Merged with pcplus_M[1]                ;
-; pcpred_M[2]                             ; Merged with pcplus_M[2]                ;
-; pcpred_M[3]                             ; Merged with pcplus_M[3]                ;
-; pcpred_M[4]                             ; Merged with pcplus_M[4]                ;
-; pcpred_M[5]                             ; Merged with pcplus_M[5]                ;
-; pcpred_M[6]                             ; Merged with pcplus_M[6]                ;
-; pcpred_M[7]                             ; Merged with pcplus_M[7]                ;
-; pcpred_M[8]                             ; Merged with pcplus_M[8]                ;
-; pcpred_M[9]                             ; Merged with pcplus_M[9]                ;
-; pcpred_M[10]                            ; Merged with pcplus_M[10]               ;
-; pcpred_M[11]                            ; Merged with pcplus_M[11]               ;
-; pcpred_M[12]                            ; Merged with pcplus_M[12]               ;
-; pcpred_M[13]                            ; Merged with pcplus_M[13]               ;
-; pcpred_M[14]                            ; Merged with pcplus_M[14]               ;
-; pcpred_M[15]                            ; Merged with pcplus_M[15]               ;
-; pcpred_M[16]                            ; Merged with pcplus_M[16]               ;
-; pcpred_M[17]                            ; Merged with pcplus_M[17]               ;
-; pcpred_M[18]                            ; Merged with pcplus_M[18]               ;
-; pcpred_M[19]                            ; Merged with pcplus_M[19]               ;
-; pcpred_M[20]                            ; Merged with pcplus_M[20]               ;
-; pcpred_M[21]                            ; Merged with pcplus_M[21]               ;
-; pcpred_M[22]                            ; Merged with pcplus_M[22]               ;
-; pcpred_M[23]                            ; Merged with pcplus_M[23]               ;
-; pcpred_M[24]                            ; Merged with pcplus_M[24]               ;
-; pcpred_M[25]                            ; Merged with pcplus_M[25]               ;
-; pcpred_M[26]                            ; Merged with pcplus_M[26]               ;
-; pcpred_M[27]                            ; Merged with pcplus_M[27]               ;
-; pcpred_M[28]                            ; Merged with pcplus_M[28]               ;
-; pcpred_M[29]                            ; Merged with pcplus_M[29]               ;
-; pcpred_M[30]                            ; Merged with pcplus_M[30]               ;
-; pcpred_M[31]                            ; Merged with pcplus_M[31]               ;
+; pcplus_M[1]                             ; Merged with PC_M[1]                    ;
+; pcplus_M[0]                             ; Merged with PC_M[0]                    ;
+; pcplus_A[1]                             ; Merged with PC_A[1]                    ;
+; pcplus_A[0]                             ; Merged with PC_A[0]                    ;
+; pcplus_W[0]                             ; Merged with PC_W[0]                    ;
+; pcplus_W[1]                             ; Merged with PC_W[1]                    ;
+; pcplus_D[1]                             ; Merged with PC_D[1]                    ;
+; pcplus_D[0]                             ; Merged with PC_D[0]                    ;
 ; inst_D[17,22]                           ; Merged with inst_D[23]                 ;
 ; inst_D[10]                              ; Merged with inst_D[11]                 ;
 ; off_A[10]                               ; Merged with off_A[11]                  ;
@@ -415,7 +333,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; regs_rtl_0_bypass[6,8]                  ; Stuck at GND due to stuck port data_in ;
 ; regs_rtl_1_bypass[8]                    ; Stuck at GND due to stuck port data_in ;
 ; alufunc_A[4]                            ; Lost fanout                            ;
-; Total Number of Removed Registers = 197 ;                                        ;
+; Total Number of Removed Registers = 109 ;                                        ;
 +-----------------------------------------+----------------------------------------+
 
 
@@ -442,12 +360,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 939   ;
-; Number of registers using Synchronous Clear  ; 123   ;
-; Number of registers using Synchronous Load   ; 41    ;
-; Number of registers using Asynchronous Clear ; 627   ;
+; Total registers                              ; 1240  ;
+; Number of registers using Synchronous Clear  ; 125   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 879   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 527   ;
+; Number of registers using Clock Enable       ; 754   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -461,24 +379,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HexOut[2]                               ; 8       ;
 ; HexOut[4]                               ; 8       ;
 ; HexOut[6]                               ; 8       ;
-; HexOut[10]                              ; 9       ;
-; HexOut[12]                              ; 9       ;
-; HexOut[13]                              ; 9       ;
+; HexOut[10]                              ; 8       ;
+; HexOut[12]                              ; 8       ;
+; HexOut[13]                              ; 8       ;
 ; HexOut[17]                              ; 9       ;
 ; HexOut[20]                              ; 9       ;
-; dmem~1                                  ; 1       ;
+; dmem~1                                  ; 2       ;
 ; dmem_rtl_0_bypass[30]                   ; 1       ;
 ; dmem_rtl_0_bypass[29]                   ; 2       ;
 ; dmem~6                                  ; 1       ;
-; dmem_rtl_0_bypass[40]                   ; 1       ;
-; dmem_rtl_0_bypass[39]                   ; 1       ;
+; dmem_rtl_0_bypass[40]                   ; 2       ;
+; dmem_rtl_0_bypass[39]                   ; 2       ;
 ; dmem~8                                  ; 1       ;
-; dmem_rtl_0_bypass[44]                   ; 1       ;
-; dmem_rtl_0_bypass[43]                   ; 1       ;
-; dmem_rtl_0_bypass[38]                   ; 1       ;
+; dmem_rtl_0_bypass[44]                   ; 2       ;
+; dmem_rtl_0_bypass[43]                   ; 2       ;
+; dmem_rtl_0_bypass[38]                   ; 2       ;
 ; dmem~3                                  ; 1       ;
 ; dmem_rtl_0_bypass[34]                   ; 1       ;
 ; dmem_rtl_0_bypass[33]                   ; 2       ;
+; dmem_rtl_0_bypass[70]                   ; 1       ;
+; dmem_rtl_0_bypass[68]                   ; 1       ;
+; dmem_rtl_0_bypass[66]                   ; 1       ;
+; dmem_rtl_0_bypass[64]                   ; 1       ;
+; dmem_rtl_0_bypass[62]                   ; 1       ;
+; dmem~16                                 ; 1       ;
+; dmem_rtl_0_bypass[60]                   ; 1       ;
+; dmem_rtl_0_bypass[59]                   ; 1       ;
+; dmem~12                                 ; 1       ;
+; dmem_rtl_0_bypass[52]                   ; 1       ;
+; dmem_rtl_0_bypass[51]                   ; 1       ;
+; dmem~11                                 ; 1       ;
+; dmem_rtl_0_bypass[50]                   ; 1       ;
+; dmem_rtl_0_bypass[49]                   ; 1       ;
+; dmem~10                                 ; 1       ;
+; dmem_rtl_0_bypass[48]                   ; 2       ;
+; dmem_rtl_0_bypass[47]                   ; 2       ;
+; dmem_rtl_0_bypass[46]                   ; 2       ;
+; dmem_rtl_0_bypass[42]                   ; 2       ;
+; dmem~4                                  ; 2       ;
+; dmem_rtl_0_bypass[36]                   ; 1       ;
+; dmem_rtl_0_bypass[35]                   ; 2       ;
 ; dmem_rtl_0_bypass[88]                   ; 1       ;
 ; dmem_rtl_0_bypass[90]                   ; 1       ;
 ; dmem_rtl_0_bypass[92]                   ; 1       ;
@@ -486,29 +426,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; dmem_rtl_0_bypass[54]                   ; 1       ;
 ; dmem_rtl_0_bypass[53]                   ; 1       ;
 ; dmem_rtl_0_bypass[56]                   ; 1       ;
-; dmem_rtl_0_bypass[70]                   ; 1       ;
 ; dmem_rtl_0_bypass[72]                   ; 1       ;
-; dmem_rtl_0_bypass[66]                   ; 1       ;
-; dmem_rtl_0_bypass[68]                   ; 1       ;
-; dmem_rtl_0_bypass[62]                   ; 1       ;
-; dmem_rtl_0_bypass[64]                   ; 1       ;
 ; dmem~15                                 ; 1       ;
 ; dmem_rtl_0_bypass[58]                   ; 1       ;
 ; dmem_rtl_0_bypass[57]                   ; 1       ;
-; dmem~16                                 ; 1       ;
-; dmem_rtl_0_bypass[60]                   ; 1       ;
-; dmem_rtl_0_bypass[59]                   ; 1       ;
-; dmem_rtl_0_bypass[42]                   ; 1       ;
-; dmem_rtl_0_bypass[46]                   ; 1       ;
-; dmem~10                                 ; 1       ;
-; dmem_rtl_0_bypass[48]                   ; 1       ;
-; dmem_rtl_0_bypass[47]                   ; 1       ;
-; dmem~11                                 ; 1       ;
-; dmem_rtl_0_bypass[50]                   ; 1       ;
-; dmem_rtl_0_bypass[49]                   ; 1       ;
-; dmem~12                                 ; 1       ;
-; dmem_rtl_0_bypass[52]                   ; 1       ;
-; dmem_rtl_0_bypass[51]                   ; 1       ;
+; dmem_rtl_0_bypass[32]                   ; 1       ;
 ; dmem_rtl_0_bypass[74]                   ; 1       ;
 ; dmem_rtl_0_bypass[80]                   ; 1       ;
 ; dmem_rtl_0_bypass[82]                   ; 1       ;
@@ -516,203 +438,248 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; dmem_rtl_0_bypass[86]                   ; 1       ;
 ; dmem_rtl_0_bypass[76]                   ; 1       ;
 ; dmem_rtl_0_bypass[78]                   ; 1       ;
-; dmem_rtl_0_bypass[32]                   ; 1       ;
-; dmem~4                                  ; 1       ;
-; dmem_rtl_0_bypass[36]                   ; 1       ;
-; dmem_rtl_0_bypass[35]                   ; 2       ;
 ; Total number of inverted registers = 63 ;         ;
 +-----------------------------------------+---------+
 
 
 +--------------------------------------------+
 ; Registers Added for RAM Pass-Through Logic ;
-+-----------------------+--------------------+
-; Register Name         ; RAM Name           ;
-+-----------------------+--------------------+
-; regs_rtl_0_bypass[0]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[1]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[2]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[3]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[4]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[5]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[6]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[7]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[8]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[9]  ; regs_rtl_0         ;
-; regs_rtl_0_bypass[10] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[11] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[12] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[13] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[14] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[15] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[16] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[17] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[18] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[19] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[20] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[21] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[22] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[23] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[24] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[25] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[26] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[27] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[28] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[29] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[30] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[31] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[32] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[33] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[34] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[35] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[36] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[37] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[38] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[39] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[40] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[41] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[42] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[43] ; regs_rtl_0         ;
-; regs_rtl_0_bypass[44] ; regs_rtl_0         ;
-; regs_rtl_1_bypass[0]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[1]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[2]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[3]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[4]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[5]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[6]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[7]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[8]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[9]  ; regs_rtl_1         ;
-; regs_rtl_1_bypass[10] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[11] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[12] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[13] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[14] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[15] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[16] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[17] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[18] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[19] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[20] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[21] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[22] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[23] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[24] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[25] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[26] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[27] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[28] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[29] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[30] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[31] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[32] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[33] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[34] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[35] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[36] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[37] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[38] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[39] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[40] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[41] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[42] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[43] ; regs_rtl_1         ;
-; regs_rtl_1_bypass[44] ; regs_rtl_1         ;
-; dmem_rtl_0_bypass[0]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[1]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[2]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[3]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[4]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[5]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[6]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[7]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[8]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[9]  ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[10] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[11] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[12] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[13] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[14] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[15] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[16] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[17] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[18] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[19] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[20] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[21] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[22] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[23] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[24] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[25] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[26] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[27] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[28] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[29] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[30] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[31] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[32] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[33] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[34] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[35] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[36] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[37] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[38] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[39] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[40] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[41] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[42] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[43] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[44] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[45] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[46] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[47] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[48] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[49] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[50] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[51] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[52] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[53] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[54] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[55] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[56] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[57] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[58] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[59] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[60] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[61] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[62] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[63] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[64] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[65] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[66] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[67] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[68] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[69] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[70] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[71] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[72] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[73] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[74] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[75] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[76] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[77] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[78] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[79] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[80] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[81] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[82] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[83] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[84] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[85] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[86] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[87] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[88] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[89] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[90] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[91] ; dmem_rtl_0         ;
-; dmem_rtl_0_bypass[92] ; dmem_rtl_0         ;
-+-----------------------+--------------------+
++--------------------------+-----------------+
+; Register Name            ; RAM Name        ;
++--------------------------+-----------------+
+; bptable_rtl_0_bypass[0]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[1]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[2]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[3]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[4]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[5]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[6]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[7]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[8]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[9]  ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[10] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[11] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[12] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[13] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[14] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[15] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[16] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[17] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[18] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[19] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[20] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[21] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[22] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[23] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[24] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[25] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[26] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[27] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[28] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[29] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[30] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[31] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[32] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[33] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[34] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[35] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[36] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[37] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[38] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[39] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[40] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[41] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[42] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[43] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[44] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[45] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[46] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[47] ; bptable_rtl_0   ;
+; bptable_rtl_0_bypass[48] ; bptable_rtl_0   ;
+; regs_rtl_0_bypass[0]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[1]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[2]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[3]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[4]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[5]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[6]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[7]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[8]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[9]     ; regs_rtl_0      ;
+; regs_rtl_0_bypass[10]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[11]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[12]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[13]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[14]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[15]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[16]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[17]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[18]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[19]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[20]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[21]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[22]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[23]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[24]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[25]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[26]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[27]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[28]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[29]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[30]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[31]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[32]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[33]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[34]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[35]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[36]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[37]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[38]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[39]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[40]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[41]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[42]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[43]    ; regs_rtl_0      ;
+; regs_rtl_0_bypass[44]    ; regs_rtl_0      ;
+; regs_rtl_1_bypass[0]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[1]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[2]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[3]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[4]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[5]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[6]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[7]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[8]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[9]     ; regs_rtl_1      ;
+; regs_rtl_1_bypass[10]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[11]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[12]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[13]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[14]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[15]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[16]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[17]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[18]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[19]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[20]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[21]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[22]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[23]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[24]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[25]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[26]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[27]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[28]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[29]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[30]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[31]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[32]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[33]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[34]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[35]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[36]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[37]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[38]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[39]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[40]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[41]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[42]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[43]    ; regs_rtl_1      ;
+; regs_rtl_1_bypass[44]    ; regs_rtl_1      ;
+; dmem_rtl_0_bypass[0]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[1]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[2]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[3]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[4]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[5]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[6]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[7]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[8]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[9]     ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[10]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[11]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[12]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[13]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[14]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[15]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[16]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[17]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[18]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[19]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[20]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[21]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[22]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[23]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[24]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[25]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[26]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[27]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[28]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[29]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[30]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[31]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[32]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[33]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[34]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[35]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[36]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[37]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[38]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[39]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[40]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[41]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[42]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[43]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[44]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[45]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[46]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[47]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[48]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[49]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[50]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[51]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[52]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[53]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[54]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[55]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[56]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[57]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[58]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[59]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[60]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[61]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[62]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[63]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[64]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[65]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[66]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[67]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[68]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[69]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[70]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[71]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[72]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[73]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[74]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[75]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[76]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[77]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[78]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[79]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[80]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[81]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[82]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[83]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[84]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[85]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[86]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[87]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[88]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[89]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[90]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[91]    ; dmem_rtl_0      ;
+; dmem_rtl_0_bypass[92]    ; dmem_rtl_0      ;
++--------------------------+-----------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -720,20 +687,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Project|wrmem_A                           ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 0 LEs                ; 38 LEs                 ; Yes        ; |Project|inst_D[13]                        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Project|PC[1]                             ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project|Switches:switches|bounceTimer[20] ;
-; 4:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |Project|PC[16]                            ;
-; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |Project|regval1_A[24]                     ;
-; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |Project|regval2_A[31]                     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Project|isjump_A                          ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 0 LEs                ; 38 LEs                 ; Yes        ; |Project|inst_D[4]                         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project|Switches:switches|bounceTimer[23] ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |Project|PC[22]                            ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |Project|regval1_A[21]                     ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |Project|regval2_A[21]                     ;
 ; 11:1               ; 6 bits    ; 42 LEs        ; 36 LEs               ; 6 LEs                  ; Yes        ; |Project|alufunc_A[1]                      ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |Project|pcgood_B[26]                      ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |Project|pcgood_M[31]                      ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |Project|inst_D                            ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Project|wregval_W[0]                      ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Project|wregval_W[8]                      ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Project|memout_M[26]                      ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |Project|memout_M[20]                      ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Project|memout_M[4]                       ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |Project|memout_M[10]                      ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Project|memout_M[7]                       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |Project|PC                                ;
 ; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss0|OUT                  ;
 ; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss1|OUT                  ;
 ; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss2|OUT                  ;
@@ -741,7 +708,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss4|OUT                  ;
 ; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss5|OUT                  ;
 ; 12:1               ; 31 bits   ; 248 LEs       ; 186 LEs              ; 62 LEs                 ; No         ; |Project|Selector17                        ;
+; 65:1               ; 2 bits    ; 86 LEs        ; 30 LEs               ; 56 LEs                 ; No         ; |Project|rdreg2_D                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Source assignments for altsyncram:bptable_rtl_0|altsyncram_jmi1:auto_generated ;
++---------------------------------+-------+------+-------------------------------+
+; Assignment                      ; Value ; From ; To                            ;
++---------------------------------+-------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; OFF   ; -    ; -                             ;
++---------------------------------+-------+------+-------------------------------+
 
 
 +-----------------------------------------------------------------------------+
@@ -798,6 +775,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; DMEMWORDBITS   ; 2                                ; Signed Integer      ;
 ; DMEMWORDS      ; 16384                            ; Signed Integer      ;
 ; TEST           ; 11111111111111111111111111111111 ; Unsigned Binary     ;
+; BPABITS        ; 10                               ; Signed Integer      ;
+; BPAWORDS       ; 1024                             ; Signed Integer      ;
 ; OP1BITS        ; 6                                ; Signed Integer      ;
 ; OP1_ALUR       ; 000000                           ; Unsigned Binary     ;
 ; OP1_BEQ        ; 001000                           ; Unsigned Binary     ;
@@ -1111,6 +1090,67 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:bptable_rtl_0  ;
++------------------------------------+----------------------+----------------+
+; Parameter Name                     ; Value                ; Type           ;
++------------------------------------+----------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped        ;
+; WIDTH_A                            ; 32                   ; Untyped        ;
+; WIDTHAD_A                          ; 8                    ; Untyped        ;
+; NUMWORDS_A                         ; 256                  ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WIDTH_B                            ; 32                   ; Untyped        ;
+; WIDTHAD_B                          ; 8                    ; Untyped        ;
+; NUMWORDS_B                         ; 256                  ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; INIT_FILE                          ; UNUSED               ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_jmi1      ; Untyped        ;
++------------------------------------+----------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: altsyncram:regs_rtl_0     ;
 +------------------------------------+----------------------+----------------+
 ; Parameter Name                     ; Value                ; Type           ;
@@ -1293,46 +1333,57 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                  ;
-+-------------------------------------------+-----------------------+
-; Name                                      ; Value                 ;
-+-------------------------------------------+-----------------------+
-; Number of entity instances                ; 3                     ;
-; Entity Instance                           ; altsyncram:regs_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT             ;
-;     -- WIDTH_A                            ; 32                    ;
-;     -- NUMWORDS_A                         ; 64                    ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED          ;
-;     -- WIDTH_B                            ; 32                    ;
-;     -- NUMWORDS_B                         ; 64                    ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED          ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                  ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ;
-; Entity Instance                           ; altsyncram:regs_rtl_1 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT             ;
-;     -- WIDTH_A                            ; 32                    ;
-;     -- NUMWORDS_A                         ; 64                    ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED          ;
-;     -- WIDTH_B                            ; 32                    ;
-;     -- NUMWORDS_B                         ; 64                    ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED          ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                  ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ;
-; Entity Instance                           ; altsyncram:dmem_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT             ;
-;     -- WIDTH_A                            ; 32                    ;
-;     -- NUMWORDS_A                         ; 16384                 ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED          ;
-;     -- WIDTH_B                            ; 32                    ;
-;     -- NUMWORDS_B                         ; 16384                 ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED          ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                  ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ;
-+-------------------------------------------+-----------------------+
++----------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                     ;
++-------------------------------------------+--------------------------+
+; Name                                      ; Value                    ;
++-------------------------------------------+--------------------------+
+; Number of entity instances                ; 4                        ;
+; Entity Instance                           ; altsyncram:bptable_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                ;
+;     -- WIDTH_A                            ; 32                       ;
+;     -- NUMWORDS_A                         ; 256                      ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED             ;
+;     -- WIDTH_B                            ; 32                       ;
+;     -- NUMWORDS_B                         ; 256                      ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                   ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                     ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                ;
+; Entity Instance                           ; altsyncram:regs_rtl_0    ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                ;
+;     -- WIDTH_A                            ; 32                       ;
+;     -- NUMWORDS_A                         ; 64                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED             ;
+;     -- WIDTH_B                            ; 32                       ;
+;     -- NUMWORDS_B                         ; 64                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                   ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                     ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                ;
+; Entity Instance                           ; altsyncram:regs_rtl_1    ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                ;
+;     -- WIDTH_A                            ; 32                       ;
+;     -- NUMWORDS_A                         ; 64                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED             ;
+;     -- WIDTH_B                            ; 32                       ;
+;     -- NUMWORDS_B                         ; 64                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                   ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                     ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                ;
+; Entity Instance                           ; altsyncram:dmem_rtl_0    ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                ;
+;     -- WIDTH_A                            ; 32                       ;
+;     -- NUMWORDS_A                         ; 16384                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED             ;
+;     -- WIDTH_B                            ; 32                       ;
+;     -- NUMWORDS_B                         ; 16384                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                   ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                     ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                ;
++-------------------------------------------+--------------------------+
 
 
 +----------------------------------------------------+
@@ -1414,37 +1465,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 939                         ;
-;     CLR               ; 178                         ;
+; arriav_ff             ; 1240                        ;
+;     CLR               ; 265                         ;
 ;     CLR SCLR          ; 5                           ;
-;     CLR SCLR SLD      ; 40                          ;
-;     ENA               ; 123                         ;
-;     ENA CLR           ; 326                         ;
-;     ENA CLR SCLR      ; 78                          ;
-;     SLD               ; 1                           ;
-;     plain             ; 188                         ;
-; arriav_lcell_comb     ; 1265                        ;
-;     arith             ; 187                         ;
+;     ENA               ; 121                         ;
+;     ENA CLR           ; 513                         ;
+;     ENA CLR SCLR      ; 96                          ;
+;     ENA SCLR          ; 24                          ;
+;     plain             ; 216                         ;
+; arriav_lcell_comb     ; 1323                        ;
+;     arith             ; 186                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 62                          ;
-;         2 data inputs ; 60                          ;
+;         1 data inputs ; 60                          ;
+;         2 data inputs ; 61                          ;
 ;         4 data inputs ; 64                          ;
-;     extend            ; 67                          ;
-;         7 data inputs ; 67                          ;
-;     normal            ; 1011                        ;
+;     extend            ; 58                          ;
+;         7 data inputs ; 58                          ;
+;     normal            ; 1079                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 42                          ;
-;         2 data inputs ; 89                          ;
-;         3 data inputs ; 87                          ;
-;         4 data inputs ; 192                         ;
-;         5 data inputs ; 214                         ;
-;         6 data inputs ; 386                         ;
+;         2 data inputs ; 85                          ;
+;         3 data inputs ; 122                         ;
+;         4 data inputs ; 168                         ;
+;         5 data inputs ; 240                         ;
+;         6 data inputs ; 421                         ;
 ; boundary_port         ; 68                          ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 128                         ;
+; stratixv_ram_block    ; 160                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 3.84                        ;
+; Average LUT depth     ; 3.50                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1453,7 +1503,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:12     ;
+; Top            ; 00:00:10     ;
 +----------------+--------------+
 
 
@@ -1463,7 +1513,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Apr 13 02:45:05 2018
+    Info: Processing started: Sat Apr 14 01:56:15 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Debug
 Info (20032): Parallel compilation is enabled and will use up to 2 processors
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
@@ -1472,23 +1522,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file pll/pll
     Info (12023): Found entity 1: Pll_0002 File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll/Pll_0002.v Line: 2
 Info (12021): Found 4 design units, including 4 entities, in source file project.v
     Info (12023): Found entity 1: Project File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 1
-    Info (12023): Found entity 2: SXT File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 468
-    Info (12023): Found entity 3: Keys File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 561
-    Info (12023): Found entity 4: Switches File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 611
+    Info (12023): Found entity 2: SXT File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 498
+    Info (12023): Found entity 3: Keys File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 591
+    Info (12023): Found entity 4: Switches File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 641
 Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.v
     Info (12023): Found entity 1: SevenSeg File: C:/Users/alanh/Documents/Github/Project_2/Project_3/SevenSeg.v Line: 1
 Info (12127): Elaborating entity "Project" for the top level hierarchy
-Warning (10858): Verilog HDL warning at Project.v(98): object imem used but never assigned File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 98
-Warning (10036): Verilog HDL or VHDL warning at Project.v(385): object "op1_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 385
-Warning (10036): Verilog HDL or VHDL warning at Project.v(385): object "op2_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 385
-Warning (10036): Verilog HDL or VHDL warning at Project.v(386): object "rs_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 386
-Warning (10036): Verilog HDL or VHDL warning at Project.v(386): object "rt_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 386
-Warning (10036): Verilog HDL or VHDL warning at Project.v(386): object "rd_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 386
-Warning (10036): Verilog HDL or VHDL warning at Project.v(419): object "aluimm_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 419
-Warning (10036): Verilog HDL or VHDL warning at Project.v(451): object "isbranch_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 451
-Warning (10036): Verilog HDL or VHDL warning at Project.v(451): object "isjump_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 451
-Warning (10036): Verilog HDL or VHDL warning at Project.v(451): object "isnop_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 451
-Info (12128): Elaborating entity "Pll" for hierarchy "Pll:myPll" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 77
+Warning (10858): Verilog HDL warning at Project.v(117): object imem used but never assigned File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 117
+Warning (10036): Verilog HDL or VHDL warning at Project.v(415): object "op1_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 415
+Warning (10036): Verilog HDL or VHDL warning at Project.v(415): object "op2_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 415
+Warning (10036): Verilog HDL or VHDL warning at Project.v(416): object "rs_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 416
+Warning (10036): Verilog HDL or VHDL warning at Project.v(416): object "rt_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 416
+Warning (10036): Verilog HDL or VHDL warning at Project.v(416): object "rd_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 416
+Warning (10036): Verilog HDL or VHDL warning at Project.v(449): object "aluimm_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 449
+Warning (10036): Verilog HDL or VHDL warning at Project.v(481): object "isbranch_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 481
+Warning (10036): Verilog HDL or VHDL warning at Project.v(481): object "isjump_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 481
+Warning (10036): Verilog HDL or VHDL warning at Project.v(481): object "isnop_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 481
+Info (12128): Elaborating entity "Pll" for hierarchy "Pll:myPll" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 79
 Info (12128): Elaborating entity "Pll_0002" for hierarchy "Pll:myPll|Pll_0002:pll_inst" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll.v Line: 20
 Info (12128): Elaborating entity "altera_pll" for hierarchy "Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll/Pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -1554,83 +1604,99 @@ Info (12133): Instantiated megafunction "Pll:myPll|Pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "SXT" for hierarchy "SXT:sxt1" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 116
-Info (12128): Elaborating entity "SevenSeg" for hierarchy "SevenSeg:ss5" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 232
-Info (12128): Elaborating entity "Keys" for hierarchy "Keys:keys" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 288
-Warning (10034): Output port "INTR" at Project.v(570) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 570
-Info (12128): Elaborating entity "Switches" for hierarchy "Switches:switches" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 290
-Warning (10858): Verilog HDL warning at Project.v(625): object prevBounce used but never assigned File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 625
-Warning (10030): Net "prevBounce" at Project.v(625) has no driver or initial value, using a default initial value '0' File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 625
-Warning (10034): Output port "INTR" at Project.v(620) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 620
+Info (12128): Elaborating entity "SXT" for hierarchy "SXT:sxt1" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 135
+Info (12128): Elaborating entity "SevenSeg" for hierarchy "SevenSeg:ss5" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 252
+Info (12128): Elaborating entity "Keys" for hierarchy "Keys:keys" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 309
+Warning (10034): Output port "INTR" at Project.v(600) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 600
+Info (12128): Elaborating entity "Switches" for hierarchy "Switches:switches" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 311
+Warning (10858): Verilog HDL warning at Project.v(655): object prevBounce used but never assigned File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 655
+Warning (10030): Net "prevBounce" at Project.v(655) has no driver or initial value, using a default initial value '0' File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 655
+Warning (10034): Output port "INTR" at Project.v(650) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 650
+Warning (276020): Inferred RAM node "bptable_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "regs_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "regs_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "dmem_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13049): Converted tri-state buffer "memout_M[0]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[1]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[2]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[3]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[4]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[5]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[6]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[7]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[8]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[9]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[10]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[11]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[12]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[13]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[14]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[15]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[16]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[17]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[18]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[19]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[20]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[21]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[22]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[23]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[24]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[25]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[26]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[27]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[28]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[29]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[30]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13049): Converted tri-state buffer "memout_M[31]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[31]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[30]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[29]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[28]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[27]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[26]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[25]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[24]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[23]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[22]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[21]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[20]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[19]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[18]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[17]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[16]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[15]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[14]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[13]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[12]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[11]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[10]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[9]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[8]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[7]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[6]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[5]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[4]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[3]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 623
-    Warning (13048): Converted tri-state node "dbus[2]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-    Warning (13048): Converted tri-state node "dbus[1]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 623
-    Warning (13048): Converted tri-state node "dbus[0]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 299
-Info (19000): Inferred 3 megafunctions from design logic
+    Warning (13049): Converted tri-state buffer "memout_M[0]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[1]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[2]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[3]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[4]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[5]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[6]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[7]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[8]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[9]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[10]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[11]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[12]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[13]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[14]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[15]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[16]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[17]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[18]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[19]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[20]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[21]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[22]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[23]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[24]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[25]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[26]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[27]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[28]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[29]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[30]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13049): Converted tri-state buffer "memout_M[31]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[31]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[30]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[29]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[28]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[27]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[26]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[25]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[24]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[23]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[22]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[21]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[20]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[19]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[18]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[17]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[16]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[15]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[14]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[13]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[12]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[11]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[10]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[9]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[8]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[7]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[6]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[5]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[4]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[3]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 653
+    Warning (13048): Converted tri-state node "dbus[2]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbus[1]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 653
+    Warning (13048): Converted tri-state node "dbus[0]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+Info (19000): Inferred 4 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "bptable_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 8
+        Info (286033): Parameter NUMWORDS_B set to 256
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
     Info (276029): Inferred altsyncram megafunction from the following design logic: "regs_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 32
@@ -1677,6 +1743,24 @@ Info (19000): Inferred 3 megafunctions from design logic
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter INIT_FILE set to Sorter3.mif
+Info (12130): Elaborated megafunction instantiation "altsyncram:bptable_rtl_0"
+Info (12133): Instantiated megafunction "altsyncram:bptable_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "8"
+    Info (12134): Parameter "NUMWORDS_B" = "256"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_jmi1.tdf
+    Info (12023): Found entity 1: altsyncram_jmi1 File: C:/Users/alanh/Documents/Github/Project_2/Project_3/db/altsyncram_jmi1.tdf Line: 27
 Info (12130): Elaborated megafunction instantiation "altsyncram:regs_rtl_0"
 Info (12133): Instantiated megafunction "altsyncram:regs_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -1739,17 +1823,17 @@ Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2058 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2414 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 1861 logic cells
-    Info (21064): Implemented 128 RAM segments
+    Info (21061): Implemented 2185 logic cells
+    Info (21064): Implemented 160 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 83 warnings
-    Info: Peak virtual memory: 899 megabytes
-    Info: Processing ended: Fri Apr 13 02:45:39 2018
-    Info: Elapsed time: 00:00:34
-    Info: Total CPU time (on all processors): 00:00:55
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 84 warnings
+    Info: Peak virtual memory: 907 megabytes
+    Info: Processing ended: Sat Apr 14 01:56:46 2018
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:48
 
 
 +------------------------------------------+
