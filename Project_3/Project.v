@@ -199,6 +199,10 @@ module Project(
   	dobranch_M?brtarg_M:
   	isjump_M?jmptarg_M:
   	pcplus_M;
+  // wire [(DBITS-1):0] pcgood_A=
+  //   dobranch_A?brtarg_A:
+  //   isjump_A?jmptarg_A:
+  //   pcplus_A;
 	// wire mispred_A=(pcgood_A!=pcpred_A);
 	// wire mispred_B=mispred_A&&!isnop_A;
   wire mispred_B=(pcgood_M!=pcpred_M)&&!flushed_M;
@@ -248,6 +252,7 @@ module Project(
         end
 
 	// Create and connect HEX register
+  /*
 	reg [23:0] HexOut;
 	SevenSeg ss5(.OUT(HEX5),.IN(HexOut[23:20]));
 	SevenSeg ss4(.OUT(HEX4),.IN(HexOut[19:16]));
@@ -261,25 +266,18 @@ module Project(
 		else if(wrmem_M&&(memaddr_M==ADDRHEX))
 			HexOut <= wmemval_M[23:0];
       // HexOut<=pcpred_F[23:0];
-    /*
-    else if(PC<32'h00000104)
-      // HexOut<=inst_F[23:0];
-      HexOut<=reghex[23:0];
-    */
+  */
 
+  /*
   reg [9:0] led;
   always @(posedge clk or posedge reset) begin
     if(reset)
       led<=10'b0;
     else if(wrmem_M&&(memaddr_M==ADDRLEDR))
       led<=wmemval_M[9:0];
-    /*
-    else begin
-      led<=TEST[9:0];
-    end
-    */
   end
   assign LEDR=led;
+  */
 
 	// TODO: Write the code for LEDR here
 
@@ -290,34 +288,51 @@ module Project(
 	reg [(DBITS-1):0] dmem[(DMEMWORDS-1):0];
 	always @(posedge clk)
 		if(MemWE)
-			dmem[abus[(DMEMADDRBITS-1):DMEMWORDBITS]]<=dbus;
+			// dmem[abus[(DMEMADDRBITS-1):DMEMWORDBITS]]<=dbus;
+      dmem[abus[(DMEMADDRBITS-1):DMEMWORDBITS]]<=dbusw;
 	wire [(DBITS-1):0] MemVal=MemWE?{DBITS{1'bX}}:dmem[abus[(DMEMADDRBITS-1):DMEMWORDBITS]];
-  assign dbus=(MemEnable&&!wrmem_M)?MemVal:{DBITS{1'bz}};
+  // assign dbus=(MemEnable&&!wrmem_M)?MemVal:{DBITS{1'bz}};
+  assign dbusr=(MemEnable&&!wrmem_M)?MemVal:{DBITS{1'bz}};
 	// Connect memory and input devices to the bus
 
   wire [(DBITS-1):0] abus;
-  tri [(DBITS-1):0] dbus;
+  tri [(DBITS-1):0] dbusr;
+  wire [(DBITS-1):0] dbusw;
   wire we;
 
   assign abus=memaddr_M;
   assign we=wrmem_M;
-  assign dbus=wrmem_M?wmemval_M:{DBITS{1'bz}};
+  // assign dbus=wrmem_M?wmemval_M:{DBITS{1'bz}};
+  assign dbusw=wmemval_M;
 
-  // Timer #(.BITS(DBITS), .BASE(ADDRTCNT))
-  //   timer(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG());
+  // Keys #(.BITS(DBITS), .BASE(ADDRKEY))
+  //   keys(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.KEY(KEY));
+  // Switches #(.BITS(DBITS), .BASE(ADDRSW))
+  //   switches(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.SW(SW));
+  // Leds #(.BITS(DBITS), .BASE(ADDRLEDR))
+  //   leds(.ABUS(abus),.DBUSW(dbusw),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.LEDR(LEDR));
+  // Hexes #(.BITS(DBITS), .BASE(ADDRHEX))
+  //   hexes(.ABUS(abus),.DBUSW(dbusw),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.HEX({HEX5,HEX4,HEX3,HEX2,HEX1,HEX0}));
   Keys #(.BITS(DBITS), .BASE(ADDRKEY))
-    keys(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.KEY(KEY));
+    keys(.ABUS(abus),.DBUSR(dbusr),.DBUSW(dbusw),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.KEY(KEY));
   Switches #(.BITS(DBITS), .BASE(ADDRSW))
-    switches(.ABUS(abus),.DBUS(dbus),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.SW(SW));
+    switches(.ABUS(abus),.DBUSR(dbusr),.DBUSW(dbusw),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.SW(SW));
+  Leds #(.BITS(DBITS), .BASE(ADDRLEDR))
+    leds(.ABUS(abus),.DBUSR(dbusr),.DBUSW(dbusw),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.LEDR(LEDR));
+  Hexes #(.BITS(DBITS), .BASE(ADDRHEX))
+    hexes(.ABUS(abus),.DBUSR(dbusr),.DBUSW(dbusw),.WE(we),.INTR(),.CLK(clk),.LOCK(locked),.RESET(reset),.DEBUG(),.HEX({HEX5,HEX4,HEX3,HEX2,HEX1,HEX0}));
 
-	wire [(DBITS-1):0] memout_M=
-		MemEnable?dbus:
-		(memaddr_M==ADDRKEY)?dbus:
-		(memaddr_M==ADDRSW)?dbus:
-    (memaddr_M==ADDRHEX)?{8'b0,HexOut}:
-    (memaddr_M==ADDRLEDR)?{22'b0,led}:
-    ((memaddr_M==ADDRTCNT)||(memaddr_M==ADDRTLIM)||(memaddr_M==ADDRTCTL)&&!wrmem_M)?dbus:
-		{DBITS{1'bz}};
+
+	// wire [(DBITS-1):0] memout_M=
+	// 	MemEnable?dbus:
+	// 	(memaddr_M==ADDRKEY)?dbus:
+	// 	(memaddr_M==ADDRSW)?dbus:
+ //    (memaddr_M==ADDRHEX)?dbus:
+ //    (memaddr_M==ADDRLEDR)?{22'b0,led}:
+ //    ((memaddr_M==ADDRTCNT)||(memaddr_M==ADDRTLIM)||(memaddr_M==ADDRTCTL)&&!wrmem_M)?dbus:
+	// 	{DBITS{1'bz}};
+  // wire [(DBITS-1):0] memout_M=dbus;
+  wire [(DBITS-1):0] memout_M=dbusr;
 
 	// TODO: Decide what gets written into the destination register (wregval_M),
 	// when it gets written (wrreg_M) and to which register it gets written (wregno_M)
@@ -332,7 +347,7 @@ module Project(
         selaluout_W?aluout_W:
         selmemout_W?memout_W:
         selpcplus_W?pcplus_W:
-        {DBITS{1'b0}};
+        {DBITS{1'bX}};
 
 	always @(posedge clk)
 		if(wrreg_W&&!reset)
@@ -503,99 +518,105 @@ module SXT(IN,OUT);
   assign OUT={{(OBITS-IBITS){IN[IBITS-1]}},IN};
 endmodule
 
-/*
-module Timer(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG);
+// module Leds(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,LEDR);
+module Leds(ABUS,DBUSR,DBUSW,WE,INTR,CLK,LOCK,RESET,DEBUG,LEDR);
   parameter BITS;
   parameter BASE;
 
   input wire DEBUG;
+  output wire [9:0] LEDR;
   input wire [(BITS-1):0] ABUS;
-  inout wire [(BITS-1):0] DBUS;
+  output wire [(BITS-1):0] DBUSR;
+  input wire [(BITS-1):0] DBUSW;
   input wire WE,CLK,LOCK,RESET;
   output wire INTR;
 
-  reg [(BITS-1):0] lim;
-  reg ready,overrun;
-
-  wire selCnt=(ABUS==BASE);
-  wire wrCnt=WE&&selCnt;
-  wire rdCnt=(!WE)&&selCnt;
-
-  wire selLim=(ABUS==BASE+4);
-  wire wrLim=WE&&selLim;
-  wire rdLim=(!WE)&&selLim;
-
-  wire selCtl=(ABUS==BASE+8);
-  wire wrCtl=WE&&selCtl;
-  wire rdCtl=(!WE)&&selCtl;
-
-  reg [(BITS-1):0] cnt={BITS{1'b0}};
-  reg [31:0] clkTimer_div=32'd0;
-
-  // reg tick;
-  // initial tick=1;
-  wire atLim=(cnt==lim-1)&&(lim!=0);
-
-  // always @(posedge CLK) begin
-  //   if(clkTimer_div == 32'd24999999) begin
-  //     clkTimer_div<=32'd0;
-  //     tick=!tick;
-  //   end else
-  //     clkTimer_div<=clkTimer_div+32'd1;
-  // end
-
+  reg [9:0] ldata;
   always @(posedge CLK or posedge RESET) begin
-    if(RESET) begin
-      // tick<=1'b1;
-      cnt<={BITS{1'b0}};
-      lim<={BITS{1'b0}};
-      {ready,overrun}<={2'b0};
-    end else if(wrCnt) begin
-      cnt<=DBUS;
-      {ready,overrun}<={2'b0};
-    end else if(wrLim) begin
-      lim<=DBUS;
-      cnt<={BITS{1'b0}};
-    end else if(wrCtl) begin
-      if(!DBUS[0])
-        ready<=DBUS[0];
-      if(!DBUS[1])
-        overrun<=DBUS[1];
-    end else if(clkTimer_div >= 32'd54999) begin
-      clkTimer_div<=32'd0;
-      if(atLim) begin
-        if(!wrCnt)
-          cnt<={BITS{1'b0}};
-        if(!wrCtl)
-          if(ready)
-            overrun<=1'b1;
-          else
-            ready<=1'b1;
-      end else if(!wrCnt)
-        cnt<=cnt+1'b1;
-    end else
-      clkTimer_div<=clkTimer_div+32'd1;
+    if(RESET)
+      ldata<=10'b0;
+    else if(wrLdata)
+      // ldata<=DBUS;
+      ldata<=DBUSW;
   end
+  assign LEDR=ldata;
 
+  wire selLdata=(ABUS==BASE);
+  wire wrLdata=WE&&selLdata;
+  wire rdLdata=(!WE)&&selLdata;
 
-
-
-  assign DBUS=
-      rdCtl?{30'b0,overrun,ready}:
-      rdCnt?cnt:
-      rdLim?lim:
-      {BITS{1'bz}};
+  assign DBUSR=
+    rdLdata?{22'b0,ldata}:
+    {BITS{1'bz}};
 endmodule
-*/
 
-module Keys(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,KEY);
+// module Hexes(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,HEX);
+module Hexes(ABUS,DBUSR,DBUSW,WE,INTR,CLK,LOCK,RESET,DEBUG,HEX);
+  parameter BITS;
+  parameter BASE;
+
+  input wire DEBUG;
+  output wire [41:0] HEX;
+  input wire [(BITS-1):0] ABUS;
+  output wire [(BITS-1):0] DBUSR;
+  input wire [(BITS-1):0] DBUSW;
+  input wire WE,CLK,LOCK,RESET;
+  output wire INTR;
+
+  reg [23:0] hdata;
+  reg [6:0] hdata0;
+  reg [6:0] hdata1;
+  reg [6:0] hdata2;
+  reg [6:0] hdata3;
+  reg [6:0] hdata4;
+  reg [6:0] hdata5;
+  wire [41:0] htemp;
+
+  SevenSeg ss5(.OUT(htemp[41:35]),.IN(hdata[23:20]));
+  SevenSeg ss4(.OUT(htemp[34:28]),.IN(hdata[19:16]));
+  SevenSeg ss3(.OUT(htemp[27:21]),.IN(hdata[15:12]));
+  SevenSeg ss2(.OUT(htemp[20:14]),.IN(hdata[11:8]));
+  SevenSeg ss1(.OUT(htemp[13:7]),.IN(hdata[7:4]));
+  SevenSeg ss0(.OUT(htemp[6:0]),.IN(hdata[3:0]));
+  // SevenSeg ss5(.OUT(HEX[41:35]),.IN(hdata0));
+  // SevenSeg ss4(.OUT(HEX[34:28]),.IN(hdata1));
+  // SevenSeg ss3(.OUT(HEX[27:21]),.IN(hdata2));
+  // SevenSeg ss2(.OUT(HEX[20:14]),.IN(hdata3));
+  // SevenSeg ss1(.OUT(HEX[13:7]),.IN(hdata4));
+  // SevenSeg ss0(.OUT(HEX[6:0]),.IN(hdata5));
+  always @(posedge CLK or posedge RESET)
+    if(RESET)
+      hdata<=24'b0;
+    else if(wrHdata)
+      // hdata<=DBUS[23:0];
+      hdata<=DBUSW[23:0];
+
+  always@(posedge CLK or posedge RESET)
+    if(RESET)
+      {hdata0, hdata1, hdata2, hdata3, hdata4, hdata5}<={25'b0};
+    else
+      {hdata0, hdata1, hdata2, hdata3, hdata4, hdata5}<={htemp};
+  assign HEX={hdata0, hdata1, hdata2, hdata3, hdata4, hdata5};
+
+  wire selHdata=(ABUS==BASE);
+  wire wrHdata=WE&&selHdata;
+  wire rdHdata=(!WE)&&selHdata;
+
+  assign DBUSR=
+    rdHdata?{8'b0,hdata}:
+    {BITS{1'bz}};
+endmodule
+
+// module Keys(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,KEY);
+module Keys(ABUS,DBUSR,DBUSW,WE,INTR,CLK,LOCK,RESET,DEBUG,KEY);
   parameter BITS;
   parameter BASE;
 
   input wire DEBUG;
   input wire [3:0] KEY;
   input wire [(BITS-1):0] ABUS;
-  inout wire [(BITS-1):0] DBUS;
+  output wire [(BITS-1):0] DBUSR;
+  input wire [(BITS-1):0] DBUSW;
   input wire WE,CLK,LOCK,RESET;
   output wire INTR;
 
@@ -615,9 +636,9 @@ module Keys(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,KEY);
     if(RESET) begin
       {ready,overrun,ie}<={3'b0};
     end else if(wrKctrl) begin
-      if(!DBUS[1])
-        overrun<=DBUS[1];
-      ie<=DBUS[3];
+      if(!DBUSW[1])
+        overrun<=DBUSW[1];
+      ie<=DBUSW[3];
     end else if(rdKdata) begin
       ready<=1'b0;
     end else begin
@@ -632,20 +653,22 @@ module Keys(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,KEY);
     end
   end
 
-  assign DBUS=
+  assign DBUSR=
     rdKctrl?{28'b0,ie,1'b0,overrun,ready}:
     rdKdata?kdata:
     {BITS{1'bz}};
 endmodule
 
-module Switches(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,SW);
+// module Switches(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,SW);
+module Switches(ABUS,DBUSR,DBUSW,WE,INTR,CLK,LOCK,RESET,DEBUG,SW);
   parameter BITS;
   parameter BASE;
 
   input wire DEBUG;
   input wire [9:0] SW;
   input wire [(BITS-1):0] ABUS;
-  inout wire [(BITS-1):0] DBUS;
+  output wire [(BITS-1):0] DBUSR;
+  input wire [(BITS-1):0] DBUSW;
   input wire WE,CLK,LOCK,RESET;
   output wire INTR;
 
@@ -669,9 +692,9 @@ module Switches(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,SW);
       bounceTimer<={BITS{1'b0}};
       // prevBounce=rawSW;
     end else if(wrSctrl) begin
-      if(!DBUS[1])
-        overrun<=DBUS[1];
-      ie<=DBUS[3];
+      if(!DBUSW[1])
+        overrun<=DBUSW[1];
+      ie<=DBUSW[3];
     end else if(rdSdata) begin
       ready<=1'b0;
     end else begin
@@ -698,7 +721,7 @@ module Switches(ABUS,DBUS,WE,INTR,CLK,LOCK,RESET,DEBUG,SW);
     end
   end
 
-  assign DBUS=
+  assign DBUSR=
     rdSctrl?{28'b0,ie,1'b0,overrun,ready}:
     rdSdata?sdata:
     {BITS{1'bz}};
