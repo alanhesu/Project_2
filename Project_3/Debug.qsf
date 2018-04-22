@@ -260,6 +260,14 @@ set_global_assignment -name EDA_TEST_BENCH_NAME Project -section_id eda_simulati
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Project
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Project -section_id Project
 set_global_assignment -name EDA_TEST_BENCH_FILE Project.v -section_id Project
+set_global_assignment -name SOURCE_FILE TestNOPS.a32
+set_global_assignment -name MIF_FILE TestBTB.mif
+set_global_assignment -name SOURCE_FILE TestBTB.a32
+set_global_assignment -name MIF_FILE Test2NOPS.mif
+set_global_assignment -name SOURCE_FILE Test2NOPS.a32
+set_global_assignment -name QARLOG_FILE Project2Submission.qarlog
+set_global_assignment -name QAR_FILE Project2Submission.qar
+set_global_assignment -name MIF_FILE TestNOPS.mif
 set_global_assignment -name MIF_FILE TimerTest.mif
 set_global_assignment -name SOURCE_FILE TimerTest.a32
 set_global_assignment -name SOURCE_FILE TestSwitches.a32

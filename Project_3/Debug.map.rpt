@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Debug
-Sat Apr 14 01:56:46 2018
+Sun Apr 22 15:14:19 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -30,23 +30,27 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  22. Parameter Settings for User Entity Instance: SXT:sxt1
  23. Parameter Settings for User Entity Instance: Keys:keys
  24. Parameter Settings for User Entity Instance: Switches:switches
- 25. Parameter Settings for Inferred Entity Instance: altsyncram:bptable_rtl_0
- 26. Parameter Settings for Inferred Entity Instance: altsyncram:regs_rtl_0
- 27. Parameter Settings for Inferred Entity Instance: altsyncram:regs_rtl_1
- 28. Parameter Settings for Inferred Entity Instance: altsyncram:dmem_rtl_0
- 29. altsyncram Parameter Settings by Entity Instance
- 30. Port Connectivity Checks: "Switches:switches"
- 31. Port Connectivity Checks: "Keys:keys"
- 32. Port Connectivity Checks: "SevenSeg:ss0"
- 33. Port Connectivity Checks: "SevenSeg:ss1"
- 34. Port Connectivity Checks: "SevenSeg:ss2"
- 35. Port Connectivity Checks: "SevenSeg:ss3"
- 36. Port Connectivity Checks: "SevenSeg:ss4"
- 37. Port Connectivity Checks: "SevenSeg:ss5"
- 38. Post-Synthesis Netlist Statistics for Top Partition
- 39. Elapsed Time Per Partition
- 40. Analysis & Synthesis Messages
- 41. Analysis & Synthesis Suppressed Messages
+ 25. Parameter Settings for User Entity Instance: Leds:leds
+ 26. Parameter Settings for User Entity Instance: Hexes:hexes
+ 27. Parameter Settings for Inferred Entity Instance: altsyncram:bptable_rtl_0
+ 28. Parameter Settings for Inferred Entity Instance: altsyncram:regs_rtl_0
+ 29. Parameter Settings for Inferred Entity Instance: altsyncram:regs_rtl_1
+ 30. Parameter Settings for Inferred Entity Instance: altsyncram:dmem_rtl_0
+ 31. altsyncram Parameter Settings by Entity Instance
+ 32. Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss0"
+ 33. Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss1"
+ 34. Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss2"
+ 35. Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss3"
+ 36. Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss4"
+ 37. Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss5"
+ 38. Port Connectivity Checks: "Hexes:hexes"
+ 39. Port Connectivity Checks: "Leds:leds"
+ 40. Port Connectivity Checks: "Switches:switches"
+ 41. Port Connectivity Checks: "Keys:keys"
+ 42. Post-Synthesis Netlist Statistics for Top Partition
+ 43. Elapsed Time Per Partition
+ 44. Analysis & Synthesis Messages
+ 45. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -72,13 +76,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Apr 14 01:56:46 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sun Apr 22 15:14:19 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Debug                                       ;
 ; Top-level Entity Name           ; Project                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 1240                                        ;
+; Total registers                 ; 1248                                        ;
 ; Total pins                      ; 68                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 536,576                                     ;
@@ -229,16 +233,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                              ;
 +---------------------------------------------+--------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 941                                                                ;
+; Estimate of Logic utilization (ALMs needed) ; 983                                                                ;
 ;                                             ;                                                                    ;
-; Combinational ALUT usage for logic          ; 1317                                                               ;
-;     -- 7 input functions                    ; 58                                                                 ;
-;     -- 6 input functions                    ; 421                                                                ;
-;     -- 5 input functions                    ; 240                                                                ;
-;     -- 4 input functions                    ; 232                                                                ;
-;     -- <=3 input functions                  ; 366                                                                ;
+; Combinational ALUT usage for logic          ; 1310                                                               ;
+;     -- 7 input functions                    ; 89                                                                 ;
+;     -- 6 input functions                    ; 481                                                                ;
+;     -- 5 input functions                    ; 228                                                                ;
+;     -- 4 input functions                    ; 211                                                                ;
+;     -- <=3 input functions                  ; 301                                                                ;
 ;                                             ;                                                                    ;
-; Dedicated logic registers                   ; 1240                                                               ;
+; Dedicated logic registers                   ; 1248                                                               ;
 ;                                             ;                                                                    ;
 ; I/O pins                                    ; 68                                                                 ;
 ; Total MLAB memory bits                      ; 0                                                                  ;
@@ -250,9 +254,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                  ;
 ;                                             ;                                                                    ;
 ; Maximum fan-out node                        ; Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 1423                                                               ;
-; Total fan-out                               ; 12873                                                              ;
-; Average fan-out                             ; 4.51                                                               ;
+; Maximum fan-out                             ; 1441                                                               ;
+; Total fan-out                               ; 13149                                                              ;
+; Average fan-out                             ; 4.61                                                               ;
 +---------------------------------------------+--------------------------------------------------------------------+
 
 
@@ -261,18 +265,20 @@ refer to the applicable agreement for further details.
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Entity Name     ; Library Name ;
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
-; |Project                               ; 1317 (1198)         ; 1240 (1175)               ; 536576            ; 0          ; 68   ; 0            ; |Project                                                                         ; Project         ; work         ;
-;    |Keys:keys|                         ; 16 (16)             ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Keys:keys                                                               ; Keys            ; work         ;
+; |Project                               ; 1310 (1178)         ; 1248 (1107)               ; 536576            ; 0          ; 68   ; 0            ; |Project                                                                         ; Project         ; work         ;
+;    |Hexes:hexes|                       ; 51 (9)              ; 66 (66)                   ; 0                 ; 0          ; 0    ; 0            ; |Project|Hexes:hexes                                                             ; Hexes           ; work         ;
+;       |SevenSeg:ss0|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Hexes:hexes|SevenSeg:ss0                                                ; SevenSeg        ; work         ;
+;       |SevenSeg:ss1|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Hexes:hexes|SevenSeg:ss1                                                ; SevenSeg        ; work         ;
+;       |SevenSeg:ss2|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Hexes:hexes|SevenSeg:ss2                                                ; SevenSeg        ; work         ;
+;       |SevenSeg:ss3|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Hexes:hexes|SevenSeg:ss3                                                ; SevenSeg        ; work         ;
+;       |SevenSeg:ss4|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Hexes:hexes|SevenSeg:ss4                                                ; SevenSeg        ; work         ;
+;       |SevenSeg:ss5|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Hexes:hexes|SevenSeg:ss5                                                ; SevenSeg        ; work         ;
+;    |Keys:keys|                         ; 17 (17)             ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Keys:keys                                                               ; Keys            ; work         ;
+;    |Leds:leds|                         ; 2 (2)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |Project|Leds:leds                                                               ; Leds            ; work         ;
 ;    |Pll:myPll|                         ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Pll:myPll                                                               ; Pll             ; Pll          ;
 ;       |Pll_0002:pll_inst|              ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Pll:myPll|Pll_0002:pll_inst                                             ; Pll_0002        ; Pll          ;
 ;          |altera_pll:altera_pll_i|     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i                     ; altera_pll      ; work         ;
-;    |SevenSeg:ss0|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss0                                                            ; SevenSeg        ; work         ;
-;    |SevenSeg:ss1|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss1                                                            ; SevenSeg        ; work         ;
-;    |SevenSeg:ss2|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss2                                                            ; SevenSeg        ; work         ;
-;    |SevenSeg:ss3|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss3                                                            ; SevenSeg        ; work         ;
-;    |SevenSeg:ss4|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss4                                                            ; SevenSeg        ; work         ;
-;    |SevenSeg:ss5|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Project|SevenSeg:ss5                                                            ; SevenSeg        ; work         ;
-;    |Switches:switches|                 ; 59 (59)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |Project|Switches:switches                                                       ; Switches        ; work         ;
+;    |Switches:switches|                 ; 60 (60)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |Project|Switches:switches                                                       ; Switches        ; work         ;
 ;    |altsyncram:bptable_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |Project|altsyncram:bptable_rtl_0                                                ; altsyncram      ; work         ;
 ;       |altsyncram_jmi1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |Project|altsyncram:bptable_rtl_0|altsyncram_jmi1:auto_generated                 ; altsyncram_jmi1 ; work         ;
 ;    |altsyncram:dmem_rtl_0|             ; 2 (0)               ; 2 (0)                     ; 524288            ; 0          ; 0    ; 0            ; |Project|altsyncram:dmem_rtl_0                                                   ; altsyncram      ; work         ;
@@ -316,16 +322,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Switches:switches|prev[10..31]          ; Stuck at GND due to stuck port data_in ;
 ; Keys:keys|prev[4..31]                   ; Stuck at GND due to stuck port data_in ;
 ; off_A[13..30]                           ; Merged with off_A[31]                  ;
-; brtarg_M[1]                             ; Merged with pcplus_M[1]                ;
-; brtarg_M[0]                             ; Merged with pcplus_M[0]                ;
-; pcplus_M[1]                             ; Merged with PC_M[1]                    ;
-; pcplus_M[0]                             ; Merged with PC_M[0]                    ;
-; pcplus_A[1]                             ; Merged with PC_A[1]                    ;
 ; pcplus_A[0]                             ; Merged with PC_A[0]                    ;
+; pcplus_A[1]                             ; Merged with PC_A[1]                    ;
 ; pcplus_W[0]                             ; Merged with PC_W[0]                    ;
 ; pcplus_W[1]                             ; Merged with PC_W[1]                    ;
-; pcplus_D[1]                             ; Merged with PC_D[1]                    ;
 ; pcplus_D[0]                             ; Merged with PC_D[0]                    ;
+; pcplus_D[1]                             ; Merged with PC_D[1]                    ;
+; pcplus_M[0]                             ; Merged with PC_M[0]                    ;
+; pcplus_M[1]                             ; Merged with PC_M[1]                    ;
 ; inst_D[17,22]                           ; Merged with inst_D[23]                 ;
 ; inst_D[10]                              ; Merged with inst_D[11]                 ;
 ; off_A[10]                               ; Merged with off_A[11]                  ;
@@ -333,7 +337,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; regs_rtl_0_bypass[6,8]                  ; Stuck at GND due to stuck port data_in ;
 ; regs_rtl_1_bypass[8]                    ; Stuck at GND due to stuck port data_in ;
 ; alufunc_A[4]                            ; Lost fanout                            ;
-; Total Number of Removed Registers = 109 ;                                        ;
+; Total Number of Removed Registers = 107 ;                                        ;
 +-----------------------------------------+----------------------------------------+
 
 
@@ -360,12 +364,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1240  ;
-; Number of registers using Synchronous Clear  ; 125   ;
+; Total registers                              ; 1248  ;
+; Number of registers using Synchronous Clear  ; 156   ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 879   ;
+; Number of registers using Asynchronous Clear ; 887   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 754   ;
+; Number of registers using Clock Enable       ; 691   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -375,70 +379,61 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; HexOut[1]                               ; 8       ;
-; HexOut[2]                               ; 8       ;
-; HexOut[4]                               ; 8       ;
-; HexOut[6]                               ; 8       ;
-; HexOut[10]                              ; 8       ;
-; HexOut[12]                              ; 8       ;
-; HexOut[13]                              ; 8       ;
-; HexOut[17]                              ; 9       ;
-; HexOut[20]                              ; 9       ;
-; dmem~1                                  ; 2       ;
+; dmem~1                                  ; 1       ;
 ; dmem_rtl_0_bypass[30]                   ; 1       ;
 ; dmem_rtl_0_bypass[29]                   ; 2       ;
-; dmem~6                                  ; 1       ;
-; dmem_rtl_0_bypass[40]                   ; 2       ;
-; dmem_rtl_0_bypass[39]                   ; 2       ;
-; dmem~8                                  ; 1       ;
-; dmem_rtl_0_bypass[44]                   ; 2       ;
-; dmem_rtl_0_bypass[43]                   ; 2       ;
-; dmem_rtl_0_bypass[38]                   ; 2       ;
-; dmem~3                                  ; 1       ;
-; dmem_rtl_0_bypass[34]                   ; 1       ;
-; dmem_rtl_0_bypass[33]                   ; 2       ;
-; dmem_rtl_0_bypass[70]                   ; 1       ;
-; dmem_rtl_0_bypass[68]                   ; 1       ;
-; dmem_rtl_0_bypass[66]                   ; 1       ;
-; dmem_rtl_0_bypass[64]                   ; 1       ;
-; dmem_rtl_0_bypass[62]                   ; 1       ;
-; dmem~16                                 ; 1       ;
+; dmem_rtl_0_bypass[56]                   ; 1       ;
+; dmem~15                                 ; 2       ;
+; dmem_rtl_0_bypass[58]                   ; 1       ;
+; dmem_rtl_0_bypass[57]                   ; 3       ;
+; dmem~16                                 ; 2       ;
 ; dmem_rtl_0_bypass[60]                   ; 1       ;
-; dmem_rtl_0_bypass[59]                   ; 1       ;
-; dmem~12                                 ; 1       ;
-; dmem_rtl_0_bypass[52]                   ; 1       ;
-; dmem_rtl_0_bypass[51]                   ; 1       ;
-; dmem~11                                 ; 1       ;
-; dmem_rtl_0_bypass[50]                   ; 1       ;
-; dmem_rtl_0_bypass[49]                   ; 1       ;
-; dmem~10                                 ; 1       ;
-; dmem_rtl_0_bypass[48]                   ; 2       ;
-; dmem_rtl_0_bypass[47]                   ; 2       ;
-; dmem_rtl_0_bypass[46]                   ; 2       ;
-; dmem_rtl_0_bypass[42]                   ; 2       ;
-; dmem~4                                  ; 2       ;
+; dmem_rtl_0_bypass[59]                   ; 3       ;
+; dmem_rtl_0_bypass[32]                   ; 1       ;
+; dmem~4                                  ; 1       ;
 ; dmem_rtl_0_bypass[36]                   ; 1       ;
 ; dmem_rtl_0_bypass[35]                   ; 2       ;
-; dmem_rtl_0_bypass[88]                   ; 1       ;
-; dmem_rtl_0_bypass[90]                   ; 1       ;
-; dmem_rtl_0_bypass[92]                   ; 1       ;
-; dmem~13                                 ; 1       ;
+; dmem~3                                  ; 2       ;
+; dmem_rtl_0_bypass[34]                   ; 1       ;
+; dmem_rtl_0_bypass[33]                   ; 2       ;
+; dmem~13                                 ; 2       ;
 ; dmem_rtl_0_bypass[54]                   ; 1       ;
-; dmem_rtl_0_bypass[53]                   ; 1       ;
-; dmem_rtl_0_bypass[56]                   ; 1       ;
+; dmem_rtl_0_bypass[53]                   ; 3       ;
+; dmem_rtl_0_bypass[70]                   ; 1       ;
 ; dmem_rtl_0_bypass[72]                   ; 1       ;
-; dmem~15                                 ; 1       ;
-; dmem_rtl_0_bypass[58]                   ; 1       ;
-; dmem_rtl_0_bypass[57]                   ; 1       ;
-; dmem_rtl_0_bypass[32]                   ; 1       ;
-; dmem_rtl_0_bypass[74]                   ; 1       ;
-; dmem_rtl_0_bypass[80]                   ; 1       ;
+; dmem_rtl_0_bypass[66]                   ; 1       ;
+; dmem_rtl_0_bypass[68]                   ; 1       ;
+; dmem_rtl_0_bypass[62]                   ; 1       ;
+; dmem_rtl_0_bypass[64]                   ; 1       ;
+; dmem~6                                  ; 2       ;
+; dmem_rtl_0_bypass[40]                   ; 1       ;
+; dmem_rtl_0_bypass[39]                   ; 2       ;
+; dmem_rtl_0_bypass[38]                   ; 1       ;
+; dmem_rtl_0_bypass[42]                   ; 1       ;
+; dmem~8                                  ; 2       ;
+; dmem_rtl_0_bypass[44]                   ; 1       ;
+; dmem_rtl_0_bypass[43]                   ; 3       ;
+; dmem_rtl_0_bypass[46]                   ; 1       ;
+; dmem~10                                 ; 2       ;
+; dmem_rtl_0_bypass[48]                   ; 1       ;
+; dmem_rtl_0_bypass[47]                   ; 3       ;
+; dmem~11                                 ; 2       ;
+; dmem_rtl_0_bypass[50]                   ; 1       ;
+; dmem_rtl_0_bypass[49]                   ; 3       ;
+; dmem~12                                 ; 2       ;
+; dmem_rtl_0_bypass[52]                   ; 1       ;
+; dmem_rtl_0_bypass[51]                   ; 3       ;
 ; dmem_rtl_0_bypass[82]                   ; 1       ;
 ; dmem_rtl_0_bypass[84]                   ; 1       ;
 ; dmem_rtl_0_bypass[86]                   ; 1       ;
+; dmem_rtl_0_bypass[88]                   ; 1       ;
+; dmem_rtl_0_bypass[90]                   ; 1       ;
+; dmem_rtl_0_bypass[92]                   ; 1       ;
 ; dmem_rtl_0_bypass[76]                   ; 1       ;
 ; dmem_rtl_0_bypass[78]                   ; 1       ;
-; Total number of inverted registers = 63 ;         ;
+; dmem_rtl_0_bypass[74]                   ; 1       ;
+; dmem_rtl_0_bypass[80]                   ; 1       ;
+; Total number of inverted registers = 54 ;         ;
 +-----------------------------------------+---------+
 
 
@@ -682,34 +677,32 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------+-----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (No Restructuring Performed)                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Project|isjump_A                          ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 0 LEs                ; 38 LEs                 ; Yes        ; |Project|inst_D[4]                         ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project|Switches:switches|bounceTimer[23] ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |Project|PC[22]                            ;
-; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |Project|regval1_A[21]                     ;
-; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |Project|regval2_A[21]                     ;
-; 11:1               ; 6 bits    ; 42 LEs        ; 36 LEs               ; 6 LEs                  ; Yes        ; |Project|alufunc_A[1]                      ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |Project|pcgood_M[31]                      ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |Project|inst_D                            ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Project|wregval_W[8]                      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Project|memout_M[26]                      ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |Project|memout_M[10]                      ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Project|memout_M[7]                       ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |Project|PC                                ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss0|OUT                  ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss1|OUT                  ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss2|OUT                  ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss3|OUT                  ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss4|OUT                  ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; No         ; |Project|SevenSeg:ss5|OUT                  ;
-; 12:1               ; 31 bits   ; 248 LEs       ; 186 LEs              ; 62 LEs                 ; No         ; |Project|Selector17                        ;
-; 65:1               ; 2 bits    ; 86 LEs        ; 30 LEs               ; 56 LEs                 ; No         ; |Project|rdreg2_D                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (No Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Project|isjump_A                         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Project|pcgood_M[0]                      ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 0 LEs                ; 38 LEs                 ; Yes        ; |Project|inst_D[27]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project|Switches:switches|bounceTimer[7] ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |Project|pcgood_M[7]                      ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |Project|PC[24]                           ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; Yes        ; |Project|Hexes:hexes|hdata5[0]            ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; Yes        ; |Project|Hexes:hexes|hdata4[0]            ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; Yes        ; |Project|Hexes:hexes|hdata3[6]            ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; Yes        ; |Project|Hexes:hexes|hdata2[6]            ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; Yes        ; |Project|Hexes:hexes|hdata1[1]            ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 40 LEs               ; 10 LEs                 ; Yes        ; |Project|Hexes:hexes|hdata0[5]            ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |Project|regval1_A[11]                    ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |Project|regval2_A[29]                    ;
+; 11:1               ; 6 bits    ; 42 LEs        ; 36 LEs               ; 6 LEs                  ; Yes        ; |Project|alufunc_A[0]                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Project|wregval_W[5]                     ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |Project|inst_D                           ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |Project|PC                               ;
+; 12:1               ; 31 bits   ; 248 LEs       ; 186 LEs              ; 62 LEs                 ; No         ; |Project|Selector14                       ;
+; 65:1               ; 2 bits    ; 86 LEs        ; 30 LEs               ; 56 LEs                 ; No         ; |Project|rdreg1_D                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 
 
 +--------------------------------------------------------------------------------+
@@ -823,7 +816,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; deserialization_factor               ; 4                      ; Signed Integer                   ;
 ; data_rate                            ; 0                      ; Signed Integer                   ;
 ; sim_additional_refclk_cycles_to_lock ; 0                      ; Signed Integer                   ;
-; output_clock_frequency0              ; 96.000000 MHz          ; String                           ;
+; output_clock_frequency0              ; 124.000000 MHz         ; String                           ;
 ; phase_shift0                         ; 0 ps                   ; String                           ;
 ; duty_cycle0                          ; 50                     ; Signed Integer                   ;
 ; output_clock_frequency1              ; 0 MHz                  ; String                           ;
@@ -1085,6 +1078,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+----------------------------------+-----------------+
 ; BITS           ; 32                               ; Signed Integer  ;
 ; BASE           ; 11111111111111111111000010010000 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Leds:leds              ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; BITS           ; 32                               ; Signed Integer  ;
+; BASE           ; 11111111111111111111000000100000 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Hexes:hexes            ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; BITS           ; 32                               ; Signed Integer  ;
+; BASE           ; 11111111111111111111000000000000 ; Unsigned Binary ;
 +----------------+----------------------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -1386,6 +1401,80 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+--------------------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss0"                                                                                                                   ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss1"                                                                                                                   ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss2"                                                                                                                   ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss3"                                                                                                                   ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss4"                                                                                                                   ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Hexes:hexes|SevenSeg:ss5"                                                                                                                   ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "Hexes:hexes"            ;
++-------+--------+----------+------------------------+
+; Port  ; Type   ; Severity ; Details                ;
++-------+--------+----------+------------------------+
+; INTR  ; Output ; Info     ; Explicitly unconnected ;
+; DEBUG ; Input  ; Info     ; Explicitly unconnected ;
++-------+--------+----------+------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "Leds:leds"              ;
++-------+--------+----------+------------------------+
+; Port  ; Type   ; Severity ; Details                ;
++-------+--------+----------+------------------------+
+; INTR  ; Output ; Info     ; Explicitly unconnected ;
+; DEBUG ; Input  ; Info     ; Explicitly unconnected ;
++-------+--------+----------+------------------------+
+
+
 +----------------------------------------------------+
 ; Port Connectivity Checks: "Switches:switches"      ;
 +-------+--------+----------+------------------------+
@@ -1406,95 +1495,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+--------+----------+------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SevenSeg:ss0"                                                                                                                               ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SevenSeg:ss1"                                                                                                                               ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SevenSeg:ss2"                                                                                                                               ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SevenSeg:ss3"                                                                                                                               ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SevenSeg:ss4"                                                                                                                               ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SevenSeg:ss5"                                                                                                                               ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; OFF  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 1240                        ;
-;     CLR               ; 265                         ;
-;     CLR SCLR          ; 5                           ;
+; arriav_ff             ; 1248                        ;
+;     CLR               ; 305                         ;
+;     CLR SCLR          ; 36                          ;
 ;     ENA               ; 121                         ;
-;     ENA CLR           ; 513                         ;
+;     ENA CLR           ; 450                         ;
 ;     ENA CLR SCLR      ; 96                          ;
 ;     ENA SCLR          ; 24                          ;
 ;     plain             ; 216                         ;
-; arriav_lcell_comb     ; 1323                        ;
+; arriav_lcell_comb     ; 1310                        ;
 ;     arith             ; 186                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 60                          ;
 ;         2 data inputs ; 61                          ;
 ;         4 data inputs ; 64                          ;
-;     extend            ; 58                          ;
-;         7 data inputs ; 58                          ;
-;     normal            ; 1079                        ;
+;     extend            ; 89                          ;
+;         7 data inputs ; 89                          ;
+;     normal            ; 1035                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 42                          ;
-;         2 data inputs ; 85                          ;
-;         3 data inputs ; 122                         ;
-;         4 data inputs ; 168                         ;
-;         5 data inputs ; 240                         ;
-;         6 data inputs ; 421                         ;
+;         1 data inputs ; 27                          ;
+;         2 data inputs ; 49                          ;
+;         3 data inputs ; 102                         ;
+;         4 data inputs ; 147                         ;
+;         5 data inputs ; 228                         ;
+;         6 data inputs ; 481                         ;
 ; boundary_port         ; 68                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 160                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 3.50                        ;
+; Average LUT depth     ; 3.29                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1503,7 +1538,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:12     ;
 +----------------+--------------+
 
 
@@ -1513,31 +1548,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat Apr 14 01:56:15 2018
+    Info: Processing started: Sun Apr 22 15:13:47 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Debug
 Info (20032): Parallel compilation is enabled and will use up to 2 processors
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
     Info (12023): Found entity 1: Pll File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
     Info (12023): Found entity 1: Pll_0002 File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll/Pll_0002.v Line: 2
-Info (12021): Found 4 design units, including 4 entities, in source file project.v
+Info (12021): Found 6 design units, including 6 entities, in source file project.v
     Info (12023): Found entity 1: Project File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 1
-    Info (12023): Found entity 2: SXT File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 498
-    Info (12023): Found entity 3: Keys File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 591
-    Info (12023): Found entity 4: Switches File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 641
+    Info (12023): Found entity 2: SXT File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 513
+    Info (12023): Found entity 3: Leds File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 522
+    Info (12023): Found entity 4: Hexes File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 554
+    Info (12023): Found entity 5: Keys File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 611
+    Info (12023): Found entity 6: Switches File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 663
 Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.v
     Info (12023): Found entity 1: SevenSeg File: C:/Users/alanh/Documents/Github/Project_2/Project_3/SevenSeg.v Line: 1
 Info (12127): Elaborating entity "Project" for the top level hierarchy
 Warning (10858): Verilog HDL warning at Project.v(117): object imem used but never assigned File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 117
-Warning (10036): Verilog HDL or VHDL warning at Project.v(415): object "op1_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 415
-Warning (10036): Verilog HDL or VHDL warning at Project.v(415): object "op2_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 415
-Warning (10036): Verilog HDL or VHDL warning at Project.v(416): object "rs_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 416
-Warning (10036): Verilog HDL or VHDL warning at Project.v(416): object "rt_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 416
-Warning (10036): Verilog HDL or VHDL warning at Project.v(416): object "rd_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 416
-Warning (10036): Verilog HDL or VHDL warning at Project.v(449): object "aluimm_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 449
-Warning (10036): Verilog HDL or VHDL warning at Project.v(481): object "isbranch_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 481
-Warning (10036): Verilog HDL or VHDL warning at Project.v(481): object "isjump_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 481
-Warning (10036): Verilog HDL or VHDL warning at Project.v(481): object "isnop_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 481
+Warning (10036): Verilog HDL or VHDL warning at Project.v(430): object "op1_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 430
+Warning (10036): Verilog HDL or VHDL warning at Project.v(430): object "op2_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 430
+Warning (10036): Verilog HDL or VHDL warning at Project.v(431): object "rs_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 431
+Warning (10036): Verilog HDL or VHDL warning at Project.v(431): object "rt_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 431
+Warning (10036): Verilog HDL or VHDL warning at Project.v(431): object "rd_A" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 431
+Warning (10036): Verilog HDL or VHDL warning at Project.v(463): object "brtarg_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 463
+Warning (10036): Verilog HDL or VHDL warning at Project.v(463): object "jmptarg_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 463
+Warning (10036): Verilog HDL or VHDL warning at Project.v(464): object "aluimm_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 464
+Warning (10036): Verilog HDL or VHDL warning at Project.v(464): object "dobranch_M" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 464
+Warning (10036): Verilog HDL or VHDL warning at Project.v(496): object "isbranch_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 496
+Warning (10036): Verilog HDL or VHDL warning at Project.v(496): object "isjump_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 496
+Warning (10036): Verilog HDL or VHDL warning at Project.v(496): object "isnop_W" assigned a value but never read File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 496
 Info (12128): Elaborating entity "Pll" for hierarchy "Pll:myPll" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 79
 Info (12128): Elaborating entity "Pll_0002" for hierarchy "Pll:myPll|Pll_0002:pll_inst" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll.v Line: 20
 Info (12128): Elaborating entity "altera_pll" for hierarchy "Pll:myPll|Pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll/Pll_0002.v Line: 85
@@ -1548,7 +1588,7 @@ Info (12133): Instantiated megafunction "Pll:myPll|Pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
     Info (12134): Parameter "operation_mode" = "direct"
     Info (12134): Parameter "number_of_clocks" = "1"
-    Info (12134): Parameter "output_clock_frequency0" = "96.000000 MHz"
+    Info (12134): Parameter "output_clock_frequency0" = "124.000000 MHz"
     Info (12134): Parameter "phase_shift0" = "0 ps"
     Info (12134): Parameter "duty_cycle0" = "50"
     Info (12134): Parameter "output_clock_frequency1" = "0 MHz"
@@ -1605,82 +1645,55 @@ Info (12133): Instantiated megafunction "Pll:myPll|Pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "SXT" for hierarchy "SXT:sxt1" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 135
-Info (12128): Elaborating entity "SevenSeg" for hierarchy "SevenSeg:ss5" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 252
-Info (12128): Elaborating entity "Keys" for hierarchy "Keys:keys" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 309
-Warning (10034): Output port "INTR" at Project.v(600) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 600
-Info (12128): Elaborating entity "Switches" for hierarchy "Switches:switches" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 311
-Warning (10858): Verilog HDL warning at Project.v(655): object prevBounce used but never assigned File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 655
-Warning (10030): Net "prevBounce" at Project.v(655) has no driver or initial value, using a default initial value '0' File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 655
-Warning (10034): Output port "INTR" at Project.v(650) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 650
+Info (12128): Elaborating entity "Keys" for hierarchy "Keys:keys" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 317
+Warning (10034): Output port "INTR" at Project.v(621) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 621
+Info (12128): Elaborating entity "Switches" for hierarchy "Switches:switches" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 319
+Warning (10858): Verilog HDL warning at Project.v(678): object prevBounce used but never assigned File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 678
+Warning (10030): Net "prevBounce" at Project.v(678) has no driver or initial value, using a default initial value '0' File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 678
+Warning (10034): Output port "INTR" at Project.v(673) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 673
+Info (12128): Elaborating entity "Leds" for hierarchy "Leds:leds" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 321
+Warning (10230): Verilog HDL assignment warning at Project.v(540): truncated value with size 32 to match size of target (10) File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 540
+Warning (10034): Output port "INTR" at Project.v(532) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 532
+Info (12128): Elaborating entity "Hexes" for hierarchy "Hexes:hexes" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 323
+Warning (10034): Output port "INTR" at Project.v(564) has no driver File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 564
+Info (12128): Elaborating entity "SevenSeg" for hierarchy "Hexes:hexes|SevenSeg:ss5" File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 575
 Warning (276020): Inferred RAM node "bptable_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "regs_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "regs_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "dmem_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13049): Converted tri-state buffer "memout_M[0]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[1]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[2]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[3]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[4]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[5]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[6]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[7]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[8]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[9]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[10]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[11]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[12]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[13]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[14]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[15]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[16]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[17]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[18]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[19]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[20]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[21]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[22]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[23]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[24]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[25]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[26]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[27]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[28]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[29]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[30]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13049): Converted tri-state buffer "memout_M[31]" feeding internal logic into a wire File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[31]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[30]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[29]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[28]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[27]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[26]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[25]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[24]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[23]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[22]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[21]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[20]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[19]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[18]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[17]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[16]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[15]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[14]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[13]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[12]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[11]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[10]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[9]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[8]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[7]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[6]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[5]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[4]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[3]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 653
-    Warning (13048): Converted tri-state node "dbus[2]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
-    Warning (13048): Converted tri-state node "dbus[1]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 653
-    Warning (13048): Converted tri-state node "dbus[0]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 320
+    Warning (13048): Converted tri-state node "dbusr[31]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[30]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[29]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[28]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[27]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[26]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[25]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[24]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[23]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[22]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[21]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[20]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[19]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[18]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[17]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[16]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[15]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[14]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[13]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[12]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[11]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[10]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[9]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[8]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[7]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[6]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[5]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[4]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[3]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[2]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[1]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
+    Warning (13048): Converted tri-state node "dbusr[0]" into a selector File: C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v Line: 505
 Info (19000): Inferred 4 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "bptable_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -1823,17 +1836,17 @@ Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2414 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2411 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 2185 logic cells
+    Info (21061): Implemented 2182 logic cells
     Info (21064): Implemented 160 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 84 warnings
-    Info: Peak virtual memory: 907 megabytes
-    Info: Processing ended: Sat Apr 14 01:56:46 2018
-    Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:00:48
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 58 warnings
+    Info: Peak virtual memory: 904 megabytes
+    Info: Processing ended: Sun Apr 22 15:14:20 2018
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:53
 
 
 +------------------------------------------+

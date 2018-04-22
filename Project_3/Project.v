@@ -195,14 +195,14 @@ module Project(
   // TODO: fix jmptarg to get rs + 4*imm
 
   // wire [(DBITS-1):0] pcplus_A=pcplus_D;
-  wire [(DBITS-1):0] pcgood_M=
-  	dobranch_M?brtarg_M:
-  	isjump_M?jmptarg_M:
-  	pcplus_M;
-  // wire [(DBITS-1):0] pcgood_A=
-  //   dobranch_A?brtarg_A:
-  //   isjump_A?jmptarg_A:
-  //   pcplus_A;
+  // wire [(DBITS-1):0] pcgood_M=
+  // 	dobranch_M?brtarg_M:
+  // 	isjump_M?jmptarg_M:
+  // 	pcplus_M;
+  wire [(DBITS-1):0] pcgood_A=
+    dobranch_A?brtarg_A:
+    isjump_A?jmptarg_A:
+    pcplus_A;
 	// wire mispred_A=(pcgood_A!=pcpred_A);
 	// wire mispred_B=mispred_A&&!isnop_A;
   wire mispred_B=(pcgood_M!=pcpred_M)&&!flushed_M;
@@ -460,22 +460,22 @@ module Project(
       end
 
     // A->M buffer
-    reg [(DBITS-1):0] pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M, restmp_M, PC_M;
+    reg [(DBITS-1):0] pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M, restmp_M, PC_M, pcgood_M;
     reg aluimm_M, isbranch_M, isjump_M, isnop_M, wrmem_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M, flushed_M;
     reg [(REGNOBITS-1):0] wregno_M;
     assign memaddr_M=aluout_M;
     always @(posedge clk or posedge reset)
       if(reset) begin
-        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M, restmp_M, PC_M}<=
-          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
+        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M, restmp_M, PC_M, pcgood_M}<=
+          {{DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}, {DBITS{1'b0}}};
         {aluimm_M, isbranch_M, isjump_M, isnop_M, wrmem_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M, flushed_M}<=
           {1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0};
         {wregno_M}<=
           {{REGNOBITS{1'b0}}};
       end
       else if(!flush_A) begin
-        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M, restmp_M,PC_M}<=
-          {pcplus_A, brtarg_A, jmptarg_A, aluout_A, pcpred_A, result_A,PC_A};
+        {pcplus_M, brtarg_M, jmptarg_M, aluout_M, pcpred_M, restmp_M, PC_M, pcgood_M}<=
+          {pcplus_A, brtarg_A, jmptarg_A, aluout_A, pcpred_A, result_A, PC_A, pcgood_A};
         {aluimm_M, isbranch_M, isjump_M, isnop_M, wrmem_M, selaluout_M, selmemout_M, selpcplus_M, dobranch_M, wrreg_M,flushed_M}<=
           {aluimm_A, isbranch_A, isjump_A, isnop_A, wrmem_A, selaluout_A, selmemout_A, selpcplus_A, dobranch_A, wrreg_A,flushed_A};
         {wregno_M}<=
@@ -487,8 +487,8 @@ module Project(
         //   {1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0};
         // {wregno_M}<=
         //   {{REGNOBITS{1'b0}}};
-        {isbranch_M, isjump_M, dobranch_M, wrmem_M, wrreg_M,flushed_M}<=
-          {1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b1};
+        {isbranch_M, isjump_M, dobranch_M, wrmem_M, wrreg_M, flushed_M, pcgood_M}<=
+          {1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b1, {DBITS{1'b0}}};
       end
 
     // M->W buffer

@@ -1,5 +1,5 @@
 Archive Project report for Debug
-Fri Mar 16 23:30:13 2018
+Sun Apr 15 14:40:49 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -35,7 +35,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Fri Mar 16 23:30:13 2018 ;
+; Archive Project Status ; Successful - Sun Apr 15 14:40:49 2018 ;
 ; Revision Name          ; Debug                                 ;
 ; Top-level Entity Name  ; Project                               ;
 ; Family                 ; Cyclone V                             ;
@@ -50,19 +50,19 @@ Info: File Set 'Source control' contains:
     Info: Automatically detected source files
 Warning: Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver
 Info: Archive will store files relative to the closest common parent directory
-Info (13213): Using common directory C:/Users/alanh/Documents/Github/Project_2/Project1_restored/
+Info (13213): Using common directory C:/Users/alanh/Documents/Github/Project_2/Project_3/
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
-Info: Generated archive 'C:/Users/alanh/Documents/Github/Project_2/Project1_restored/Project2Submission.qar'
+Info: Generated archive 'C:/Users/alanh/Documents/Github/Project_2/Project_3/Project_3_submission.qar'
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
 Info: Generated report 'Debug.archive.rpt'
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 782 megabytes
-    Info: Processing ended: Fri Mar 16 23:30:13 2018
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 780 megabytes
+    Info: Processing ended: Sun Apr 15 14:40:49 2018
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +--------------------------------------------------------------+
@@ -137,6 +137,8 @@ Info: Quartus Prime Shell was successful. 0 errors, 1 warning
 ; Project2.cr.mti                                              ;
 ; Project2.mpf                                                 ;
 ; Project2.qarlog                                              ;
+; Project2Submission.qar                                       ;
+; Project2Submission.qarlog                                    ;
 ; Project_1.qar                                                ;
 ; Project_1.qarlog                                             ;
 ; Pseudoclock.txt                                              ;
@@ -148,12 +150,18 @@ Info: Quartus Prime Shell was successful. 0 errors, 1 warning
 ; Sorter3.mif                                                  ;
 ; Test2.a32                                                    ;
 ; Test2.mif                                                    ;
+; Test2NOPS.a32                                                ;
+; Test2NOPS.mif                                                ;
 ; Test3.a32                                                    ;
 ; Test3.mif                                                    ;
 ; Test4.a32                                                    ;
 ; Test4.mif                                                    ;
+; TestBTB.a32                                                  ;
+; TestBTB.mif                                                  ;
 ; TestHexDec.a32                                               ;
 ; TestHexDec.mif                                               ;
+; TestNOPS.a32                                                 ;
+; TestNOPS.mif                                                 ;
 ; TestSwitches.a32                                             ;
 ; TimerTest.a32                                                ;
 ; TimerTest.mif                                                ;

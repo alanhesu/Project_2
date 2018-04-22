@@ -1,0 +1,112 @@
+Quartus Prime Archive log --	C:/Users/alanh/Documents/Github/Project_2/Project_3/Project_3_submission.qarlog
+
+Archive:	C:/Users/alanh/Documents/Github/Project_2/Project_3/Project_3_submission.qar
+Date:		Sun Apr 15 14:40:43 2018
+Quartus Prime		17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Clock.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Clock.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Clock2.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Clock2.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.archive.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.asm.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.cdf
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.done
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.drc.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.eda.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.fit.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.fit.smsg
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.fit.summary
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.flow.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.jdi
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.map.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.map.smsg
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.map.summary
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.mif_update.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.pin
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.qsf
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.sld
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.sof
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.sta.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug.sta.summary
+C:/Users/alanh/Documents/Github/Project_2/Project_3/DebugTap.stp
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug_assignment_defaults.qdf
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Debug_nativelink_simulation.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll.cmp
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll.qip
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll.sip
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll.spd
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll.v
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll/Pll_0002.qip
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll/Pll_0002.v
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Pll_sim/Pll.vo
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.archive.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.asm.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.done
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.drc.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.fit.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.fit.smsg
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.fit.summary
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.flow.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.jdi
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.map.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.map.smsg
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.map.summary
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.pin
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.qpf
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.qsf
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.qws
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.restore.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.sdc
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.sld
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.sof
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.sta.rpt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.sta.summary
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project.v.bak
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project2.cr.mti
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project2.mpf
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project2.qarlog
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project2Submission.qar
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project2Submission.qarlog
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project_1.qar
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Project_1.qarlog
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Pseudoclock.txt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/SevenSeg.v
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Sorter2.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Sorter2.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Sorter3.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Sorter3.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Test2.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Test2.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Test2NOPS.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Test2NOPS.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Test3.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Test3.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Test4.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/Test4.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/TestBTB.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/TestBTB.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/TestHexDec.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/TestHexDec.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/TestNOPS.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/TestNOPS.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/TestSwitches.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/TimerTest.a32
+C:/Users/alanh/Documents/Github/Project_2/Project_3/TimerTest.mif
+C:/Users/alanh/Documents/Github/Project_2/Project_3/assembler.pl
+C:/Users/alanh/Documents/Github/Project_2/Project_3/assembler.pl~
+C:/Users/alanh/Documents/Github/Project_2/Project_3/c5_pin_model_dump.txt
+C:/Users/alanh/Documents/Github/Project_2/Project_3/qar_info.json
+c:/intelfpga_lite/17.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 95 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Sun Apr 15 22:17:24 2018
+Source archive file:	C:/Users/alanh/Documents/Github/Project_2/Project_3_submission.qar
+Archive was extracted into	C:/Users/alanh/Documents/Github/Project_2/Project_3_submission_restored/
+		 - successfully.
